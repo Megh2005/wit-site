@@ -154,6 +154,18 @@ const SignupForm = () => {
           </div>
           <div style={styles.inputBox}>
             <input
+              type="number"
+              maxLength={10}
+              minLength={10}
+              min={0}
+              max={9999999999}
+              placeholder="Contact Number"
+              required
+              style={styles.input}
+            />
+          </div>
+          <div style={styles.inputBox}>
+            <input
               type="password"
               placeholder="Password"
               required
