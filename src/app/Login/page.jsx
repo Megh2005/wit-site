@@ -11,7 +11,8 @@ const LoginForm = () => {
       justifyContent: "center",
       alignItems: "center",
       minHeight: "100vh",
-      background: "url(/bg_c.png) no-repeat center/cover",
+      background:
+        "url(https://res.cloudinary.com/dmbxx03vp/image/upload/v1726831166/bg_c_oeldnc.png) no-repeat center/cover",
     },
     wrapper: {
       width: "90%",
