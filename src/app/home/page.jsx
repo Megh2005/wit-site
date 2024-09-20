@@ -53,15 +53,14 @@ const HomePage = () => {
             key={tile.id}
             className="bg-purple-100 shadow-4xl cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-purple-500 transition duration-300 group"
           >
-            {/* Image with object-contain to make sure the whole image is visible */}
             <img
               src={tile.imageUrl}
               alt={tile.title}
               className="w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-72 object-contain rounded-md mb-4 group-hover:opacity-75 transition duration-300"
             />
-            <h2 className="text-2xl sm:text-xl font-bold text-pink-600 mb-2 group-hover:text-yellow-300">
+            <button className="text-2xl sm:text-xl font-bold text-pink-600 mb-2 group-hover:text-yellow-300">
               {tile.title}
-            </h2>
+            </button>
           </div>
         ))}
       </div>
