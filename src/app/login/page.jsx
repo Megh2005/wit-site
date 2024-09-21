@@ -1,3 +1,10 @@
+"use client";
+
+import { useState } from "react";
+import { signIn } from "next-auth/react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+
 const LoginForm = () => {
   const styles = {
     general: {
@@ -116,10 +123,41 @@ const LoginForm = () => {
     },
   };
 
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const submitLoginForm = async () => {
+    setSubmitting(true);
+
+    const result = await signIn("credentials", {
+      redirect: false,
+      email,
+      password,
+    });
+
+    setSubmitting(false);
+
+    if (result?.error) {
+      toast.error(result.error);
+    }
+
+    if (result?.ok) {
+      toast.success("Logged in successfully");
+      router.replace("/home");
+    }
+  };
+
   return (
     <div style={styles.body}>
       <div style={styles.wrapper}>
-        <form>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            submitLoginForm();
+          }}
+        >
           <h1 style={styles.h1}>
             <span style={{ color: "#000", fontWeight: "800" }}>
               Welcome To
@@ -130,6 +168,8 @@ const LoginForm = () => {
           </h1>
           <div style={styles.inputBox}>
             <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               type="email"
               placeholder="Email Address"
               required
@@ -138,6 +178,8 @@ const LoginForm = () => {
           </div>
           <div style={styles.inputBox}>
             <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               type="password"
               minLength={8}
               maxLength={16}
@@ -148,14 +190,18 @@ const LoginForm = () => {
           </div>
           <button
             type="submit"
-            className="hover:bg-gray-600 hover:text-white"
+            className="hover:bg-gray-600 hover:text-white flex justify-center items-center"
             style={{
               ...styles.btn,
               color: "#000",
               fontWeight: "800",
             }}
           >
-            Sign In
+            {submitting ? (
+              <div className="loading loading-spinner loading-sm text-black"></div>
+            ) : (
+              "Sign In"
+            )}
           </button>
         </form>
       </div>
