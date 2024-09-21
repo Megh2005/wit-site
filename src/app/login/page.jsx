@@ -144,7 +144,8 @@ const LoginForm = () => {
     }
 
     if (result?.ok) {
-      toast.success("Logged in successfully");
+      toast.success("Logged in Successfully");
+      console.log(`Logged In`)
       router.replace("/home");
     }
   };

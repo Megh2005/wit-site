@@ -24,10 +24,10 @@ export async function middleware(req) {
     !token &&
     (currentUrl.pathname.startsWith("/home") ||
       currentUrl.pathname.startsWith("/profile") ||
+      currentUrl.pathname.startsWith("/register") ||
       currentUrl.pathname.startsWith("/games") ||
       currentUrl.pathname.startsWith("/agenda") ||
       currentUrl.pathname.startsWith("/marketplace") ||
-      currentUrl.pathname.startsWith("/contact") ||
       currentUrl.pathname.startsWith("/rooms") ||
       currentUrl.pathname.startsWith("/speakers") ||
       currentUrl.pathname.startsWith("/sponspors"))
@@ -45,9 +45,9 @@ export const config = {
     "/games",
     "/agenda",
     "/marketplace",
-    "/contact",
     "/rooms",
     "/speakers",
     "/sponspors",
+    "/register",
   ],
 };

@@ -45,14 +45,14 @@ const HomePage = () => {
             onClick={handleContactPage}
             className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:ring-4 focus:ring-pink-500 transition duration-300 w-full md:w-auto"
           >
-            Quick Contact
+            Need Support
           </button>
-          <button
+          {/* <button
             onClick={handleRegisterPage}
             className="bg-red-500 hover:bg-red-800 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:ring-4 focus:ring-pink-500 transition duration-300 w-full md:w-auto"
           >
             Register User
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
