@@ -35,7 +35,6 @@ const ProfilePage = () => {
           /> */}
             <QRCodeSVG
               size={300}
-              level="H"
               className="rounded-lg w-full object-cover"
               value="https://github.com/Megh2005"
             />
