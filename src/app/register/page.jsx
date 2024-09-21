@@ -2,6 +2,10 @@
 
 import React, { useState } from "react";
 
+import { signup } from "@/actions/register";
+import { useState } from "react";
+import toast from "react-hot-toast";
+
 const SignupForm = () => {
   const styles = {
     general: {
@@ -130,10 +134,48 @@ const SignupForm = () => {
 
   const [role, setRole] = useState("");
 
+  const [credentials, setCredentials] = useState({
+    email: "",
+    name: "",
+    password: "",
+    contactNumber: "",
+  });
+
+  const [submitting, setSubmitting] = useState(false);
+
+  const registerUser = async () => {
+    if (
+      !credentials.name ||
+      !credentials.email ||
+      !credentials.password ||
+      !credentials.contactNumber
+    ) {
+      toast.error("All fields are required");
+      return;
+    }
+
+    setSubmitting(true);
+
+    const res = await signup(credentials);
+
+    if (res?.status === "SUCCESS") {
+      toast.success(res.message);
+    } else {
+      toast.error(res?.message || "An error occurred");
+    }
+
+    setSubmitting(false);
+  };
+
   return (
     <div style={styles.body}>
       <div style={styles.wrapper}>
-        <form>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            registerUser();
+          }}
+        >
           <h1 style={styles.h1}>
             <span style={{ color: "#00BFFF", fontWeight: "800" }}>
               Welcome To <br />
@@ -152,6 +194,10 @@ const SignupForm = () => {
           </h1>
           <div style={styles.inputBox}>
             <input
+              value={credentials.name}
+              onChange={(e) =>
+                setCredentials({ ...credentials, name: e.target.value })
+              }
               type="text"
               placeholder="Name"
               required
@@ -160,6 +206,10 @@ const SignupForm = () => {
           </div>
           <div style={styles.inputBox}>
             <input
+              value={credentials.email}
+              onChange={(e) =>
+                setCredentials({ ...credentials, email: e.target.value })
+              }
               type="email"
               placeholder="Email Address"
               required
@@ -168,6 +218,13 @@ const SignupForm = () => {
           </div>
           <div style={styles.inputBox}>
             <input
+              value={credentials.contactNumber}
+              onChange={(e) =>
+                setCredentials({
+                  ...credentials,
+                  contactNumber: e.target.value,
+                })
+              }
               type="number"
               maxLength={10}
               minLength={10}
@@ -180,6 +237,10 @@ const SignupForm = () => {
           </div>
           <div style={styles.inputBox}>
             <input
+              value={credentials.password}
+              onChange={(e) =>
+                setCredentials({ ...credentials, password: e.target.value })
+              }
               type="password"
               placeholder="Password"
               required
@@ -197,9 +258,15 @@ const SignupForm = () => {
               <option value="" disabled>
                 Select Role
               </option>
-              <option className="text-black font-bold" value="attendee">Attendee</option>
-              <option className="text-black font-bold" value="sponsor">Sponsor</option>
-              <option className="text-black font-bold" value="admin">Admin</option>
+              <option className="text-black font-bold" value="attendee">
+                Attendee
+              </option>
+              <option className="text-black font-bold" value="sponsor">
+                Sponsor
+              </option>
+              <option className="text-black font-bold" value="admin">
+                Admin
+              </option>
             </select>
           </div>
           <button
@@ -218,7 +285,11 @@ const SignupForm = () => {
               e.target.style.color = "#333";
             }}
           >
-            Register User
+            {submitting ? (
+              <div className="loading loading-spinner loading-sm text-black"></div>
+            ) : (
+              "Register User"
+            )}
           </button>
         </form>
       </div>
