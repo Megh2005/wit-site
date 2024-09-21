@@ -53,12 +53,6 @@ const HomePage = () => {
           >
             Register User
           </button>
-          <button
-            onClick={handleHomePage}
-            className="bg-sky-500 hover:bg-red-800 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:ring-4 focus:ring-pink-500 transition duration-300 w-full md:w-auto"
-          >
-            Home Page
-          </button>
         </div>
       </div>
     </div>
