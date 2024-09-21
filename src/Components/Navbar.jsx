@@ -1,5 +1,6 @@
-import Link from 'next/link';
-import React from 'react'
+import { signOut } from "next-auth/react";
+import Link from "next/link";
+import React from "react";
 
 const Navbar = () => {
   return (
@@ -37,8 +38,11 @@ const Navbar = () => {
                   Profile
                 </Link>
               </li>
-              <li>
-                <Link href={"/"}>Logout</Link>
+              <li
+                className="cursor-pointer"
+                onClick={() => signOut({ callbackUrl: "/login" })}
+              >
+                Logout
               </li>
             </ul>
           </div>
@@ -46,6 +50,6 @@ const Navbar = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
