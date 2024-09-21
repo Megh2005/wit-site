@@ -26,7 +26,7 @@ const Navbar = () => {
           </button>
         </div>
       </div> */}
-      <nav className="bg-gray-800 p-4 flex justify-between items-center">
+      {/* <nav className="bg-gray-800 p-4 flex justify-between items-center">
         <Link href="/home">
           <Image
             src="https://res.cloudinary.com/dmbxx03vp/image/upload/v1726842359/logo2_wlg6sy.png"
@@ -42,7 +42,7 @@ const Navbar = () => {
         >
           Log Out
         </button>
-      </nav>
+      </nav> */}
     </div>
   );
 };
