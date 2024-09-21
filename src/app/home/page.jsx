@@ -11,7 +11,7 @@ const HomePage = () => {
       description: "Description for Tile 1",
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726852104/6_v5lzgu.jpg",
-      route: "/room",
+      route: "/rooms",
     },
     {
       id: 2,
