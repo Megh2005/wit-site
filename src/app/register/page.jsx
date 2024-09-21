@@ -142,6 +142,8 @@ const SignupForm = () => {
   const [submitting, setSubmitting] = useState(false);
 
   const registerUser = async () => {
+    console.log("Credentials: ", credentials);
+
     if (
       !credentials.name ||
       !credentials.email ||
@@ -159,6 +161,12 @@ const SignupForm = () => {
 
     if (res?.status === "SUCCESS") {
       toast.success(res.message);
+
+      credentials.email = "";
+      credentials.password = "";
+      credentials.name = "";
+      credentials.contactNumber = "";
+      credentials.role = "";
     } else {
       toast.error(res?.message || "An error occurred");
     }
@@ -224,11 +232,10 @@ const SignupForm = () => {
                   contactNumber: e.target.value,
                 })
               }
-              type="number"
-              maxLength={10}
-              minLength={10}
-              min={0}
-              max={9999999999}
+              type="text"
+              minlength="10"
+              maxlength="10"
+              pattern="\d{10}"
               placeholder="Contact Number"
               required
               style={styles.input}
