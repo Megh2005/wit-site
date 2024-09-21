@@ -23,7 +23,7 @@ const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="https://api.dicebear.com/9.x/thumbs/svg?seed=Leo"
+                  src="https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Leo"
                 />
               </div>
             </div>
