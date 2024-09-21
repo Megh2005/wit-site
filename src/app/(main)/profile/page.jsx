@@ -1,7 +1,6 @@
 "use client";
 
 import Navbar from "@/Components/Navbar";
-import { signOut } from "next-auth/react";
 import { QRCodeSVG } from "qrcode.react";
 
 const ProfilePage = () => {
@@ -27,12 +26,6 @@ const ProfilePage = () => {
             <p className="text-lg font-extrabold">
               Role: <span className="font-semibold">Attendee</span>
             </p>
-            <button
-              onClick={() => signOut({ callbackUrl: "/login" })}
-              className="text-white font-semibold mt-10 bg-red-500 hover:bg-red-700 px-4 py-2 rounded"
-            >
-              Log Out
-            </button>
           </div>
 
           {/* Image Tile */}
