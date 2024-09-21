@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { signup } from "@/actions/register";
+import { register } from "@/actions/register";
 import toast from "react-hot-toast";
+import { LoaderCircle } from "lucide-react";
 
 const SignupForm = () => {
   const styles = {
@@ -130,13 +131,12 @@ const SignupForm = () => {
     },
   };
 
-  const [role, setRole] = useState("");
-
   const [credentials, setCredentials] = useState({
     email: "",
     name: "",
     password: "",
     contactNumber: "",
+    role: "",
   });
 
   const [submitting, setSubmitting] = useState(false);
@@ -146,7 +146,8 @@ const SignupForm = () => {
       !credentials.name ||
       !credentials.email ||
       !credentials.password ||
-      !credentials.contactNumber
+      !credentials.contactNumber ||
+      !credentials.role
     ) {
       toast.error("All fields are required");
       return;
@@ -154,7 +155,7 @@ const SignupForm = () => {
 
     setSubmitting(true);
 
-    const res = await signup(credentials);
+    const res = await register(credentials);
 
     if (res?.status === "SUCCESS") {
       toast.success(res.message);
@@ -249,8 +250,10 @@ const SignupForm = () => {
           <div style={styles.inputBox}>
             <select
               required
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
+              value={credentials.role}
+              onChange={(e) =>
+                setCredentials({ ...credentials, role: e.target.value })
+              }
               style={styles.select}
             >
               <option value="" disabled>
@@ -282,9 +285,10 @@ const SignupForm = () => {
               e.target.style.backgroundColor = "#fff";
               e.target.style.color = "#333";
             }}
+            className="flex justify-center items-center"
           >
             {submitting ? (
-              <div className="loading loading-spinner loading-sm text-black"></div>
+              <LoaderCircle className="animate-spin text-primary w-6 h-6 mr-2" />
             ) : (
               "Register User"
             )}

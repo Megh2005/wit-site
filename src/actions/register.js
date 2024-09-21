@@ -11,7 +11,7 @@ import {
 } from "firebase/firestore";
 import bcrypt from "bcryptjs";
 
-export const signup = async (credentials) => {
+export const register = async (credentials) => {
   try {
     const usersRef = collection(db, "users");
 
