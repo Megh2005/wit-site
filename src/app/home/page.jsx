@@ -1,3 +1,4 @@
+import Navbar from "@/Components/Navbar";
 import Link from "next/link";
 
 const HomePage = () => {
@@ -58,10 +59,20 @@ const HomePage = () => {
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726887543/7_bqkbro.png",
       route: "/profile",
     },
+    {
+      id: 7,
+      title: "Contact Us",
+      description: "Description for Tile 6",
+      imageUrl:
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726888499/8_yhis3a.jpg",
+      route: "/contact",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-purple-50 flex justify-center items-center p-8">
+    <div>
+      <Navbar/>
+      <div className="min-h-screen bg-purple-50 flex justify-center items-center p-8">
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
         {tiles.map((tile) => (
           <div
@@ -72,15 +83,16 @@ const HomePage = () => {
               <img
                 src={tile.imageUrl}
                 alt={tile.title}
-                className="w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-72 object-contain rounded-md mb-4 group-hover:opacity-75 transition duration-300"
+                className="w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-72 object-contain rounded-md mb-4 transition duration-300"
               />
-              <h2 className="text-2xl sm:text-xl font-bold text-pink-600 mb-2 group-hover:text-yellow-300">
+              <h2 className="text-2xl sm:text-4xl font-bold text-pink-600 mb-2 group-hover:text-yellow-300">
                 {tile.title}
               </h2>
             </Link>
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

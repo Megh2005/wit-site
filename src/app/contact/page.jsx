@@ -33,7 +33,7 @@ const Contact = () => {
               id="name"
               required
               name="name"
-              className="w-full text-black px-4 py-3 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full text-black bg-white px-4 py-3 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
               placeholder="Your Name"
             />
             <ValidationError prefix="Name" field="name" errors={state.errors} />
@@ -50,7 +50,7 @@ const Contact = () => {
               name="email"
               id="email"
               required
-              className="w-full text-black px-4 py-3 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full bg-white text-black px-4 py-3 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
               placeholder="Your Email"
             />
             <ValidationError
@@ -70,7 +70,7 @@ const Contact = () => {
               type="text"
               required
               id="subject"
-              className="w-full px-4 text-black py-3 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full px-4 bg-white text-black py-3 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
               placeholder="Subject"
               name="subject"
             />
@@ -85,7 +85,7 @@ const Contact = () => {
             <textarea
               id="message"
               required
-              className="w-full resize-none px-4 py-3 border text-black border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full resize-none px-4 py-3 border bg-white text-black border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
               placeholder="Your Message"
               name="message"
               rows="6"
