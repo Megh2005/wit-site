@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 
 const Navbar = () => {
@@ -5,13 +6,13 @@ const Navbar = () => {
     <div>
       <div className="navbar bg-purple-200 rounded-sm">
         <div className="flex-1">
-          <a href="/home" className="btn btn-ghost text-xl">
+          <Link href="/home" className="btn btn-ghost text-xl">
             <img
               src="https://res.cloudinary.com/dmbxx03vp/image/upload/v1726842359/logo2_wlg6sy.png"
               alt="logo"
               className="w-14"
             />
-          </a>
+          </Link>
         </div>
         <div className="flex-none gap-2">
           <div className="dropdown dropdown-end">
@@ -32,12 +33,12 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a href="/profile" className="justify-between">
+                <Link href="/profile" className="justify-between">
                   Profile
-                </a>
+                </Link>
               </li>
               <li>
-                <a>Logout</a>
+                <Link>Logout</Link>
               </li>
             </ul>
           </div>
