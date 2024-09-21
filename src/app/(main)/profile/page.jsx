@@ -1,12 +1,10 @@
 "use client";
 
-import Navbar from "@/Components/Navbar";
 import { QRCodeSVG } from "qrcode.react";
 
 const ProfilePage = () => {
   return (
     <div>
-      <Navbar />
       <div className="sm:h-[60vh] min-h-screen flex items-center justify-center bg-white p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:p-[10rem] max-w-4xl">
           {/* Profile Info Tile */}
