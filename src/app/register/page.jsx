@@ -1,4 +1,7 @@
 "use client";
+
+import React, { useState } from "react";
+
 const SignupForm = () => {
   const styles = {
     general: {
@@ -45,8 +48,17 @@ const SignupForm = () => {
       color: "#fff",
       padding: "20px 45px 20px 20px",
     },
-    inputPlaceholder: {
+    select: {
+      width: "100%",
+      height: "100%",
+      background: "transparent",
+      outline: "none",
+      border: "2px solid rgba(255, 255, 255, 0.2)",
+      borderRadius: "40px",
+      fontSize: "14px",
       color: "#fff",
+      padding: "15px 20px",
+      appearance: "none",
     },
     btn: {
       width: "100%",
@@ -116,6 +128,8 @@ const SignupForm = () => {
     },
   };
 
+  const [role, setRole] = useState("");
+
   return (
     <div style={styles.body}>
       <div style={styles.wrapper}>
@@ -171,6 +185,22 @@ const SignupForm = () => {
               required
               style={styles.input}
             />
+          </div>
+          {/* Role Dropdown */}
+          <div style={styles.inputBox}>
+            <select
+              required
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              style={styles.select}
+            >
+              <option value="" disabled>
+                Select Role
+              </option>
+              <option className="text-black font-bold" value="attendee">Attendee</option>
+              <option className="text-black font-bold" value="sponsor">Sponsor</option>
+              <option className="text-black font-bold" value="admin">Admin</option>
+            </select>
           </div>
           <button
             type="submit"
