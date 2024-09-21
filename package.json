@@ -24,7 +24,6 @@
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
     "@types/react": "18.3.8",
-    "daisyui": "^4.12.10",
     "eslint": "^8",
     "eslint-config-next": "14.2.13",
     "postcss": "^8",
