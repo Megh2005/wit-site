@@ -1,4 +1,5 @@
 "use client";
+
 import Navbar from "@/Components/Navbar";
 import { QRCodeSVG } from "qrcode.react";
 

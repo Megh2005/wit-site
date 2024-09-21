@@ -20,11 +20,34 @@ export async function middleware(req) {
     return NextResponse.redirect(new URL("/home", req.url));
   }
 
-  if (!token && currentUrl.pathname.startsWith("/home")) {
+  if (
+    !token &&
+    (currentUrl.pathname.startsWith("/home") ||
+      currentUrl.pathname.startsWith("/profile") ||
+      currentUrl.pathname.startsWith("/games") ||
+      currentUrl.pathname.startsWith("/agenda") ||
+      currentUrl.pathname.startsWith("/marketplace") ||
+      currentUrl.pathname.startsWith("/contact") ||
+      currentUrl.pathname.startsWith("/rooms") ||
+      currentUrl.pathname.startsWith("/speakers") ||
+      currentUrl.pathname.startsWith("/sponspors"))
+  ) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
 }
 
 export const config = {
-  matcher: ["/", "/home", "/login"],
+  matcher: [
+    "/",
+    "/home",
+    "/login",
+    "/profile",
+    "/games",
+    "/agenda",
+    "/marketplace",
+    "/contact",
+    "/rooms",
+    "/speakers",
+    "/sponspors",
+  ],
 };
