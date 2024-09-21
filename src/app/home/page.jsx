@@ -23,8 +23,8 @@ const HomePage = () => {
       title: "Marketplace",
       description: "Description for Tile 3",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726852105/5_v0wgxd.jpg",
-      route: "marketplace"
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726887645/5_wmlxav.jpg",
+      route: "marketplace",
     },
     {
       id: 4,
@@ -40,7 +40,7 @@ const HomePage = () => {
       description: "Description for Tile 5",
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726852104/3_fczaji.jpg",
-        route: "/games",
+      route: "/games",
     },
     {
       id: 6,
@@ -50,15 +50,23 @@ const HomePage = () => {
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726852104/2_ffl42v.jpg",
       route: "/sponsors",
     },
+    {
+      id: 7,
+      title: "Profile",
+      description: "Description for Tile 6",
+      imageUrl:
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726887543/7_bqkbro.png",
+      route: "/profile",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-purple-50 flex justify-center items-center p-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-screen-xl">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
           {tiles.map((tile) => (
             <div
               key={tile.id}
-              className="bg-purple-100 shadow-4xl cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-purple-500 transition duration-300 group"
+              className="bg-purple-300 shadow-4xl cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-purple-400 transition duration-300 group"
             >
             <Link href={tile.route}>
             <img
