@@ -6,7 +6,6 @@ import toast from "react-hot-toast";
 import { LoaderCircle } from "lucide-react";
 
 const SignupForm = () => {
-  const [visible,setVisible] = useState(true)
   const styles = {
     general: {
       margin: 0,
@@ -251,12 +250,13 @@ const SignupForm = () => {
               onChange={(e) =>
                 setCredentials({ ...credentials, password: e.target.value })
               }
-              type={visible ? "text" : "password"}
+              type="text"
               placeholder="Password"
               required
               style={styles.input}
             />
           </div>
+          
           {/* Role Dropdown */}
           <div style={styles.inputBox}>
             <select
