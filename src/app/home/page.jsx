@@ -27,7 +27,7 @@ const HomePage = () => {
       description: "Description for Tile 3",
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726887645/5_wmlxav.jpg",
-      route: "marketplace",
+      route: "/marketplace",
     },
     {
       id: 4,
