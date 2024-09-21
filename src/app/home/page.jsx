@@ -73,28 +73,28 @@ const HomePage = () => {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <div className="min-h-screen bg-purple-50 flex justify-center items-center p-8">
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
-        {tiles.map((tile) => (
-          <div
-            key={tile.id}
-            className="bg-purple-300 shadow-4xl cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-purple-400 transition duration-300 group"
-          >
-            <Link href={tile.route}>
-              <img
-                src={tile.imageUrl}
-                alt={tile.title}
-                className="w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-72 object-contain rounded-md mb-4 transition duration-300"
-              />
-              <h2 className="text-2xl sm:text-4xl font-bold text-pink-600 mb-2 group-hover:text-yellow-300">
-                {tile.title}
-              </h2>
-            </Link>
-          </div>
-        ))}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
+          {tiles.map((tile) => (
+            <div
+              key={tile.id}
+              className="bg-purple-300 shadow-4xl cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-purple-400 transition duration-300 group"
+            >
+              <Link href={tile.route}>
+                <img
+                  src={tile.imageUrl}
+                  alt={tile.title}
+                  className="w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-72 object-contain rounded-md mb-4 transition duration-300"
+                />
+                <h2 className="text-2xl sm:text-4xl font-bold text-pink-600 mb-2 group-hover:text-yellow-300">
+                  {tile.title}
+                </h2>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
     </div>
   );
 };
