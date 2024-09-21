@@ -1,6 +1,4 @@
 "use client";
-
-import Image from "next/image";
 import Link from "next/link";
 
 const HomePage = () => {
@@ -85,7 +83,7 @@ const HomePage = () => {
                 alt={tile.title}
                 className="w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-72 object-contain rounded-md mb-4 transition duration-300"
               />
-              <h2 className="text-2xl sm:text-4xl font-bold text-pink-600 mb-2 group-hover:text-yellow-300">
+              <h2 className="text-2xl sm:text-4xl font-bold text-pink-600 mb-2 group-hover:text-blue-800">
                 {tile.title}
               </h2>
             </Link>
