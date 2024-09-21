@@ -224,11 +224,8 @@ const SignupForm = () => {
                   contactNumber: e.target.value,
                 })
               }
-              type="number"
-              maxLength={10}
+              type="text"
               minLength={10}
-              min={0}
-              max={9999999999}
               placeholder="Contact Number"
               required
               style={styles.input}
