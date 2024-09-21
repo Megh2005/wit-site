@@ -1,6 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import { register } from "@/actions/register";
+import toast from "react-hot-toast";
+import { LoaderCircle } from "lucide-react";
 
 const SignupForm = () => {
   const styles = {
@@ -128,12 +131,50 @@ const SignupForm = () => {
     },
   };
 
-  const [role, setRole] = useState("");
+  const [credentials, setCredentials] = useState({
+    email: "",
+    name: "",
+    password: "",
+    contactNumber: "",
+    role: "",
+  });
+
+  const [submitting, setSubmitting] = useState(false);
+
+  const registerUser = async () => {
+    if (
+      !credentials.name ||
+      !credentials.email ||
+      !credentials.password ||
+      !credentials.contactNumber ||
+      !credentials.role
+    ) {
+      toast.error("All fields are required");
+      return;
+    }
+
+    setSubmitting(true);
+
+    const res = await register(credentials);
+
+    if (res?.status === "SUCCESS") {
+      toast.success(res.message);
+    } else {
+      toast.error(res?.message || "An error occurred");
+    }
+
+    setSubmitting(false);
+  };
 
   return (
     <div style={styles.body}>
       <div style={styles.wrapper}>
-        <form>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            registerUser();
+          }}
+        >
           <h1 style={styles.h1}>
             <span style={{ color: "#00BFFF", fontWeight: "800" }}>
               Welcome To <br />
@@ -152,6 +193,10 @@ const SignupForm = () => {
           </h1>
           <div style={styles.inputBox}>
             <input
+              value={credentials.name}
+              onChange={(e) =>
+                setCredentials({ ...credentials, name: e.target.value })
+              }
               type="text"
               placeholder="Name"
               required
@@ -160,6 +205,10 @@ const SignupForm = () => {
           </div>
           <div style={styles.inputBox}>
             <input
+              value={credentials.email}
+              onChange={(e) =>
+                setCredentials({ ...credentials, email: e.target.value })
+              }
               type="email"
               placeholder="Email Address"
               required
@@ -168,6 +217,13 @@ const SignupForm = () => {
           </div>
           <div style={styles.inputBox}>
             <input
+              value={credentials.contactNumber}
+              onChange={(e) =>
+                setCredentials({
+                  ...credentials,
+                  contactNumber: e.target.value,
+                })
+              }
               type="number"
               maxLength={10}
               minLength={10}
@@ -180,6 +236,10 @@ const SignupForm = () => {
           </div>
           <div style={styles.inputBox}>
             <input
+              value={credentials.password}
+              onChange={(e) =>
+                setCredentials({ ...credentials, password: e.target.value })
+              }
               type="password"
               placeholder="Password"
               required
@@ -190,16 +250,24 @@ const SignupForm = () => {
           <div style={styles.inputBox}>
             <select
               required
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
+              value={credentials.role}
+              onChange={(e) =>
+                setCredentials({ ...credentials, role: e.target.value })
+              }
               style={styles.select}
             >
               <option value="" disabled>
                 Select Role
               </option>
-              <option className="text-black font-bold" value="attendee">Attendee</option>
-              <option className="text-black font-bold" value="sponsor">Sponsor</option>
-              <option className="text-black font-bold" value="admin">Admin</option>
+              <option className="text-black font-bold" value="attendee">
+                Attendee
+              </option>
+              <option className="text-black font-bold" value="sponsor">
+                Sponsor
+              </option>
+              <option className="text-black font-bold" value="admin">
+                Admin
+              </option>
             </select>
           </div>
           <button
@@ -217,8 +285,13 @@ const SignupForm = () => {
               e.target.style.backgroundColor = "#fff";
               e.target.style.color = "#333";
             }}
+            className="flex justify-center items-center"
           >
-            Register User
+            {submitting ? (
+              <LoaderCircle className="animate-spin text-primary w-6 h-6 mr-2" />
+            ) : (
+              "Register User"
+            )}
           </button>
         </form>
       </div>

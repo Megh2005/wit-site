@@ -24,7 +24,6 @@ export async function middleware(req) {
     !token &&
     (currentUrl.pathname.startsWith("/home") ||
       currentUrl.pathname.startsWith("/profile") ||
-      currentUrl.pathname.startsWith("/register") ||
       currentUrl.pathname.startsWith("/games") ||
       currentUrl.pathname.startsWith("/agenda") ||
       currentUrl.pathname.startsWith("/marketplace") ||
