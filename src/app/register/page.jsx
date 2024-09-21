@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-
 import { signup } from "@/actions/register";
-import { useState } from "react";
 import toast from "react-hot-toast";
 
 const SignupForm = () => {
