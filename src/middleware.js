@@ -13,10 +13,7 @@ export async function middleware(req) {
 
   // client side redirect
 
-  if (
-    token &&
-    (currentUrl.pathname.startsWith("/login") || currentUrl.pathname === "/")
-  ) {
+  if (token && currentUrl.pathname === "/") {
     return NextResponse.redirect(new URL("/home", req.url));
   }
 
@@ -31,7 +28,7 @@ export async function middleware(req) {
       currentUrl.pathname.startsWith("/speakers") ||
       currentUrl.pathname.startsWith("/sponspors"))
   ) {
-    return NextResponse.redirect(new URL("/login", req.url));
+    return NextResponse.redirect(new URL("/", req.url));
   }
 }
 
@@ -39,7 +36,6 @@ export const config = {
   matcher: [
     "/",
     "/home",
-    "/login",
     "/profile",
     "/games",
     "/agenda",
