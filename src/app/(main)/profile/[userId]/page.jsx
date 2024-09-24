@@ -22,23 +22,23 @@ const ProfilePage = () => {
               Email:{" "}
               <span className="font-semibold">{session?.user.email}</span>
             </p>
+            {/* MOBILE NUMBER IS NOT DYNAMIC */}
             <p className="text-lg font-extrabold">
-              Mobile: <span className="font-semibold">9988776655</span>
+              Mobile:{" "}
+              <span className="font-semibold">
+                {session?.user.contactNumber}
+              </span>
             </p>
-            <p className="text-lg font-extrabold">
+            <p className="text-lg capitalize font-extrabold">
               Role: <span className="font-semibold">{session?.user.role}</span>
             </p>
           </div>
 
           {/* Image Tile */}
           <div className="p-6 bg-gradient-to-r from-sky-500 to-black rounded-lg shadow-lg">
-            {/* <img
-            src="https://res.cloudinary.com/dmbxx03vp/image/upload/v1726903171/qrcode_126920079_39b2166ce5f3fd24f42ef9b2b4c78fbf_oilguy.png"
-            alt="Profile"
-            className="rounded-lg w-full object-cover"
-          /> */}
             <QRCodeSVG
               size={300}
+              level="L"
               className="rounded-lg w-full object-cover"
               value="https://github.com/Megh2005"
             />
