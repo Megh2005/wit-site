@@ -1,8 +1,11 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import { QRCodeSVG } from "qrcode.react";
 
 const ProfilePage = () => {
+  const { data: session } = useSession();
+
   return (
     <div>
       <div className="sm:h-[60vh] min-h-screen flex items-center justify-center bg-white p-6">
@@ -13,16 +16,17 @@ const ProfilePage = () => {
               Profile
             </h2>
             <p className="text-lg font-extrabold">
-              Name: <span className="font-semibold">John Doe</span>
+              Name: <span className="font-semibold">{session?.user.name}</span>
             </p>
             <p className="text-lg font-extrabold">
-              Email: <span className="font-semibold">abc@gmail.com</span>
+              Email:{" "}
+              <span className="font-semibold">{session?.user.email}</span>
             </p>
             <p className="text-lg font-extrabold">
               Mobile: <span className="font-semibold">9988776655</span>
             </p>
             <p className="text-lg font-extrabold">
-              Role: <span className="font-semibold">Attendee</span>
+              Role: <span className="font-semibold">{session?.user.role}</span>
             </p>
           </div>
 

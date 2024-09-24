@@ -1,7 +1,10 @@
 "use client";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 const HomePage = () => {
+  const { data: session } = useSession();
+
   const tiles = [
     {
       id: 1,
@@ -57,7 +60,7 @@ const HomePage = () => {
       description: "Description for Tile 6",
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726887543/7_bqkbro.png",
-      route: "/profile",
+      route: `/profile/${session?.user?.id}`,
     },
     {
       id: 7,
