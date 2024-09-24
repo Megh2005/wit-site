@@ -4,7 +4,6 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { LoaderCircle } from "lucide-react";
 
 const LoginForm = () => {
   const styles = {
@@ -126,6 +125,7 @@ const LoginForm = () => {
 
   const router = useRouter();
   const [email, setEmail] = useState("");
+  const [contactNumber, setContactNumber] = useState("");
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
@@ -136,6 +136,7 @@ const LoginForm = () => {
       redirect: false,
       email,
       password,
+      contactNumber,
     });
 
     setSubmitting(false);
@@ -178,6 +179,17 @@ const LoginForm = () => {
               style={styles.input}
             />
           </div>
+          {/* CONTACT NUMBER FIELD */}
+          <div style={styles.inputBox}>
+            <input
+              value={email}
+              onChange={(e) => setContactNumber(e.target.value)}
+              type="number"
+              placeholder="Contact Number"
+              required
+              style={styles.input}
+            />
+          </div>
           <div style={styles.inputBox}>
             <input
               value={password}
@@ -200,7 +212,7 @@ const LoginForm = () => {
             }}
           >
             {submitting ? (
-              <LoaderCircle className="animate-spin text-black w-6 h-6 mr-2" />
+              <div className="loading loading-spinner loading-sm text-black"></div>
             ) : (
               "Sign In"
             )}

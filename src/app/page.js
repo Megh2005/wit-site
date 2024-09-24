@@ -182,7 +182,7 @@ const LoginForm = () => {
           {/* CONTACT NUMBER FIELD */}
           <div style={styles.inputBox}>
             <input
-              value={email}
+              value={contactNumber}
               onChange={(e) => setContactNumber(e.target.value)}
               type="number"
               placeholder="Contact Number"
