@@ -256,7 +256,7 @@ const SignupForm = () => {
               style={styles.input}
             />
           </div>
-          
+
           {/* Role Dropdown */}
           <div style={styles.inputBox}>
             <select
@@ -299,7 +299,7 @@ const SignupForm = () => {
             className="flex justify-center items-center"
           >
             {submitting ? (
-              <LoaderCircle className="animate-spin text-primary w-6 h-6 mr-2" />
+              <LoaderCircle className="animate-spin text-black w-6 h-6 mr-2" />
             ) : (
               "Register User"
             )}

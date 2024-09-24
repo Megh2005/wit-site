@@ -200,7 +200,7 @@ const LoginForm = () => {
             }}
           >
             {submitting ? (
-              <LoaderCircle className="animate-spin text-primary w-6 h-6 mr-2" />
+              <LoaderCircle className="animate-spin text-black w-6 h-6 mr-2" />
             ) : (
               "Sign In"
             )}
