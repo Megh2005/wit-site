@@ -3,10 +3,11 @@
 import { Scanner } from "@yudiel/react-qr-scanner";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import React from "react";
-import toast from "react-hot-toast";
+import React, { useState } from "react";
 
-const page = () => {
+const ScanPage = () => {
+  const [scanValue, setScanValue] = useState("");
+
   return (
     <div>
       <div className="px-4 mt-6">
@@ -15,10 +16,13 @@ const page = () => {
         </Link>
       </div>
       <div className="my-6 w-full max-w-2xl mx-auto">
-        <Scanner onScan={(result) => toast.success(result)} />
+        <Scanner onScan={(result) => setScanValue(result)} />
+      </div>
+      <div className="mt-6">
+        <p>{scanValue}</p>
       </div>
     </div>
   );
 };
 
-export default page;
+export default ScanPage;
