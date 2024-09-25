@@ -28,7 +28,7 @@ const ProfilePage = () => {
           </div>
 
           {/* Image Tile */}
-          <div className="p-6 bg-gradient-to-r from-sky-500 to-black rounded-lg shadow-lg">
+          <div className="p-6">
             <QRCodeSVG
               size={300}
               level="L"
