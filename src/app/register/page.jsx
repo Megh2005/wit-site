@@ -208,9 +208,6 @@ const SignupForm = () => {
                 setCredentials({ ...credentials, name: e.target.value })
               }
               type="text"
-              minlength="10"
-              maxlength="10"
-              pattern="\d{10}"
               placeholder="Name"
               required
               style={styles.input}
@@ -251,6 +248,7 @@ const SignupForm = () => {
                 setCredentials({ ...credentials, password: e.target.value })
               }
               type="text"
+              minLength={8}
               placeholder="Password"
               required
               style={styles.input}
