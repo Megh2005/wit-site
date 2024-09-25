@@ -1,7 +1,6 @@
 "use client";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaLinkedin, FaArrowAltCircleLeft , FaArrowAltCircleRight } from "react-icons/fa"; // FontAwesome for the LinkedIn icon
+import { motion } from "framer-motion";
+import { FaLinkedin } from "react-icons/fa";
 
 const speakers = [
   {
@@ -287,115 +286,67 @@ const speakers = [
 ];
 
 
-// Motion variants for sliding animation
-const slideVariants = {
-  enter: (direction) => ({
-    x: direction > 0 ? 1000 : -1000,
-    opacity: 0,
-    transition: { duration: 0.5 },
-  }),
-  center: {
-    x: 0,
-    opacity: 1,
-    transition: { duration: 0.5 },
-  },
-  exit: (direction) => ({
-    x: direction < 0 ? 1000 : -1000,
-    opacity: 0,
-    transition: { duration: 0.5 },
-  }),
+// Motion variants for arrival animation
+const itemVariants = {
+  hidden: { opacity: 0, y: 80 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1 } },
 };
 
-const SpeakerSlider = () => {
-  const [[currentIndex, direction], setIndex] = useState([0, 0]);
-
-  // Function to update the index on swipe or arrow click
-  const paginate = (newDirection) => {
-    setIndex([
-      (currentIndex + newDirection + speakers.length) % speakers.length,
-      newDirection,
-    ]);
-  };
-
+const SpeakerArriveAnimation = () => {
   return (
     <>
-      <h1 className="text-5xl text-center justify-center sm:text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-500 text-transparent pt-[10vh] bg-clip-text mb-8">
+      <h1 className="text-5xl text-center sm:text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-500 text-transparent pt-[10vh] bg-clip-text mb-8">
         Our Esteemed Speakers
       </h1>
-      <div className="relative w-full h-[60vh] bg-white flex flex-col items-center justify-center">
-        {/* Left arrow */}
-        <button
-          onClick={() => paginate(-1)}
-          className="absolute left-4 text-3xl sm:text-2xl text-gray-800 hover:text-gray-600"
+      <div className="w-full flex items-center justify-center">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[100vw]"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            visible: {
+              transition: { staggerChildren: 0.2 },
+            },
+          }}
         >
-          <FaArrowAltCircleLeft  />
-        </button>
-
-        {/* Speaker Slider */}
-        <div className="w-full max-w-screen-lg relative flex items-center justify-center">
-          <AnimatePresence initial={false} custom={direction}>
+          {speakers.map((speaker, index) => (
             <motion.div
-              key={currentIndex}
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }} // Limit drag to horizontal axis
-              onDragEnd={(event, info) => {
-                if (info.offset.x > 100) {
-                  paginate(-1); // Swipe right
-                } else if (info.offset.x < -100) {
-                  paginate(1); // Swipe left
-                }
-              }}
-              className="absolute w-full h-full flex items-center justify-center"
+              key={index}
+              variants={itemVariants}
+              className="flex-shrink-0 w-full h-auto flex flex-col items-center justify-center bg-gradient-to-r from-blue-400 to-purple-600 text-white rounded-lg shadow-lg p-4"
             >
-              <div className="flex-shrink-0 w-72 h-auto sm:w-56 sm:h-auto flex flex-col items-center justify-center bg-gradient-to-r from-blue-400 to-purple-600 text-white rounded-lg shadow-lg">
-                {/* Top Half: Speaker Image */}
-                <div className="h-64 w-64 sm:h-48 sm:w-48 rounded-full overflow-hidden flex items-center justify-center">
-                  <img
-                    src={speakers[currentIndex].imageUrl}
-                    alt={speakers[currentIndex].name}
-                    className="w-[20vh] h-[20vh] rounded-full object-fit"
-                  />
-                </div>
+              {/* Speaker Image */}
+              <div className="h-64 w-64 sm:h-48 sm:w-48 rounded-full overflow-hidden flex items-center justify-center">
+                <img
+                  src={speaker.imageUrl}
+                  alt={speaker.name}
+                  className="w-[20vh] h-[20vh] rounded-full object-cover"
+                />
+              </div>
 
-                {/* Bottom Half: Speaker Info */}
-                <div className="flex flex-col h-auto w-full items-center justify-center p-4">
-                  <div className="text-2xl sm:text-lg font-bold">
-                    {speakers[currentIndex].name}
-                  </div>
-                  <div className="text-lg sm:text-sm">
-                    {speakers[currentIndex].title}
-                  </div>
-
-                  {/* LinkedIn Icon */}
-                  <a
-                    href={speakers[currentIndex].linkedinUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 text-white hover:text-gray-200"
-                  >
-                    <FaLinkedin className="w-8 h-8 sm:w-6 sm:h-6" />
-                  </a>
+              {/* Speaker Info */}
+              <div className="flex flex-col items-center justify-center mt-4">
+                <div className="text-2xl sm:text-lg font-bold">
+                  {speaker.name}
                 </div>
+                <div className="text-lg sm:text-sm">{speaker.title}</div>
+
+                {/* LinkedIn Icon */}
+                <a
+                  href={speaker.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 text-white hover:text-gray-200"
+                >
+                  <FaLinkedin className="w-8 h-8 sm:w-6 sm:h-6" />
+                </a>
               </div>
             </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Right arrow */}
-        <button
-          onClick={() => paginate(1)}
-          className="absolute right-4 text-3xl sm:text-2xl text-gray-800 hover:text-gray-600"
-        >
-          <FaArrowAltCircleRight  />
-        </button>
+          ))}
+        </motion.div>
       </div>
     </>
   );
 };
 
-export default SpeakerSlider;
+export default SpeakerArriveAnimation;
