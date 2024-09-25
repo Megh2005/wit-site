@@ -33,7 +33,7 @@ const ProfilePage = () => {
               size={300}
               level="L"
               className="rounded-lg w-full object-cover"
-              value={`https://wit-dreamin-kolkata-2024.vercel.app/profile/${session?.user.id}`}
+              value={session?.user.id}
             />
           </div>
         </div>
