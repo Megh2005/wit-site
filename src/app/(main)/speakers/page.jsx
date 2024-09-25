@@ -295,12 +295,12 @@ const itemVariants = {
 const SpeakerArriveAnimation = () => {
   return (
     <>
-      <h1 className="text-5xl text-center sm:text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-500 text-transparent pt-[10vh] bg-clip-text mb-8">
+      <h1 className="text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-500 text-transparent bg-clip-text pt-[10vh] mb-8">
         Our Esteemed Speakers
       </h1>
-      <div className="w-full flex items-center justify-center">
+      <div className="w-full flex items-center justify-center overflow-hidden px-4">
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[100vw]"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-screen-xl"
           initial="hidden"
           animate="visible"
           variants={{
@@ -313,20 +313,20 @@ const SpeakerArriveAnimation = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="flex-shrink-0 w-full h-auto flex flex-col items-center justify-center bg-gradient-to-r from-blue-400 to-purple-600 text-white rounded-lg shadow-lg p-4"
+              className="w-full h-auto flex flex-col items-center justify-center bg-gradient-to-r from-blue-400 to-purple-600 text-white rounded-lg shadow-lg p-4 transition-transform transform hover:scale-105 duration-300"
             >
               {/* Speaker Image */}
-              <div className="h-64 w-64 sm:h-48 sm:w-48 rounded-full overflow-hidden flex items-center justify-center">
+              <div className="h-56 w-56 sm:h-48 sm:w-48 lg:h-64 lg:w-64 rounded-full overflow-hidden flex items-center justify-center">
                 <img
                   src={speaker.imageUrl}
                   alt={speaker.name}
-                  className="w-[20vh] h-[20vh] rounded-full object-cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Speaker Info */}
               <div className="flex flex-col items-center justify-center mt-4">
-                <div className="text-2xl sm:text-lg font-bold">
+                <div className="text-xl lg:text-2xl sm:text-lg font-bold">
                   {speaker.name}
                 </div>
                 <div className="text-lg sm:text-sm">{speaker.title}</div>
@@ -338,7 +338,7 @@ const SpeakerArriveAnimation = () => {
                   rel="noopener noreferrer"
                   className="mt-4 text-white hover:text-gray-200"
                 >
-                  <FaLinkedin className="w-8 h-8 sm:w-6 sm:h-6" />
+                  <FaLinkedin className="w-6 h-6 lg:w-8 lg:h-8" />
                 </a>
               </div>
             </motion.div>
