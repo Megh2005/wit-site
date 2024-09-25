@@ -22,13 +22,6 @@ const ProfilePage = () => {
               Email:{" "}
               <span className="font-semibold">{session?.user.email}</span>
             </p>
-            {/* MOBILE NUMBER IS NOT DYNAMIC */}
-            <p className="text-lg font-extrabold">
-              Mobile:{" "}
-              <span className="font-semibold">
-                {session?.user.contactNumber}
-              </span>
-            </p>
             <p className="text-lg capitalize font-extrabold">
               Role: <span className="font-semibold">{session?.user.role}</span>
             </p>
