@@ -14,18 +14,13 @@ export const authOptions = {
           type: "text",
         },
         password: { label: "Password", type: "password" },
-        contactNumber: { label: "Contact", type: "number" },
       },
       async authorize(credentials) {
         try {
           const usersRef = collection(db, "users");
 
           const results = await getDocs(
-            query(
-              usersRef,
-              where("email", "==", credentials.email),
-              where("contactNumber", "==", credentials.contactNumber)
-            )
+            query(usersRef, where("email", "==", credentials.email))
           );
 
           if (results.empty) {
@@ -56,7 +51,6 @@ export const authOptions = {
       if (user) {
         token.id = user.id?.toString();
         token.role = user.role;
-        token.contactNumber = user.contactNumber;
       }
       return token;
     },
@@ -64,7 +58,6 @@ export const authOptions = {
       if (token) {
         session.user.id = token.id;
         session.user.role = token.role;
-        session.user.contactNumber = token.contactNumber;
       }
       return session;
     },
