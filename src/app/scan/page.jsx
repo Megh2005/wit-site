@@ -26,6 +26,7 @@ const ScanPage = () => {
               console.info(error);
             }
           }}
+          constraints={{ facingMode: "environment" }}
           style={{ width: "100%" }}
         />
       </div>
