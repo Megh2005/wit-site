@@ -40,7 +40,7 @@ const ProfilePage = () => {
               size={300}
               level="L"
               className="rounded-lg w-full object-cover"
-              value="https://github.com/Megh2005"
+              value={`http://localhost:3000/profile/${session?.user.id}`}
             />
           </div>
         </div>
