@@ -4,7 +4,7 @@ import BackButton from "@/components/BackButton";
 import axios, { AxiosError, isAxiosError } from "axios";
 import { LoaderCircle } from "lucide-react";
 import { useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 
 const PaymentPage = () => {
   const params = useSearchParams();
@@ -107,4 +107,22 @@ const PaymentPage = () => {
   );
 };
 
-export default PaymentPage;
+const PaymentPageWrapper = () => (
+  <Suspense
+    fallback={
+      <div className="min-h-screen flex flex-col">
+        <BackButton />
+        <div className="flex-grow flex justify-center items-center">
+          <LoaderCircle className="animate-spin text-purple-400 w-6 h-6 mr-2" />
+          <div>
+            <p className="text-black">Loading...</p>
+          </div>
+        </div>
+      </div>
+    }
+  >
+    <PaymentPage />
+  </Suspense>
+);
+
+export default PaymentPageWrapper;
