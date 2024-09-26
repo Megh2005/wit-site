@@ -5,7 +5,6 @@ import useScanner from "@/hooks/useScanner";
 import { SessionProvider, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
-import toast from "react-hot-toast";
 
 const ScanPage = () => {
   const router = useRouter();
@@ -19,7 +18,9 @@ const ScanPage = () => {
     if (session.user?.role === "attendee") {
       if (result === uid) {
         // pay coins
-        toast.success("Paid 100 coins successfully");
+        setMsg("Paid 100 coins successfully");
+      } else {
+        setMsg("Invalid QR code");
       }
     } else if (session.user?.role === "sponsor") {
       // redirect to payment page
