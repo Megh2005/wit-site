@@ -7,35 +7,32 @@ const ProfilePage = () => {
   const { data: session } = useSession();
 
   return (
-    <div>
-      <div className="sm:h-[60vh] min-h-screen flex items-center justify-center bg-white p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:p-[10rem] max-w-4xl">
-          {/* Profile Info Tile */}
-          <div className="p-6 bg-gradient-to-r sm:py-4 from-purple-500 to-pink-500 rounded-lg shadow-lg text-white">
-            <h2 className="text-3xl font-bold mb-4 text-center underline text-yellow-200">
-              Profile
-            </h2>
-            <p className="text-lg font-extrabold">
-              Name: <span className="font-semibold">{session?.user.name}</span>
-            </p>
-            <p className="text-lg font-extrabold">
-              Email:{" "}
-              <span className="font-semibold">{session?.user.email}</span>
-            </p>
-            <p className="text-lg capitalize font-extrabold">
-              Role: <span className="font-semibold">{session?.user.role}</span>
-            </p>
-          </div>
+    <div className="flex justify-center items-center min-h-[80vh] sm:min-h-[60vh]">
+      <div className="mx-4 w-full max-w-xl bg-gradient-to-r from-purple-400 to-pink-400 shadow-lg rounded-lg p-6 flex flex-col sm:flex-row items-center sm:items-start">
+        {/* Profile Section */}
+        <div className="flex-1 text-white">
+          <h2 className="text-2xl font-bold mb-4 border-b border-yellow-300 text-yellow-300 inline-block">
+            Profile
+          </h2>
+          <p className="text-lg">
+            <span className="font-bold">Name:</span> {session?.user.name}
+          </p>
+          <p className="text-lg">
+            <span className="font-bold">Email:</span> {session?.user.email}
+          </p>
+          <p className="text-lg">
+            <span className="font-bold">Role:</span> {session?.user.role}
+          </p>
+        </div>
 
-          {/* Image Tile */}
-          <div className="p-6 bg-gradient-to-r from-sky-500 to-black rounded-lg shadow-lg">
-            <QRCodeSVG
-              size={300}
-              level="L"
-              className="rounded-lg w-full object-cover"
-              value={`https://wit-dreamin-kolkata-2024.vercel.app/profile/${session?.user.id}`}
-            />
-          </div>
+        {/* QR Code Section */}
+        <div className="md:ml-6 mt-6 md:mt-0">
+          <QRCodeSVG
+            size={200}
+            level="L"
+            className="rounded-lg w-full object-cover"
+            value={session?.user.id}
+          />
         </div>
       </div>
     </div>
