@@ -2,10 +2,8 @@
 
 import BackButton from "@/components/BackButton";
 import { Html5QrcodeScanner } from "html5-qrcode";
-
 import { useRouter } from "next/navigation";
-import React, { useEffect, useRef, useState } from "react";
-import toast from "react-hot-toast";
+import React, { useEffect, useRef } from "react";
 
 const ScanPage = () => {
   const scannerRef = useRef(null);
