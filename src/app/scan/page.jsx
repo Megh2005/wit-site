@@ -22,7 +22,9 @@ const ScanPage = () => {
         },
         rememberLastUsedCamera: true,
         fps: 10,
-        facingMode: "environment",
+        videoConstraints: {
+          facingMode: { exact: "environment" },
+        },
       });
 
       scanner.render(success, error);
