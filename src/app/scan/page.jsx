@@ -5,9 +5,9 @@ import { Html5QrcodeScanner } from "html5-qrcode";
 
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
+import toast from "react-hot-toast";
 
 const ScanPage = () => {
-  const [scanValue, setScanValue] = useState("");
   const scannerRef = useRef(null);
   const router = useRouter();
 
@@ -34,7 +34,7 @@ const ScanPage = () => {
     }
 
     function error(error) {
-      console.warn(error);
+      console.log(error);
     }
 
     return () => {
@@ -48,10 +48,7 @@ const ScanPage = () => {
     <div>
       <BackButton />
       <div className="my-6 w-full max-w-2xl mx-auto">
-        <div id="reader"> </div>
-      </div>
-      <div className="mt-6">
-        <p>User id: {scanValue}</p>
+        <div id="reader"></div>
       </div>
     </div>
   );

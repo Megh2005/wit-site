@@ -113,7 +113,7 @@ const PaymentPageWrapper = () => (
       <div className="min-h-screen flex flex-col">
         <BackButton />
         <div className="flex-grow flex justify-center items-center">
-          <LoaderCircle className="animate-spin text-purple-400 w-6 h-6 mr-2" />
+          <LoaderCircle className="animate-spin text-purple-500 w-6 h-6 mr-2" />
           <div>
             <p className="text-black">Loading...</p>
           </div>
