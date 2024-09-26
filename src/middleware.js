@@ -26,9 +26,19 @@ export async function middleware(req) {
       currentUrl.pathname.startsWith("/marketplace") ||
       currentUrl.pathname.startsWith("/rooms") ||
       currentUrl.pathname.startsWith("/speakers") ||
-      currentUrl.pathname.startsWith("/sponspors"))
+      currentUrl.pathname.startsWith("/sponspors") ||
+      currentUrl.pathname.startsWith("/scan") ||
+      currentUrl.pathname.startsWith("/payment"))
   ) {
     return NextResponse.redirect(new URL("/", req.url));
+  }
+
+  if (
+    token &&
+    token.role === "attendee" &&
+    currentUrl.pathname.startsWith("/payment")
+  ) {
+    return NextResponse.redirect(new URL("/home", req.url));
   }
 }
 
@@ -44,5 +54,7 @@ export const config = {
     "/speakers",
     "/sponspors",
     "/register",
+    "/scan",
+    "/payment",
   ],
 };

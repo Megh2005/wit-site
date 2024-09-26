@@ -1,51 +1,34 @@
 "use client";
 
 import BackButton from "@/components/BackButton";
-import { Html5QrcodeScanner } from "html5-qrcode";
-
-import { useRouter } from "next/navigation";
-import React, { useEffect, useRef, useState } from "react";
+import useScanner from "@/hooks/useScanner";
+import { SessionProvider, useSession } from "next-auth/react";
+import { useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
 
 const ScanPage = () => {
-  const scannerRef = useRef(null);
   const router = useRouter();
+  const { data: session } = useSession();
+  const params = useSearchParams();
+  const uid = params.get("uid");
 
-  useEffect(() => {
-    if (!scannerRef.current) {
-      // Initialize scanner only if it doesn't already exist
-      const scanner = new Html5QrcodeScanner("reader", {
-        qrbox: {
-          color: "red",
-          width: 250,
-          height: 250,
-        },
-        rememberLastUsedCamera: true,
-        fps: 10,
-        videoConstraints: {
-          facingMode: { exact: "environment" },
-        },
-      });
-
-      scanner.render(success, error);
-      scannerRef.current = scanner; // Store the scanner instance in useRef
-    }
-
-    function success(result) {
-      scannerRef.current.clear(); // Clear the scanner after a successful scan
+  const onSuccessHandler = (result) => {
+    if (session.user?.role === "attendee") {
+      if (result === uid) {
+        // pay coins
+        toast.success("Paid 100 coins successfully");
+      }
+    } else if (session.user?.role === "sponsor") {
+      // redirect to payment page
       router.replace(`/payment?to=${result}`);
     }
+  };
 
-    function error(error) {
-      console.log(error);
-    }
+  const onErrorHandler = () => {
+    console.log("Error scanning QR code");
+  };
 
-    return () => {
-      if (scannerRef.current) {
-        scannerRef.current.clear(); // Clear the scanner on component unmount
-      }
-    };
-  }, []);
+  useScanner(onSuccessHandler, onErrorHandler);
 
   return (
     <div>
@@ -57,4 +40,12 @@ const ScanPage = () => {
   );
 };
 
-export default ScanPage;
+const ScanPageWrapper = () => {
+  return (
+    <SessionProvider>
+      <ScanPage />
+    </SessionProvider>
+  );
+};
+
+export default ScanPageWrapper;
