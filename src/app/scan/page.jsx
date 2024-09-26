@@ -4,6 +4,7 @@ import BackButton from "@/components/BackButton";
 import useScanner from "@/hooks/useScanner";
 import { SessionProvider, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import toast from "react-hot-toast";
 
 const ScanPage = () => {
@@ -43,7 +44,9 @@ const ScanPage = () => {
 const ScanPageWrapper = () => {
   return (
     <SessionProvider>
-      <ScanPage />
+      <Suspense>
+        <ScanPage />
+      </Suspense>
     </SessionProvider>
   );
 };
