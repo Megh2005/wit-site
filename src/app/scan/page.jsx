@@ -4,7 +4,7 @@ import BackButton from "@/components/BackButton";
 import useScanner from "@/hooks/useScanner";
 import { SessionProvider, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useState } from "react";
+import { Suspense, useCallback, useState } from "react";
 
 const ScanPage = () => {
   const router = useRouter();
@@ -13,20 +13,25 @@ const ScanPage = () => {
   const uid = params.get("uid");
   const [msg, setMsg] = useState("");
 
-  const onSuccessHandler = (result) => {
-    setMsg(result);
-    if (session.user?.role === "attendee") {
-      if (result === uid) {
-        // pay coins
-        setMsg("Paid 100 coins successfully");
-      } else {
-        setMsg("Invalid QR code");
+  const onSuccessHandler = useCallback(
+    (result) => {
+      if (!session) return;
+
+      setMsg(result);
+      if (session.user?.role === "attendee") {
+        if (result === uid) {
+          // pay coins
+          setMsg("Paid 100 coins successfully");
+        } else {
+          setMsg("Invalid QR code");
+        }
+      } else if (session.user?.role === "sponsor") {
+        // redirect to payment page
+        router.replace(`/payment?to=${result}`);
       }
-    } else if (session.user?.role === "sponsor") {
-      // redirect to payment page
-      router.replace(`/payment?to=${result}`);
-    }
-  };
+    },
+    [session, uid]
+  );
 
   const onErrorHandler = () => {
     console.log("Error scanning QR code");
