@@ -23,7 +23,7 @@ http://localhost:3000
 
 ## Speaker Data
 
-```json
+```
   {
     id: 1,
     gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
