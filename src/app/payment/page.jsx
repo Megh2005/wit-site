@@ -54,7 +54,7 @@ const PaymentPage = () => {
         <div className="flex-grow flex justify-center items-center">
           <LoaderCircle className="animate-spin text-purple-400 w-6 h-6 mr-2" />
           <div>
-            <p className="text-black">Getting receiver details</p>
+            <p className="text-black">Fetching Receiver Details</p>
           </div>
         </div>
       </div>
@@ -76,22 +76,23 @@ const PaymentPage = () => {
     <div className="min-h-screen flex flex-col">
       <BackButton />
       <div className="flex-grow flex justify-center items-center">
-        <div className="mx-4 w-full max-w-xl bg-gradient-to-r from-purple-400 to-pink-400 shadow-lg rounded-lg p-8">
+        <div className="mx-4 w-full max-w-xl bg-gradient-to-b from-purple-600 to-cyan-400 shadow-lg rounded-lg p-8">
           {/* Receiver's Name */}
           <h2 className="text-2xl text-white font-bold mb-6">
-            Paying to <span>{receiver?.name}</span>
+            Transfering to <span>{receiver?.name}</span>
           </h2>
           {/* Amount Input */}
           <div className="mb-4">
             <label className="block text-white text-lg font-semibold mb-2">
-              Enter amount to transfer
+              Enter Coin To Transfer
             </label>
             <input
               type="number"
+              min={0}
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               className="w-full p-3 text-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-300"
-              placeholder="Amount in coins"
+              placeholder="Amount in Coins"
             />
           </div>
           {/* Pay Button */}
@@ -99,7 +100,7 @@ const PaymentPage = () => {
             onClick={handlePayment}
             className="w-full bg-yellow-300 text-purple-700 font-bold py-3 rounded-md hover:bg-yellow-400 transition duration-300"
           >
-            Pay
+            Transfer Now
           </button>
         </div>
       </div>

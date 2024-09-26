@@ -63,7 +63,7 @@ const HomePage = () => {
       route: `/profile/${session?.user?.id}`,
     },
     {
-      id: 7,
+      id: 8,
       title: "Contact Us",
       description: "Description for Tile 6",
       imageUrl:
@@ -78,15 +78,17 @@ const HomePage = () => {
         {tiles.map((tile) => (
           <div
             key={tile.id}
-            className="bg-purple-300 shadow-4xl cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-purple-400 transition duration-300 group"
+            className="bg-purple-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-purple-400 transition duration-300 group"
           >
             <Link href={tile.route}>
-              <img
-                src={tile.imageUrl}
-                alt={tile.title}
-                className="w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-72 object-contain rounded-md mb-4 transition duration-300"
-              />
-              <h2 className="text-2xl sm:text-4xl font-bold text-pink-600 mb-2 group-hover:text-blue-800">
+              <div className="w-full aspect-square overflow-hidden mb-1">
+                <img
+                  src={tile.imageUrl}
+                  alt={tile.title}
+                  className="object-cover w-full h-full rounded-md transition duration-300"
+                />
+              </div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-pink-600 mb-[-10px] group-hover:text-blue-800">
                 {tile.title}
               </h2>
             </Link>
