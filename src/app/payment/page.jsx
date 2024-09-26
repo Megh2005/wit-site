@@ -49,7 +49,7 @@ const PaymentPage = () => {
 
   if (loading)
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen h-full flex flex-col overflow-hidden">
         <BackButton />
         <div className="flex-grow flex justify-center items-center">
           <LoaderCircle className="animate-spin text-purple-400 w-6 h-6 mr-2" />
@@ -62,7 +62,7 @@ const PaymentPage = () => {
 
   if (error)
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen h-full flex flex-col overflow-hidden">
         <BackButton />
         <div className="flex-grow flex justify-center items-center">
           <div>
@@ -76,7 +76,7 @@ const PaymentPage = () => {
     <div className="min-h-screen flex flex-col">
       <BackButton />
       <div className="flex-grow flex justify-center items-center">
-        <div className="mx-4 max-w-md bg-gradient-to-r from-purple-400 to-pink-400 shadow-lg rounded-lg p-8">
+        <div className="mx-4 w-full max-w-xl bg-gradient-to-r from-purple-400 to-pink-400 shadow-lg rounded-lg p-8">
           {/* Receiver's Name */}
           <h2 className="text-2xl text-white font-bold mb-6">
             Paying to <span>{receiver?.name}</span>
