@@ -4,284 +4,204 @@ import { FaLinkedin } from "react-icons/fa";
 
 const speakers = [
   {
-    name: "Speaker 1",
-    title: "Keynote Speaker",
+    id: 1,
+    gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
+    speaker: "Speaker 1",
+    title: "Talk Title 1",
+    time: "10:00 AM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker1",
   },
   {
-    name: "Speaker 2",
-    title: "Guest Speaker",
+    id: 2,
+    gradient: "bg-gradient-to-r from-pink-500 to-purple-500",
+    speaker: "Speaker 2",
+    title: "Talk Title 2",
+    time: "11:00 AM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker2",
   },
   {
-    name: "Speaker 3",
-    title: "Panelist",
+    id: 3,
+    gradient: "bg-gradient-to-r from-green-400 to-blue-500",
+    speaker: "Speaker 3",
+    title: "Talk Title 3",
+    time: "12:00 PM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker3",
   },
   {
-    name: "Speaker 4",
-    title: "Motivational Speaker",
+    id: 4,
+    gradient: "bg-gradient-to-r from-yellow-400 to-orange-500",
+    speaker: "Speaker 4",
+    title: "Talk Title 4",
+    time: "1:00 PM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker4",
   },
   {
-    name: "Speaker 5",
-    title: "Tech Leader",
+    id: 5,
+    gradient: "bg-gradient-to-r from-red-400 to-pink-400",
+    speaker: "Speaker 5",
+    title: "Talk Title 5",
+    time: "2:00 PM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker5",
   },
   {
-    name: "Speaker 6",
-    title: "Entrepreneur",
+    id: 6,
+    gradient: "bg-gradient-to-r from-indigo-400 to-blue-600",
+    speaker: "Speaker 6",
+    title: "Talk Title 6",
+    time: "3:00 PM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker6",
   },
   {
-    name: "Speaker 7",
-    title: "Blockchain Expert",
+    id: 7,
+    gradient: "bg-gradient-to-r from-purple-500 to-pink-500",
+    speaker: "Speaker 7",
+    title: "Talk Title 7",
+    time: "4:00 PM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker7",
   },
   {
-    name: "Speaker 8",
-    title: "AI Specialist",
+    id: 8,
+    gradient: "bg-gradient-to-r from-green-300 to-lime-400",
+    speaker: "Speaker 8",
+    title: "Talk Title 8",
+    time: "5:00 PM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker8",
   },
   {
-    name: "Speaker 9",
-    title: "Innovation Strategist",
+    id: 9,
+    gradient: "bg-gradient-to-r from-red-500 to-yellow-500",
+    speaker: "Speaker 9",
+    title: "Talk Title 9",
+    time: "6:00 PM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker9",
   },
   {
-    name: "Speaker 10",
-    title: "Data Scientist",
+    id: 10,
+    gradient: "bg-gradient-to-r from-teal-400 to-cyan-500",
+    speaker: "Speaker 10",
+    title: "Talk Title 10",
+    time: "7:00 PM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker10",
   },
   {
-    name: "Speaker 11",
-    title: "Product Manager",
+    id: 11,
+    gradient: "bg-gradient-to-r from-yellow-200 to-yellow-400",
+    speaker: "Speaker 11",
+    title: "Talk Title 11",
+    time: "8:00 AM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker11",
   },
   {
-    name: "Speaker 12",
-    title: "Marketing Guru",
+    id: 12,
+    gradient: "bg-gradient-to-r from-pink-600 to-red-600",
+    speaker: "Speaker 12",
+    title: "Talk Title 12",
+    time: "9:00 AM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker12",
   },
   {
-    name: "Speaker 13",
-    title: "Design Expert",
+    id: 13,
+    gradient: "bg-gradient-to-r from-green-500 to-teal-500",
+    speaker: "Speaker 13",
+    title: "Talk Title 13",
+    time: "10:00 AM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker13",
   },
   {
-    name: "Speaker 14",
-    title: "Business Analyst",
+    id: 14,
+    gradient: "bg-gradient-to-r from-indigo-500 to-purple-500",
+    speaker: "Speaker 14",
+    title: "Talk Title 14",
+    time: "11:00 AM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker14",
   },
   {
-    name: "Speaker 15",
-    title: "Cybersecurity Specialist",
+    id: 15,
+    gradient: "bg-gradient-to-r from-orange-500 to-yellow-500",
+    speaker: "Speaker 15",
+    title: "Talk Title 15",
+    time: "12:00 PM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker15",
   },
   {
-    name: "Speaker 16",
-    title: "Cloud Architect",
+    id: 16,
+    gradient: "bg-gradient-to-r from-red-500 to-purple-500",
+    speaker: "Speaker 16",
+    title: "Talk Title 16",
+    time: "1:00 PM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker16",
   },
   {
-    name: "Speaker 17",
-    title: "DevOps Engineer",
+    id: 17,
+    gradient: "bg-gradient-to-r from-cyan-500 to-blue-500",
+    speaker: "Speaker 17",
+    title: "Talk Title 17",
+    time: "2:00 PM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker17",
   },
   {
-    name: "Speaker 18",
-    title: "Tech Evangelist",
+    id: 18,
+    gradient: "bg-gradient-to-r from-lime-400 to-green-500",
+    speaker: "Speaker 18",
+    title: "Talk Title 18",
+    time: "3:00 PM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker18",
   },
   {
-    name: "Speaker 19",
-    title: "Software Architect",
+    id: 19,
+    gradient: "bg-gradient-to-r from-teal-400 to-lime-400",
+    speaker: "Speaker 19",
+    title: "Talk Title 19",
+    time: "4:00 PM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker19",
   },
   {
-    name: "Speaker 20",
-    title: "AI Researcher",
+    id: 20,
+    gradient: "bg-gradient-to-r from-yellow-400 to-green-400",
+    speaker: "Speaker 20",
+    title: "Talk Title 20",
+    time: "5:00 PM",
     imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
+      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
     linkedinUrl: "https://linkedin.com/in/speaker20",
-  },
-  {
-    name: "Speaker 21",
-    title: "Machine Learning Engineer",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker21",
-  },
-  {
-    name: "Speaker 22",
-    title: "Growth Hacker",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker22",
-  },
-  {
-    name: "Speaker 23",
-    title: "E-commerce Specialist",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker23",
-  },
-  {
-    name: "Speaker 24",
-    title: "Fintech Innovator",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker24",
-  },
-  {
-    name: "Speaker 25",
-    title: "UX/UI Designer",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker25",
-  },
-  {
-    name: "Speaker 26",
-    title: "Startup Founder",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker26",
-  },
-  {
-    name: "Speaker 27",
-    title: "Digital Marketer",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker27",
-  },
-  {
-    name: "Speaker 28",
-    title: "Growth Strategist",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker28",
-  },
-  {
-    name: "Speaker 29",
-    title: "SaaS Founder",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker29",
-  },
-  {
-    name: "Speaker 30",
-    title: "Venture Capitalist",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker30",
-  },
-  {
-    name: "Speaker 31",
-    title: "Angel Investor",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker31",
-  },
-  {
-    name: "Speaker 32",
-    title: "Innovation Consultant",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker32",
-  },
-  {
-    name: "Speaker 33",
-    title: "Creative Director",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker33",
-  },
-  {
-    name: "Speaker 34",
-    title: "Brand Strategist",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker34",
-  },
-  {
-    name: "Speaker 35",
-    title: "Content Creator",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker35",
-  },
-  {
-    name: "Speaker 36",
-    title: "Legal Advisor",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker36",
-  },
-  {
-    name: "Speaker 37",
-    title: "Customer Success Manager",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker37",
-  },
-  {
-    name: "Speaker 38",
-    title: "Operations Manager",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker38",
-  },
-  {
-    name: "Speaker 39",
-    title: "Chief Technology Officer",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker39",
-  },
-  {
-    name: "Speaker 40",
-    title: "Corporate Trainer",
-    imageUrl:
-      "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727231909/photo_glhd7q.png",
-    linkedinUrl: "https://linkedin.com/in/speaker40",
   },
 ];
 
@@ -289,7 +209,7 @@ const speakers = [
 // Motion variants for arrival animation
 const itemVariants = {
   hidden: { opacity: 0, y: 80 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 const SpeakerArriveAnimation = () => {
@@ -305,7 +225,7 @@ const SpeakerArriveAnimation = () => {
           animate="visible"
           variants={{
             visible: {
-              transition: { staggerChildren: 0.2 },
+              transition: { staggerChildren: 0.1 },
             },
           }}
         >
@@ -327,7 +247,7 @@ const SpeakerArriveAnimation = () => {
               {/* Speaker Info */}
               <div className="flex flex-col items-center justify-center mt-4">
                 <div className="text-xl lg:text-2xl sm:text-lg font-bold">
-                  {speaker.name}
+                  {speaker.speaker}
                 </div>
                 <div className="text-lg sm:text-sm">{speaker.title}</div>
 
