@@ -1,13 +1,15 @@
 "use client";
 
+import BackButton from "@/components/BackButton";
 import { Html5QrcodeScanner } from "html5-qrcode";
-import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
+
+import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 
 const ScanPage = () => {
   const [scanValue, setScanValue] = useState("");
   const scannerRef = useRef(null);
+  const router = useRouter();
 
   useEffect(() => {
     if (!scannerRef.current) {
@@ -28,7 +30,7 @@ const ScanPage = () => {
 
     function success(result) {
       scannerRef.current.clear(); // Clear the scanner after a successful scan
-      setScanValue(result);
+      router.replace(`/payment?to=${result}`);
     }
 
     function error(error) {
@@ -44,11 +46,7 @@ const ScanPage = () => {
 
   return (
     <div>
-      <div className="px-4 mt-6">
-        <Link href={"/home"}>
-          <ArrowLeft className="w-6 h-6 text-black" />
-        </Link>
-      </div>
+      <BackButton />
       <div className="my-6 w-full max-w-2xl mx-auto">
         <div id="reader"> </div>
       </div>
