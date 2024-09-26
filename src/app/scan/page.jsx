@@ -4,7 +4,7 @@ import BackButton from "@/components/BackButton";
 import useScanner from "@/hooks/useScanner";
 import { SessionProvider, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import toast from "react-hot-toast";
 
 const ScanPage = () => {
@@ -12,8 +12,10 @@ const ScanPage = () => {
   const { data: session } = useSession();
   const params = useSearchParams();
   const uid = params.get("uid");
+  const [msg, setMsg] = useState("");
 
   const onSuccessHandler = (result) => {
+    setMsg(result);
     if (session.user?.role === "attendee") {
       if (result === uid) {
         // pay coins
@@ -36,6 +38,7 @@ const ScanPage = () => {
       <BackButton />
       <div className="my-6 w-full max-w-2xl mx-auto">
         <div id="reader"></div>
+        <p>{msg}</p>
       </div>
     </div>
   );
