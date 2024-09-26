@@ -17,11 +17,12 @@ const ScanPage = () => {
       const scanner = new Html5QrcodeScanner("reader", {
         qrbox: {
           color: "red",
-          width: 200,
-          height: 200,
+          width: 250,
+          height: 250,
         },
         rememberLastUsedCamera: true,
-        fps: 5,
+        fps: 10,
+        facingMode: "environment",
       });
 
       scanner.render(success, error);
