@@ -29,7 +29,7 @@ const PaymentPage = () => {
       const res = await axios.post("/api/payment/transfer", {
         sender: session.user.id,
         receiver: sendTo,
-        amount: 100,
+        amount,
       });
 
       if (res.data.status === "SUCCESS") {
