@@ -1,3 +1,4 @@
+import { db } from "@/services/firebaseinit";
 import { doc, runTransaction } from "firebase/firestore";
 import { NextResponse } from "next/server";
 

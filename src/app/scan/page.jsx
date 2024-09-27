@@ -82,9 +82,6 @@ const ScanPage = () => {
         },
         rememberLastUsedCamera: true,
         fps: 10,
-        videoConstraints: {
-          facingMode: { exact: "environment" },
-        },
       });
 
       scanner.render(success, error);
@@ -112,7 +109,7 @@ const ScanPage = () => {
         <BackButton />
         <div className="flex-grow flex justify-center items-center">
           <div>
-            <p className="text-red-600">{error}</p>
+            <p className="text-red-600">{error.toString()}</p>
           </div>
         </div>
       </div>
@@ -124,7 +121,7 @@ const ScanPage = () => {
         <BackButton />
         <div className="flex-grow flex justify-center items-center">
           <div>
-            <p className="text-green-500">{success}</p>
+            <p className="text-green-500">{success.toString()}</p>
           </div>
         </div>
       </div>

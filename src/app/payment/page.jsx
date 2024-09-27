@@ -3,11 +3,14 @@
 import BackButton from "@/components/BackButton";
 import axios from "axios";
 import { LoaderCircle } from "lucide-react";
+import { SessionProvider, useSession } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import React, { Suspense, useEffect, useState } from "react";
+import { authOptions } from "../api/auth/[...nextauth]/options";
 
 const PaymentPage = () => {
   const params = useSearchParams();
+  const { data: session } = useSession(authOptions);
   const sendTo = params.get("to");
 
   const [amount, setAmount] = useState("");
@@ -19,13 +22,13 @@ const PaymentPage = () => {
 
   const transferCoinsFromSponsorToUser = async () => {
     // Add your payment logic here
-    if (!amount) return;
+    if (!amount || !session) return;
     setTransferring(true);
 
     try {
       const res = await axios.post("/api/payment/transfer", {
         sender: session.user.id,
-        receiver: uid,
+        receiver: sendTo,
         amount: 100,
       });
 
@@ -90,7 +93,7 @@ const PaymentPage = () => {
         <BackButton />
         <div className="flex-grow flex justify-center items-center">
           <div>
-            <p className="text-red-600">{error}</p>
+            <p className="text-red-600">{error.toString()}</p>
           </div>
         </div>
       </div>
@@ -102,7 +105,7 @@ const PaymentPage = () => {
         <BackButton />
         <div className="flex-grow flex justify-center items-center">
           <div>
-            <p className="text-green-500">{success}</p>
+            <p className="text-green-500">{success.toString()}</p>
           </div>
         </div>
       </div>
@@ -150,21 +153,23 @@ const PaymentPage = () => {
 };
 
 const PaymentPageWrapper = () => (
-  <Suspense
-    fallback={
-      <div className="min-h-screen flex flex-col">
-        <BackButton />
-        <div className="flex-grow flex justify-center items-center">
-          <LoaderCircle className="animate-spin text-purple-500 w-6 h-6 mr-2" />
-          <div>
-            <p className="text-black">Loading...</p>
+  <SessionProvider>
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex flex-col">
+          <BackButton />
+          <div className="flex-grow flex justify-center items-center">
+            <LoaderCircle className="animate-spin text-purple-500 w-6 h-6 mr-2" />
+            <div>
+              <p className="text-black">Loading...</p>
+            </div>
           </div>
         </div>
-      </div>
-    }
-  >
-    <PaymentPage />
-  </Suspense>
+      }
+    >
+      <PaymentPage />
+    </Suspense>
+  </SessionProvider>
 );
 
 export default PaymentPageWrapper;
