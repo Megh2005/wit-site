@@ -1,14 +1,14 @@
 "use client";
 
 import BackButton from "@/components/BackButton";
-import useScanner from "@/hooks/useScanner";
+import { Html5QrcodeScanner } from "html5-qrcode";
 import { SessionProvider, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useCallback, useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 
 const ScanPage = () => {
   const router = useRouter();
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const params = useSearchParams();
   const uid = params.get("uid");
   const [msg, setMsg] = useState("");
@@ -37,7 +37,45 @@ const ScanPage = () => {
     console.log("Error scanning QR code");
   };
 
-  useScanner(onSuccessHandler, onErrorHandler);
+  const scannerRef = useRef(null);
+
+  useEffect(() => {
+    if (status !== "authenticated") return;
+
+    if (!scannerRef.current) {
+      // Initialize scanner only if it doesn't already exist
+      const scanner = new Html5QrcodeScanner("reader", {
+        qrbox: {
+          color: "red",
+          width: 250,
+          height: 250,
+        },
+        rememberLastUsedCamera: true,
+        fps: 10,
+        videoConstraints: {
+          facingMode: { exact: "environment" },
+        },
+      });
+
+      scanner.render(success, error);
+      scannerRef.current = scanner; // Store the scanner instance in useRef
+    }
+
+    function success(result) {
+      scannerRef.current.clear(); // Clear the scanner after a successful scan
+      onSuccessHandler(result);
+    }
+
+    function error(error) {
+      onErrorHandler();
+    }
+
+    return () => {
+      if (scannerRef.current) {
+        scannerRef.current.clear(); // Clear the scanner on component unmount
+      }
+    };
+  }, [status]);
 
   return (
     <div>
