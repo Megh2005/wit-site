@@ -1,7 +1,7 @@
 "use client";
 
-import { payCoins } from "@/actions/payCoins";
 import BackButton from "@/components/BackButton";
+import axios from "axios";
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { LoaderCircle } from "lucide-react";
 import { SessionProvider, useSession } from "next-auth/react";
@@ -25,15 +25,25 @@ const ScanPage = () => {
 
     setTransferring(true);
 
-    const res = await payCoins(session.user.id, result, 100);
+    try {
+      const res = await axios.post("/api/payment/transfer", {
+        sender: session.user.id,
+        receiver: uid,
+        amount: 100,
+      });
 
-    if (res.status === "SUCCESS") {
-      setSuccess(res.message || "Coins transferred successfully!");
-    } else {
-      setError(res.message || "Error transferring coins");
+      if (res.data.status === "SUCCESS") {
+        setSuccess(res.data.message || "Coins transferred successfully!");
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        setError(error.response?.data?.message || "Error transferring coins");
+      } else {
+        setError("Something went wrong. Please try again");
+      }
+    } finally {
+      setTransferring(false);
     }
-
-    setTransferring(false);
   };
 
   const onSuccessHandler = useCallback(

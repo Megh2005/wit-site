@@ -1,8 +1,7 @@
 "use client";
 
-import { payCoins } from "@/actions/payCoins";
 import BackButton from "@/components/BackButton";
-import axios, { isAxiosError } from "axios";
+import axios from "axios";
 import { LoaderCircle } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import React, { Suspense, useEffect, useState } from "react";
@@ -23,15 +22,25 @@ const PaymentPage = () => {
     if (!amount) return;
     setTransferring(true);
 
-    const res = await payCoins(session.user.id, result, parseInt(amount));
+    try {
+      const res = await axios.post("/api/payment/transfer", {
+        sender: session.user.id,
+        receiver: uid,
+        amount: 100,
+      });
 
-    if (res.status === "SUCCESS") {
-      setSuccess(res.message || "Coins transferred successfully!");
-    } else {
-      setError(res.message || "Error transferring coins");
+      if (res.data.status === "SUCCESS") {
+        setSuccess(res.data.message || "Coins transferred successfully!");
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        setError(error.response?.data?.message || "Error transferring coins");
+      } else {
+        setError("Something went wrong. Please try again");
+      }
+    } finally {
+      setTransferring(false);
     }
-
-    setTransferring(false);
   };
 
   useEffect(() => {
@@ -46,7 +55,7 @@ const PaymentPage = () => {
           setReceiver(res.data?.data);
         }
       } catch (error) {
-        if (isAxiosError(error)) {
+        if (axios.isAxiosError(error)) {
           setError(
             error.response?.data?.message || "Error getting receiver details"
           );

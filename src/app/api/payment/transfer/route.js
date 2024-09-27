@@ -1,9 +1,9 @@
-"use server";
-
-import { db } from "@/services/firebaseinit";
 import { doc, runTransaction } from "firebase/firestore";
+import { NextResponse } from "next/server";
 
-export const payCoins = async (sender, receiver, amount) => {
+export async function POST(req) {
+  const { sender, receiver, amount } = await req.json();
+
   try {
     if (!sender || !receiver || !amount) {
       throw new Error("Sender, receiver, and amount are required");
@@ -46,16 +46,22 @@ export const payCoins = async (sender, receiver, amount) => {
       transaction.update(receiverRef, { coins: newReceiverCoins.toString() });
     });
 
-    return {
-      status: "SUCCESS",
-      message: "Coins transferred successfully",
-      data: null,
-    };
+    return NextResponse.json(
+      {
+        status: "SUCCESS",
+        message: "Coins transferred successfully",
+        data: null,
+      },
+      { status: 200 }
+    );
   } catch (error) {
-    return {
-      status: "ERROR",
-      message: error.message,
-      data: null,
-    };
+    return NextResponse.json(
+      {
+        status: "ERROR",
+        message: error.message,
+        data: null,
+      },
+      { status: 400 }
+    );
   }
-};
+}
