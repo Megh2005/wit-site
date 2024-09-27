@@ -1,7 +1,8 @@
 "use client";
 
+import { payCoins } from "@/actions/payCoins";
 import BackButton from "@/components/BackButton";
-import axios, { AxiosError, isAxiosError } from "axios";
+import axios, { isAxiosError } from "axios";
 import { LoaderCircle } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import React, { Suspense, useEffect, useState } from "react";
