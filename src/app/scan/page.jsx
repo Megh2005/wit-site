@@ -20,27 +20,29 @@ const ScanPage = () => {
 
   const scannerRef = useRef(null);
 
+  const transferCoinsFromUserToUser = async () => {
+    scannerRef.current.clear(); // Clear the scanner after a successful scan
+
+    setTransferring(true);
+
+    const res = await payCoins(session.user.id, result, 100);
+
+    if (res.status === "SUCCESS") {
+      setSuccess(res.message || "Coins transferred successfully!");
+    } else {
+      setError(res.message || "Error transferring coins");
+    }
+
+    setTransferring(false);
+  };
+
   const onSuccessHandler = useCallback(
     async (result) => {
       if (!session) return;
 
       if (session.user?.role === "attendee") {
         if (result === uid) {
-          // pay coins
-          scannerRef.current.clear(); // Clear the scanner after a successful scan
-
-          setTransferring(true);
-
-          const res = await payCoins(session.user.id, result, 100);
-
-          if (res.status === "SUCCESS") {
-            setSuccess(res.message || "Coins transferred successfully!");
-          } else {
-            setError(res.message || "Error transferring coins");
-            toast.error(res.message);
-          }
-
-          setTransferring(false);
+          transferCoinsFromUserToUser();
         } else {
           toast.error("Invalid QR code");
           router.replace("/home");
@@ -94,34 +96,51 @@ const ScanPage = () => {
     };
   }, [status]);
 
+  if (error)
+    return (
+      <div className="min-h-screen h-full flex flex-col overflow-hidden">
+        <BackButton />
+        <div className="flex-grow flex justify-center items-center">
+          <div>
+            <p className="text-red-600">{error}</p>
+          </div>
+        </div>
+      </div>
+    );
+
+  if (success) {
+    return (
+      <div className="min-h-screen h-full flex flex-col overflow-hidden">
+        <BackButton />
+        <div className="flex-grow flex justify-center items-center">
+          <div>
+            <p className="text-green-500">{success}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (transferring) {
+    return (
+      <div className="min-h-screen h-full flex flex-col overflow-hidden">
+        <BackButton />
+        <div className="flex-grow flex justify-center items-center">
+          <LoaderCircle className="animate-spin text-purple-500 w-6 h-6" />
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div>
-      <BackButton />
-      <div className="my-6 w-full max-w-2xl mx-auto">
-        <div id="reader"></div>
-      </div>
+    (!transferring || !success || !error) && (
       <div>
-        {transferring && (
-          <div className="flex justify-center">
-            <LoaderCircle className="animate-spin text-purple-500 w-6 h-6" />
-          </div>
-        )}
-        {success && (
-          <div className="mt-10">
-            <p className="text-center text-green-500 font-bold text-xl">
-              {success}
-            </p>
-          </div>
-        )}
-        {error && (
-          <div className="mt-10">
-            <p className="text-center text-red-600 font-bold text-xl">
-              {error}
-            </p>
-          </div>
-        )}
+        <BackButton />
+        <div className="my-6 w-full max-w-2xl mx-auto">
+          <div id="reader"></div>
+        </div>
       </div>
-    </div>
+    )
   );
 };
 

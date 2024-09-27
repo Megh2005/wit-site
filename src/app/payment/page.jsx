@@ -14,10 +14,23 @@ const PaymentPage = () => {
   const [receiver, setReceiver] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [transferring, setTransferring] = useState(false);
 
-  const handlePayment = () => {
+  const transferCoinsFromSponsorToUser = async () => {
     // Add your payment logic here
-    console.log(`Paying ${amount} coins`);
+    if (!amount) return;
+    setTransferring(true);
+
+    const res = await payCoins(session.user.id, result, parseInt(amount));
+
+    if (res.status === "SUCCESS") {
+      setSuccess(res.message || "Coins transferred successfully!");
+    } else {
+      setError(res.message || "Error transferring coins");
+    }
+
+    setTransferring(false);
   };
 
   useEffect(() => {
@@ -66,11 +79,24 @@ const PaymentPage = () => {
         <BackButton />
         <div className="flex-grow flex justify-center items-center">
           <div>
-            <p className="text-black">{error}</p>
+            <p className="text-red-600">{error}</p>
           </div>
         </div>
       </div>
     );
+
+  if (success) {
+    return (
+      <div className="min-h-screen h-full flex flex-col overflow-hidden">
+        <BackButton />
+        <div className="flex-grow flex justify-center items-center">
+          <div>
+            <p className="text-green-500">{success}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -96,10 +122,15 @@ const PaymentPage = () => {
           </div>
           {/* Pay Button */}
           <button
-            onClick={handlePayment}
+            disabled={transferring}
+            onClick={transferCoinsFromSponsorToUser}
             className="w-full bg-yellow-300 text-purple-700 font-bold py-3 rounded-md hover:bg-yellow-400 transition duration-300"
           >
-            Pay
+            {transferring ? (
+              <LoaderCircle className="animate-spin text-purple-700 w-6 h-6" />
+            ) : (
+              "Pay"
+            )}
           </button>
         </div>
       </div>
