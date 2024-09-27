@@ -1,29 +1,49 @@
 "use client";
 
+import { payCoins } from "@/actions/payCoins";
 import BackButton from "@/components/BackButton";
 import { Html5QrcodeScanner } from "html5-qrcode";
+import { LoaderCircle } from "lucide-react";
 import { SessionProvider, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import toast from "react-hot-toast";
 
 const ScanPage = () => {
   const router = useRouter();
   const { data: session, status } = useSession();
   const params = useSearchParams();
   const uid = params.get("uid");
-  const [msg, setMsg] = useState("");
+  const [transferring, setTransferring] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const scannerRef = useRef(null);
 
   const onSuccessHandler = useCallback(
-    (result) => {
+    async (result) => {
       if (!session) return;
 
-      setMsg(result);
       if (session.user?.role === "attendee") {
         if (result === uid) {
           // pay coins
-          setMsg("Paid 100 coins successfully");
+          scannerRef.current.clear(); // Clear the scanner after a successful scan
+
+          setTransferring(true);
+
+          const res = await payCoins(session.user.id, result, 100);
+
+          if (res.status === "SUCCESS") {
+            setSuccess(res.message || "Coins transferred successfully!");
+          } else {
+            setError(res.message || "Error transferring coins");
+            toast.error(res.message);
+          }
+
+          setTransferring(false);
         } else {
-          setMsg("Invalid QR code");
+          toast.error("Invalid QR code");
+          router.replace("/home");
         }
       } else if (session.user?.role === "sponsor") {
         // redirect to payment page
@@ -36,8 +56,6 @@ const ScanPage = () => {
   const onErrorHandler = () => {
     console.log("Error scanning QR code");
   };
-
-  const scannerRef = useRef(null);
 
   useEffect(() => {
     if (status !== "authenticated") return;
@@ -62,7 +80,6 @@ const ScanPage = () => {
     }
 
     function success(result) {
-      scannerRef.current.clear(); // Clear the scanner after a successful scan
       onSuccessHandler(result);
     }
 
@@ -82,7 +99,27 @@ const ScanPage = () => {
       <BackButton />
       <div className="my-6 w-full max-w-2xl mx-auto">
         <div id="reader"></div>
-        <p>{msg}</p>
+      </div>
+      <div>
+        {transferring && (
+          <div className="flex justify-center">
+            <LoaderCircle className="animate-spin text-purple-500 w-6 h-6" />
+          </div>
+        )}
+        {success && (
+          <div className="mt-10">
+            <p className="text-center text-green-500 font-bold text-xl">
+              {success}
+            </p>
+          </div>
+        )}
+        {error && (
+          <div className="mt-10">
+            <p className="text-center text-red-600 font-bold text-xl">
+              {error}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
