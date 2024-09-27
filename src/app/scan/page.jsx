@@ -6,7 +6,7 @@ import { Html5QrcodeScanner } from "html5-qrcode";
 import { LoaderCircle } from "lucide-react";
 import { SessionProvider, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useCallback, useEffect, useRef } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 
 const ScanPage = () => {
   const router = useRouter();
