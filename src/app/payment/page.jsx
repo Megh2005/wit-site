@@ -36,8 +36,9 @@ const PaymentPage = () => {
       if (axios.isAxiosError(error)) {
         setError(error.response?.data?.message || "Error transferring coins");
       } else {
-        setError("Something went wrong. Please try again");
+        setError(error);
       }
+      console.log(error);
     } finally {
       setTransferring(false);
     }
