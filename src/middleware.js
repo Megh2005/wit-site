@@ -20,6 +20,7 @@ export async function middleware(req) {
   if (
     !token &&
     (currentUrl.pathname.startsWith("/home") ||
+      currentUrl.pathname.startsWith("/register") ||
       currentUrl.pathname.startsWith("/profile") ||
       currentUrl.pathname.startsWith("/games") ||
       currentUrl.pathname.startsWith("/agenda") ||
@@ -40,11 +41,21 @@ export async function middleware(req) {
   ) {
     return NextResponse.redirect(new URL("/home", req.url));
   }
+
+  if (
+    token &&
+    token.role !== "admin" &&
+    (currentUrl.pathname.startsWith("/marketplace/orders") ||
+      currentUrl.pathname.startsWith("/register"))
+  ) {
+    return NextResponse.redirect(new URL("/home", req.url));
+  }
 }
 
 export const config = {
   matcher: [
     "/",
+    "/register",
     "/home",
     "/profile",
     "/games",
@@ -53,8 +64,8 @@ export const config = {
     "/rooms",
     "/speakers",
     "/sponspors",
-    "/register",
     "/scan",
     "/payment",
+    "/marketplace/orders",
   ],
 };
