@@ -35,7 +35,7 @@ export async function POST(req) {
 
       // Check if sender has enough coins
       if (parseInt(senderCoins) < amount) {
-        throw new Error("Not enough coins");
+        throw new Error("Insufficient coins");
       }
 
       // Deduct coins from sender and add to receiver
