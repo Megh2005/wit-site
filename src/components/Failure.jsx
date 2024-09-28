@@ -11,7 +11,7 @@ const PaymentFailure = ({ message }) => {
             <CircleAlert className="w-12 h-12 text-red-600" />
           </div>
           <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-            Payment Failed!
+            Payment Failed
           </h2>
           <p className="text-gray-600 mb-4 capitalize">{message}</p>
           <div className="flex justify-center">
