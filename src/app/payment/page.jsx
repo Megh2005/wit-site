@@ -7,6 +7,8 @@ import { SessionProvider, useSession } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import React, { Suspense, useEffect, useState } from "react";
 import { authOptions } from "../api/auth/[...nextauth]/options";
+import PaymentSuccess from "@/components/Success";
+import PaymentFailure from "@/components/Failure";
 
 const PaymentPage = () => {
   const params = useSearchParams();
@@ -29,7 +31,7 @@ const PaymentPage = () => {
       const res = await axios.post("/api/payment/transfer", {
         sender: session.user.id,
         receiver: sendTo,
-        amount,
+        amount: parseInt(amount),
       });
 
       if (res.data.status === "SUCCESS") {
@@ -39,9 +41,8 @@ const PaymentPage = () => {
       if (axios.isAxiosError(error)) {
         setError(error.response?.data?.message || "Error transferring coins");
       } else {
-        setError(error);
+        setError("Something went wrong. Please try again");
       }
-      console.log(error);
     } finally {
       setTransferring(false);
     }
@@ -81,35 +82,16 @@ const PaymentPage = () => {
         <div className="flex-grow flex justify-center items-center">
           <LoaderCircle className="animate-spin text-purple-400 w-6 h-6 mr-2" />
           <div>
-            <p className="text-black">Fetching Receiver Details</p>
+            <p className="text-black">Getting Receiver Details</p>
           </div>
         </div>
       </div>
     );
 
-  if (error)
-    return (
-      <div className="min-h-screen h-full flex flex-col overflow-hidden">
-        <BackButton />
-        <div className="flex-grow flex justify-center items-center">
-          <div>
-            <p className="text-red-600">{error.toString()}</p>
-          </div>
-        </div>
-      </div>
-    );
+  if (error) return <PaymentFailure message={error.toString()} />;
 
   if (success) {
-    return (
-      <div className="min-h-screen h-full flex flex-col overflow-hidden">
-        <BackButton />
-        <div className="flex-grow flex justify-center items-center">
-          <div>
-            <p className="text-green-500">{success.toString()}</p>
-          </div>
-        </div>
-      </div>
-    );
+    return <PaymentSuccess />;
   }
 
   return (
@@ -124,7 +106,7 @@ const PaymentPage = () => {
           {/* Amount Input */}
           <div className="mb-4">
             <label className="block text-white text-lg font-semibold mb-2">
-              Enter Coin To Transfer
+              Enter Amount To Transfer
             </label>
             <input
               type="number"
@@ -139,7 +121,7 @@ const PaymentPage = () => {
           <button
             disabled={transferring}
             onClick={transferCoinsFromSponsorToUser}
-            className="w-full bg-yellow-300 text-purple-700 font-bold py-3 rounded-md hover:bg-yellow-400 transition duration-300"
+            className="flex justify-center w-full bg-yellow-300 text-purple-700 font-bold py-3 rounded-md hover:bg-yellow-400 transition duration-300"
           >
             {transferring ? (
               <LoaderCircle className="animate-spin text-purple-700 w-6 h-6" />

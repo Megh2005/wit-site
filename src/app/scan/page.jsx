@@ -1,6 +1,8 @@
 "use client";
 
 import BackButton from "@/components/BackButton";
+import PaymentFailure from "@/components/Failure";
+import PaymentSuccess from "@/components/Success";
 import axios from "axios";
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { LoaderCircle } from "lucide-react";
@@ -15,7 +17,7 @@ const ScanPage = () => {
   const uid = params.get("uid");
   const [transferring, setTransferring] = useState(false);
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const scannerRef = useRef(null);
 
@@ -32,7 +34,7 @@ const ScanPage = () => {
       });
 
       if (res.data.status === "SUCCESS") {
-        setSuccess(res.data.message || "Coins transferred successfully!");
+        setSuccess(true);
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -102,29 +104,10 @@ const ScanPage = () => {
     };
   }, [status]);
 
-  if (error)
-    return (
-      <div className="min-h-screen h-full flex flex-col overflow-hidden">
-        <BackButton />
-        <div className="flex-grow flex justify-center items-center">
-          <div>
-            <p className="text-red-600">{error.toString()}</p>
-          </div>
-        </div>
-      </div>
-    );
+  if (error) return <PaymentFailure message={error} />;
 
   if (success) {
-    return (
-      <div className="min-h-screen h-full flex flex-col overflow-hidden">
-        <BackButton />
-        <div className="flex-grow flex justify-center items-center">
-          <div>
-            <p className="text-green-500">{success.toString()}</p>
-          </div>
-        </div>
-      </div>
-    );
+    return <PaymentSuccess />;
   }
 
   if (transferring) {
