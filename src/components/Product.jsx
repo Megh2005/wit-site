@@ -1,9 +1,11 @@
+"use client";
 import Image from "next/image";
 import React, { useState } from "react";
 import productImage from "../../public/assets/product-placeholder.png";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { getProductRedeemStatus, redeemProduct } from "@/queries/product";
 import { LoaderCircle } from "lucide-react";
+import { FcRating } from "react-icons/fc";
 import toast from "react-hot-toast";
 
 const Product = ({ product, queryClient }) => {
@@ -47,7 +49,10 @@ const Product = ({ product, queryClient }) => {
           <h2>{product.name}</h2>
         </div>
         <div>
-          <p>{product.price}</p>
+          <p className="flex items-center gap-1 ">
+            <FcRating />
+            {product.price}
+          </p>
         </div>
         {!isError && (
           <div className="flex justify-end">
@@ -55,7 +60,7 @@ const Product = ({ product, queryClient }) => {
               <LoaderCircle className="animate-spin text-purple-500 w-5 h-5" />
             ) : redeemStatus.data ? (
               <div>
-                <span className="text-sm text-gray-600">Redeemed</span>
+                <span className="text-md px-4 rounded-md py-2 bg-cyan-400 font-bold text-red-600">Redeemed</span>
               </div>
             ) : (
               <button
