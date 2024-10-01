@@ -3,20 +3,31 @@
 import { useForm, ValidationError } from "@formspree/react";
 import { useRef } from "react";
 import { toast } from "react-hot-toast";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [state, handleSubmit] = useForm("mqazvpyl");
   const formRef = useRef(null);
+
   if (state.succeeded) {
     toast.success("Your Query Has Reached Our Mail Box!");
     formRef.current.reset();
   }
+
   return (
     <div>
-      <div className="min-h-screen bg-yellow-50 flex items-center justify-center px-6 py-12">
+      <motion.div
+        className="min-h-screen flex items-center justify-center px-6 py-12"
+        initial={{ backgroundPosition: "0% 50%" }}
+        animate={{ backgroundPosition: "100% 50%" }}
+        transition={{ duration: 10, ease: "linear", loop: Infinity }}
+        style={{
+          backgroundImage: "linear-gradient(to right, #f9e3a0, #f8b738)",
+        }}
+      >
         <div className="max-w-4xl w-full bg-white rounded-lg shadow-lg p-12">
           <h2 className="text-4xl font-bold text-purple-700 mb-8 text-center">
-            Rapid Response Force
+            Report Glitch
           </h2>
           <form
             onSubmit={handleSubmit}
@@ -68,6 +79,33 @@ const Contact = () => {
             <div className="md:col-span-2 mb-4">
               <label
                 className="block text-purple-700 text-sm font-bold mb-2"
+                htmlFor="role"
+              >
+                Role
+              </label>
+              <select
+                id="role"
+                name="role"
+                required
+                className="w-full text-black px-4 py-3 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                defaultValue="role"
+              >
+                <option value="role" disabled>
+                  Select your role
+                </option>
+                {/* <option value="role">Select Your Role</option> */}
+                <option value="attendee">Attendee</option>
+                <option value="sponsor">Sponsor</option>
+              </select>
+              <ValidationError
+                prefix="Role"
+                field="role"
+                errors={state.errors}
+              />
+            </div>
+            <div className="md:col-span-2 mb-4">
+              <label
+                className="block text-purple-700 text-sm font-bold mb-2"
                 htmlFor="subject"
               >
                 Subject
@@ -106,14 +144,14 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={state.submitting}
-                className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-4 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:bg-pink-600 text-white font-bold py-3 px-4 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
               >
                 Send Message
               </button>
             </div>
           </form>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

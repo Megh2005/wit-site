@@ -15,6 +15,8 @@ const Navbar = () => {
             src="https://res.cloudinary.com/dmbxx03vp/image/upload/v1726842359/logo2_wlg6sy.png"
             width={80}
             height={80}
+            priority={true}
+            quality={100}
             alt="Profile"
             className="h-10 w-10 rounded-full object-cover cursor-pointer"
           />
