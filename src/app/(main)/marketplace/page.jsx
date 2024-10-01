@@ -12,7 +12,7 @@ const Marketplace = () => {
   const { data: products, isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: getAllProducts,
-    staleTime: Infinity,
+    staleTime: 10 * 60 * 1000,
   });
 
   if (isLoading) {

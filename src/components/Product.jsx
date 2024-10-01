@@ -32,7 +32,7 @@ const Product = ({ product, queryClient }) => {
   } = useQuery({
     queryKey: ["redeemStatus", { productId }],
     queryFn: () => getProductRedeemStatus(productId),
-    staleTime: Infinity,
+    staleTime: 10 * 60 * 1000,
   });
 
   return (
@@ -59,14 +59,14 @@ const Product = ({ product, queryClient }) => {
             {isRedeemStatusLoading ? (
               <LoaderCircle className="animate-spin text-purple-500 w-5 h-5" />
             ) : redeemStatus.data ? (
-              <div>
-                <span className="text-md cursor-not-allowed px-4 rounded-md py-2 bg-gradient-to-r from-slate-700 via-gray-600 to-gray-800 font-bold text-white">Redeemed</span>
+              <div className="px-5 py-2.5 text-center me-2 mb-2 text-sm cursor-not-allowed rounded-md bg-gradient-to-r from-slate-700 via-gray-600 to-gray-800 font-bold text-white">
+                Redeemed
               </div>
-            ) : (
+            ) : parseInt(product.quantity) > 0 ? (
               <button
                 disabled={isPending}
                 onClick={() => mutate()}
-                className="text-white bg-gradient-to-r cursor-pointer from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-md px-5 py-2.5 text-center me-2 mb-2"
+                className="text-white bg-gradient-to-r cursor-pointer from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
               >
                 {isPending ? (
                   <LoaderCircle className="animate-spin text-white w-5 h-5" />
@@ -74,6 +74,10 @@ const Product = ({ product, queryClient }) => {
                   <span className="text-md ">Redeem</span>
                 )}
               </button>
+            ) : (
+              <div className="px-5 py-2.5 text-center me-2 mb-2 text-sm cursor-not-allowed rounded-md bg-gray-400 font-bold text-white">
+                Out of Stock
+              </div>
             )}
           </div>
         )}

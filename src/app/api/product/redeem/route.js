@@ -31,6 +31,12 @@ export async function POST(req) {
 
       const productData = productDoc.data();
 
+      // check quantity of product
+
+      if (parseInt(productData.quantity) === 0) {
+        throw new Error("Product out of stock");
+      }
+
       // Check if user has enough coins
       const userRef = doc(db, "users", userId);
       const userDoc = await transaction.get(userRef);
@@ -53,6 +59,12 @@ export async function POST(req) {
         coins: newCoins.toString(),
       });
 
+      // update product quantity
+
+      transaction.update(productRef, {
+        quantity: (parseInt(productData.quantity) - 1).toString(),
+      });
+
       // Create order
       const orderRef = collection(db, "orders");
       transaction.set(doc(orderRef), {
@@ -68,6 +80,7 @@ export async function POST(req) {
           image: productData.image,
         },
         status: "deliver",
+        createdAt: new Date().toISOString(),
       });
     });
 
