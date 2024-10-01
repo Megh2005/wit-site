@@ -48,7 +48,7 @@ const Orders = () => {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="h-full py-2 px-4 outline-none"
+            className="h-full py-2 px-4 capitalize outline-none"
             type="text"
             placeholder="Search orders by email.."
           />
@@ -82,7 +82,7 @@ const Orders = () => {
             {hasNextPage && (
               <button
                 onClick={fetchNextPage}
-                className="p-2 bg-black text-white"
+                className="text-white bg-gradient-to-r from-gray-800 via-gray-600 to-blue-400 hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
               >
                 Load More
               </button>

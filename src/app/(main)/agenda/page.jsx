@@ -214,7 +214,7 @@ const AgendaPage = () => {
           {agendaItems.map((item, index) => (
             <div
               key={index}
-              className={`flex flex-col md:flex-row md:justify-between md:items-center py-3 px-5 rounded-lg shadow-md text-white ${item.gradient} hover:opacity-95 transition-opacity duration-200`}
+              className={`flex flex-col md:flex-row md:justify-between md:items-center py-3 px-5 rounded-lg shadow-md text-white bg-gradient-to-r from-purple-600 to-pink-500 hover:opacity-95 transition-opacity duration-200`}
             >
               <div className="md:w-1/3 text-base font-bold text-center md:text-left">
                 {item.time}

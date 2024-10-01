@@ -53,7 +53,9 @@ const OrderItem = ({ order, queryClient }) => {
               )}
             </button>
           ) : (
-            <span className="text-sm text-gray-600">Delivered</span>
+            <span className="z-10 inline-flex items-center justify-center w-[20vw] sm:w-[6vw] cursor-not-allowed px-3 py-1 text-sm font-bold text-white transition-all duration-200 bg-gray-500 border-2 border-transparent rounded-xl font-pj hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
+              Delivered
+            </span>
           )}
         </div>
       </div>
