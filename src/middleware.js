@@ -46,6 +46,7 @@ export async function middleware(req) {
     token &&
     token.role !== "admin" &&
     (currentUrl.pathname.startsWith("/marketplace/orders") ||
+      currentUrl.pathname.startsWith("/api/order") ||
       currentUrl.pathname.startsWith("/register"))
   ) {
     return NextResponse.redirect(new URL("/home", req.url));
@@ -67,5 +68,6 @@ export const config = {
     "/scan",
     "/payment",
     "/marketplace/orders",
+    "/api/order/:path*",
   ],
 };
