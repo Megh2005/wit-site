@@ -18,18 +18,19 @@ export async function middleware(req) {
   }
 
   if (
-    !token &&
-    (currentUrl.pathname.startsWith("/home") ||
-      currentUrl.pathname.startsWith("/register") ||
-      currentUrl.pathname.startsWith("/profile") ||
-      currentUrl.pathname.startsWith("/games") ||
-      currentUrl.pathname.startsWith("/agenda") ||
-      currentUrl.pathname.startsWith("/marketplace") ||
-      currentUrl.pathname.startsWith("/rooms") ||
-      currentUrl.pathname.startsWith("/speakers") ||
-      currentUrl.pathname.startsWith("/sponspors") ||
-      currentUrl.pathname.startsWith("/scan") ||
-      currentUrl.pathname.startsWith("/payment"))
+    (!token &&
+      (currentUrl.pathname.startsWith("/home") ||
+        currentUrl.pathname.startsWith("/register") ||
+        currentUrl.pathname.startsWith("/profile") ||
+        currentUrl.pathname.startsWith("/games") ||
+        currentUrl.pathname.startsWith("/agenda") ||
+        currentUrl.pathname.startsWith("/marketplace") ||
+        currentUrl.pathname.startsWith("/rooms") ||
+        currentUrl.pathname.startsWith("/speakers") ||
+        currentUrl.pathname.startsWith("/sponspors") ||
+        currentUrl.pathname.startsWith("/scan") ||
+        currentUrl.pathname.startsWith("/payment"))) ||
+    currentUrl.pathname.startsWith("/add-product")
   ) {
     return NextResponse.redirect(new URL("/", req.url));
   }
@@ -44,10 +45,19 @@ export async function middleware(req) {
 
   if (
     token &&
-    token.role !== "admin" &&
-    (currentUrl.pathname.startsWith("/marketplace/orders") ||
-      currentUrl.pathname.startsWith("/api/order") ||
-      currentUrl.pathname.startsWith("/register"))
+    token.role === "sponsor" &&
+    currentUrl.pathname.startsWith("/marketplace")
+  ) {
+    return NextResponse.redirect(new URL("/home", req.url));
+  }
+
+  if (
+    (token &&
+      token.role !== "admin" &&
+      (currentUrl.pathname.startsWith("/marketplace/orders") ||
+        currentUrl.pathname.startsWith("/api/order") ||
+        currentUrl.pathname.startsWith("/register"))) ||
+    currentUrl.pathname.startsWith("/add-product")
   ) {
     return NextResponse.redirect(new URL("/home", req.url));
   }
@@ -69,5 +79,6 @@ export const config = {
     "/payment",
     "/marketplace/orders",
     "/api/order/:path*",
+    "/add-product",
   ],
 };
