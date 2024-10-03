@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 // Sponsor data with logos
@@ -10,6 +10,8 @@ const sponsors = [
     name: "Sponsor A",
     tier: "Gold",
     logo: "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726842359/logo2_wlg6sy.png",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, tenetur. Officia sed id, nisi accusamus doloribus porro commodi quod. Excepturi?",
   },
   {
     id: 2,
@@ -179,8 +181,36 @@ const Sponsors = () => {
     (a, b) => getTierRank(a.tier) - getTierRank(b.tier)
   );
 
+  const [description, setDescription] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = (index) => {
+    const description = sortedSponsors[index].description;
+    setDescription(description);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-5">
+      {showModal && (
+        <div>
+          <dialog
+            id="description-modal"
+            className="flex flex-col z-50 fixed bg-white shadow-xl w-full mx-auto max-w-xs h-1/2 rounded-md p-4"
+          >
+            <div className="flex-1">
+              <p>{description}</p>
+            </div>
+            <div className="flex justify-center">
+              <button onClick={closeModal}>Close</button>
+            </div>
+          </dialog>
+        </div>
+      )}
       <motion.div
         className="max-w-7xl w-full"
         variants={container}
@@ -191,8 +221,9 @@ const Sponsors = () => {
           Our Sponsors
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 cursor-pointer lg:grid-cols-4 gap-6">
-          {sortedSponsors.map((sponsor) => (
+          {sortedSponsors.map((sponsor, index) => (
             <motion.div
+              onClick={() => openModal(index)}
               key={sponsor.id}
               className={`rounded-lg shadow-md p-6 text-center ${
                 tierStyles[sponsor.tier].gradient
