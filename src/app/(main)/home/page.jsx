@@ -3,7 +3,6 @@ import { getCoinBalance } from "@/queries/coin";
 import { useQuery } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 import { FcRating } from "react-icons/fc";
-import {Planets} from 'react-preloaders';
 import Link from "next/link";
 
 const HomePage = () => {
@@ -103,7 +102,7 @@ const HomePage = () => {
   {/* Loading State */}
   {isLoading && (
     <p className="text-center text-gray-600 text-sm">
-      <span className="loader mr-2"></span> <Planets time="2000ms"/>
+      <span className="loader mr-2"></span>
     </p>
   )}
 </div>
