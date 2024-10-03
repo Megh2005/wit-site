@@ -4,7 +4,8 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { LoaderCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify"; // Import Toastify components
+import toast from "react-hot-toast";
+import { ToastContainer } from "react-toastify"; // Import Toastify components
 
 export default function SloganSymphony() {
   const [slogans, setSlogans] = useState({
