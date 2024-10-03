@@ -60,8 +60,8 @@ export default function SloganSymphony() {
       )}
       {isSuccess && status.status === 400 && (
         <div>
-          <p className="text-xl text-center text-white font-medium">
-            You have already played this game
+          <p className="text-xl capitalize sm:text-4xl text-center text-white font-medium">
+            You have already Submitted your response
           </p>
         </div>
       )}

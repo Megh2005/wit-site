@@ -3,7 +3,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const elements = [
-  { name: "GAME 1", route: "/games/gameone" },
+  { name: "Slogan Symphony", route: "/games/gameone" },
   { name: "GAME 1", route: "#" },
   { name: "GAME 1", route: "#" },
   { name: "GAME 1", route: "/" },

@@ -2,6 +2,8 @@
 import { getCoinBalance } from "@/queries/coin";
 import { useQuery } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
+import { FcRating } from "react-icons/fc";
+import {Planets} from 'react-preloaders';
 import Link from "next/link";
 
 const HomePage = () => {
@@ -88,9 +90,24 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-purple-50 flex flex-col justify-center items-center p-8">
       <div className="mb-6">
-        {isSuccess && <p>Your Coins: {coins.data} </p>}
-        {isLoading && <p>Loading...</p>}
+  {isSuccess && (
+    <p className="bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out">
+      <div className="flex items-center gap-1 text-2xl justify-center text-white">
+        <span>Your Balance :</span>
+        <FcRating className="text-2xl" />
+        <span>{coins.data}</span>
       </div>
+    </p>
+  )}
+
+  {/* Loading State */}
+  {isLoading && (
+    <p className="text-center text-gray-600 text-sm">
+      <span className="loader mr-2"></span> <Planets time="2000ms"/>
+    </p>
+  )}
+</div>
+
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
         {tiles.map((tile) => (
           <div
