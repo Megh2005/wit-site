@@ -82,16 +82,15 @@ const HomePage = () => {
   } = useQuery({
     queryKey: ["coin-balance"],
     queryFn: getCoinBalance,
-    staleTime: Infinity,
+    staleTime: 2 * 60 * 1000,
   });
 
   return (
     <div className="min-h-screen bg-purple-50 flex flex-col justify-center items-center p-8">
-      {isSuccess && (
-        <div className="mb-6">
-          <p>Your Coins: {coins.data} </p>
-        </div>
-      )}
+      <div className="mb-6">
+        {isSuccess && <p>Your Coins: {coins.data} </p>}
+        {isLoading && <p>Loading...</p>}
+      </div>
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
         {tiles.map((tile) => (
           <div
