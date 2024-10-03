@@ -83,10 +83,10 @@ export default function SloganSymphony() {
             <hr />
             <p className="mt-4 font-extrabold text-gray-900 text-sm sm:text-base">
               Slogan Symphony is a creative game where players generate unique
-              slogans about the "WIT Dreamin" with the help of AI. Hone your
-              branding skills. Unleash your inner copywriter by crafting
-              memorable, impactful slogans. Let AI boost your creativity and
-              guide you to create slogans that resonate.
+              slogans about the &quot;WIT Dreamin&quot; with the help of AI.
+              Hone your branding skills. Unleash your inner copywriter by
+              crafting memorable, impactful slogans. Let AI boost your
+              creativity and guide you to create slogans that resonate.
               <br />
             </p>
           </div>
