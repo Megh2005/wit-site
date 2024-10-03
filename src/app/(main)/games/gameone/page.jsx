@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify"; // Import Toastify components
-import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
 
 export default function SloganSymphony() {
   const [userData, setUserData] = useState({
