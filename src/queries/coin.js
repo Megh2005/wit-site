@@ -5,7 +5,7 @@ export async function getCoinBalance() {
   return res.data;
 }
 
-export async function transferCoinsFromSponsorToUser(data) {
+export async function transferFromSponsorToUser(data) {
   const res = await axios.post("/api/payment/transfer", { ...data });
   return res.data;
 }

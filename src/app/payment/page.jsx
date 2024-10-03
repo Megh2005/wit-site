@@ -14,6 +14,7 @@ import {
   QueryClientProvider,
   useMutation,
 } from "@tanstack/react-query";
+import { transferFromSponsorToUser } from "@/queries/coin";
 
 const queryClient = new QueryClient();
 
@@ -31,7 +32,7 @@ const PaymentPage = () => {
 
   const { isPending, mutate } = useMutation({
     mutationFn: () =>
-      transferCoinsFromSponsorToUser({
+      transferFromSponsorToUser({
         sender: session.user.id,
         receiver: sendTo,
         amount: parseInt(amount),
