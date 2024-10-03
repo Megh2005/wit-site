@@ -21,6 +21,8 @@ export async function POST(req) {
 
     const data = {
       userId: user.id,
+      email: user.email,
+      name: user.name,
       response1: slogan1,
       response2: slogan2,
     };
