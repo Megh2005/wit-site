@@ -1,4 +1,6 @@
 "use client";
+import { getCoinBalance } from "@/queries/coin";
+import { useQuery } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 
@@ -72,8 +74,23 @@ const HomePage = () => {
     },
   ];
 
+  const {
+    data: coins,
+    isError,
+    isLoading,
+    isSuccess,
+  } = useQuery({
+    queryKey: ["coin-balance"],
+    queryFn: getCoinBalance,
+    staleTime: 2 * 60 * 1000,
+  });
+
   return (
-    <div className="min-h-screen bg-purple-50 flex justify-center items-center p-8">
+    <div className="min-h-screen bg-purple-50 flex flex-col justify-center items-center p-8">
+      <div className="mb-6">
+        {isSuccess && <p>Your Coins: {coins.data} </p>}
+        {isLoading && <p>Loading...</p>}
+      </div>
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
         {tiles.map((tile) => (
           <div

@@ -9,6 +9,8 @@ import React, { Suspense, useEffect, useState } from "react";
 import { authOptions } from "../api/auth/[...nextauth]/options";
 import PaymentSuccess from "@/components/Success";
 import PaymentFailure from "@/components/Failure";
+import { QueryClient, useMutation } from "@tanstack/react-query";
+import { transferFromSponsorToUser } from "@/queries/coin";
 
 const PaymentPage = () => {
   const params = useSearchParams();
@@ -22,30 +24,31 @@ const PaymentPage = () => {
   const [success, setSuccess] = useState("");
   const [transferring, setTransferring] = useState(false);
 
+  const queryClient = new QueryClient();
+
+  const { isPending, mutate } = useMutation({
+    mutationFn: () =>
+      transferFromSponsorToUser({
+        sender: session.user.id,
+        receiver: sendTo,
+        amount: parseInt(amount),
+      }),
+    onSuccess: () => {
+      // Invalidate and refetch
+      setTransferring(false);
+      setSuccess("Coins transferred successfully!");
+      queryClient.invalidateQueries({ queryKey: ["coin-balance"] });
+    },
+    onError: (error) => {
+      setError(error.response?.data?.message || "Error transferring coins");
+    },
+  });
+
   const transferCoinsFromSponsorToUser = async () => {
     // Add your payment logic here
     if (!amount || !session) return;
     setTransferring(true);
-
-    try {
-      const res = await axios.post("/api/payment/transfer", {
-        sender: session.user.id,
-        receiver: sendTo,
-        amount: parseInt(amount),
-      });
-
-      if (res.data.status === "SUCCESS") {
-        setSuccess(res.data.message || "Coins transferred successfully!");
-      }
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        setError(error.response?.data?.message || "Error transferring coins");
-      } else {
-        setError("Something went wrong. Please try again");
-      }
-    } finally {
-      setTransferring(false);
-    }
+    mutate();
   };
 
   useEffect(() => {
