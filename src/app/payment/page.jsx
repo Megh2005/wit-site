@@ -9,14 +9,8 @@ import React, { Suspense, useEffect, useState } from "react";
 import { authOptions } from "../api/auth/[...nextauth]/options";
 import PaymentSuccess from "@/components/Success";
 import PaymentFailure from "@/components/Failure";
-import {
-  QueryClient,
-  QueryClientProvider,
-  useMutation,
-} from "@tanstack/react-query";
+import { QueryClient, useMutation } from "@tanstack/react-query";
 import { transferFromSponsorToUser } from "@/queries/coin";
-
-const queryClient = new QueryClient();
 
 const PaymentPage = () => {
   const params = useSearchParams();
@@ -29,6 +23,8 @@ const PaymentPage = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [transferring, setTransferring] = useState(false);
+
+  const queryClient = new QueryClient();
 
   const { isPending, mutate } = useMutation({
     mutationFn: () =>
@@ -157,9 +153,7 @@ const PaymentPageWrapper = () => (
         </div>
       }
     >
-      <QueryClientProvider client={queryClient}>
-        <PaymentPage />
-      </QueryClientProvider>
+      <PaymentPage />
     </Suspense>
   </SessionProvider>
 );
