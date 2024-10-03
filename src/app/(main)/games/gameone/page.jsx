@@ -109,7 +109,7 @@ export default function SloganSymphony() {
                     setSlogans({ ...slogans, slogan1: e.target.value })
                   }
                   placeholder="Type your slogan here"
-                  rows="2"
+                  rows="4"
                   required
                 ></textarea>
               </div>
@@ -129,7 +129,7 @@ export default function SloganSymphony() {
                     setSlogans({ ...slogans, slogan2: e.target.value })
                   }
                   placeholder="Type your slogan here"
-                  rows="2"
+                  rows="4"
                   required
                 ></textarea>
               </div>
