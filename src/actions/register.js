@@ -34,9 +34,20 @@ export const register = async (credentials) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(credentials.password, salt);
 
+    let coins;
+
+    if (credentials.role === "admin") {
+      coins = 100000;
+    } else if (credentials.role === "attendee") {
+      coins = 1000;
+    } else {
+      coins = 5000;
+    }
+
     const newUser = {
       ...credentials,
       password: hashedPassword,
+      coins,
     };
 
     const result = await addDoc(usersRef, newUser);
