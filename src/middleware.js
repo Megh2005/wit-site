@@ -57,6 +57,7 @@ export async function middleware(req) {
     (currentUrl.pathname.startsWith("/marketplace/orders") ||
       currentUrl.pathname.startsWith("/api/order") ||
       currentUrl.pathname.startsWith("/register") ||
+      currentUrl.pathname.startsWith("/games/spin") ||
       currentUrl.pathname.startsWith("/add-product"))
   ) {
     return NextResponse.redirect(new URL("/home", req.url));
