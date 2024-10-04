@@ -11,7 +11,7 @@ const sponsors = [
     tier: "Gold",
     logo: "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726842359/logo2_wlg6sy.png",
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, tenetur. Officia sed id, nisi accusamus doloribus porro commodi quod. Excepturi?",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum nequ, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nu pretium gravida.",
   },
   {
     id: 2,
@@ -200,13 +200,13 @@ const Sponsors = () => {
         <div>
           <dialog
             id="description-modal"
-            className="flex flex-col z-50 fixed bg-white shadow-xl w-full mx-auto max-w-xs h-1/2 rounded-md p-4"
+            className="flex flex-col z-50 fixed text-center justify-evenly font-mono font-bold bg-white shadow-xl w-full mx-auto max-w-xs h-1/2 rounded-md p-4"
           >
             <div className="flex-1">
               <p>{description}</p>
             </div>
             <div className="flex justify-center">
-              <button onClick={closeModal}>Close</button>
+              <button className="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onClick={closeModal}>Close</button>
             </div>
           </dialog>
         </div>
