@@ -1,5 +1,12 @@
 import { db } from "@/services/firebaseinit";
-import { doc, runTransaction } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDocs,
+  query,
+  runTransaction,
+  where,
+} from "firebase/firestore";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
@@ -8,6 +15,10 @@ export async function POST(req) {
   try {
     if (!sender || !receiver || !amount) {
       throw new Error("Sender, receiver, and amount are required");
+    }
+
+    if (amount > 2000) {
+      throw new Error("Cannot transfer more than 2000 coins");
     }
 
     // Run transaction
@@ -38,6 +49,20 @@ export async function POST(req) {
         throw new Error("Insufficient coins");
       }
 
+      // Check if transaction already made
+
+      const transactionRef = collection(db, "transactions");
+      const q = query(
+        transactionRef,
+        where("sender", "==", sender),
+        where("receiver", "==", receiver)
+      );
+      const transactionDoc = await getDocs(q);
+
+      if (!transactionDoc.empty) {
+        throw new Error("Transaction already made");
+      }
+
       // Deduct coins from sender and add to receiver
       const newSenderCoins = parseInt(senderCoins) - amount;
       const newReceiverCoins = parseInt(receiverCoins) + amount;
@@ -45,6 +70,13 @@ export async function POST(req) {
       // Update both sender and receiver coins in the transaction
       transaction.update(senderRef, { coins: newSenderCoins.toString() });
       transaction.update(receiverRef, { coins: newReceiverCoins.toString() });
+
+      // create a record of the transaction
+      transaction.set(doc(db, "transactions", Date.now().toString()), {
+        sender,
+        receiver,
+        amount,
+      });
     });
 
     return NextResponse.json(

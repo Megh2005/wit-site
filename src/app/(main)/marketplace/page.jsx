@@ -4,10 +4,13 @@ import Product from "@/components/Product";
 import { getAllProducts } from "@/queries/product";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { LoaderCircle } from "lucide-react";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
 import React from "react";
 
 const Marketplace = () => {
   const queryClient = useQueryClient();
+  const { data: session } = useSession();
 
   const { data: products, isLoading } = useQuery({
     queryKey: ["products"],
@@ -24,16 +27,27 @@ const Marketplace = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl p-4">
-      {products?.data.map((product) => {
-        return (
-          <Product
-            key={product.id}
-            product={product}
-            queryClient={queryClient}
-          />
-        );
-      })}
+    <div>
+      {session?.user?.role === "admin" && (
+        <div className="mt-4 mb-2 flex justify-center">
+          <Link href={"/add-product"}>
+            <button className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+              Add product
+            </button>
+          </Link>
+        </div>
+      )}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl p-4">
+        {products?.data.map((product) => {
+          return (
+            <Product
+              key={product.id}
+              product={product}
+              queryClient={queryClient}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

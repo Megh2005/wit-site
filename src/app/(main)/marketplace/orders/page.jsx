@@ -42,13 +42,13 @@ const Orders = () => {
 
   return (
     <div>
-      <div className="mx-4 md:mx-6 my-4">
+      <div className="my-4 mx-4 md:mx-6">
         <h1 className="text-xl font-bold">Orders</h1>
-        <div className="mt-4 border border-gray-500 rounded-full w-full overflow-hidden">
+        <div className="mt-4 rounded-full border border-gray-500 w-full overflow-hidden">
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="h-full py-2 px-4 capitalize outline-none"
+            className="w-full h-full py-3 px-4 capitalize outline-none border-none"
             type="text"
             placeholder="Search orders by email.."
           />

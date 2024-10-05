@@ -11,6 +11,7 @@ import PaymentSuccess from "@/components/Success";
 import PaymentFailure from "@/components/Failure";
 import { QueryClient, useMutation } from "@tanstack/react-query";
 import { transferFromSponsorToUser } from "@/queries/coin";
+import toast from "react-hot-toast";
 
 const PaymentPage = () => {
   const params = useSearchParams();
@@ -47,6 +48,12 @@ const PaymentPage = () => {
   const transferCoinsFromSponsorToUser = async () => {
     // Add your payment logic here
     if (!amount || !session) return;
+
+    if (parseInt(amount) > 2000) {
+      toast.error("Cannot transfer more than 2000 coins");
+      return;
+    }
+
     setTransferring(true);
     mutate();
   };
