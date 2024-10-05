@@ -4,6 +4,7 @@ import productImage from "../../public/assets/product-placeholder.png";
 import { useMutation } from "@tanstack/react-query";
 import { updateOrderStatus } from "@/queries/order";
 import { LoaderCircle } from "lucide-react";
+import { CldImage } from "next-cloudinary";
 
 const OrderItem = ({ order, queryClient }) => {
   const { placedBy, product } = order;
@@ -22,10 +23,12 @@ const OrderItem = ({ order, queryClient }) => {
   return (
     <div className="flex gap-4 items-start shadow-xl px-4 py-2 rounded-md">
       <div className="w-20 h-16">
-        <Image
-          className="w-full h-full"
-          src={product.image || productImage}
-          alt="Product"
+        <CldImage
+          width="80"
+          height="64"
+          src={product.image}
+          sizes="100vw"
+          alt="Product image"
         />
       </div>
       <div className="w-full">
