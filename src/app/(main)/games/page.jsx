@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const elements = [
   { name: "Slogan Symphony", route: "/games/gameone" },
   { name: "Demo Jam", route: "/games/demo-jam" },
-  { name: "GAME 1", route: "#" },
+  { name: "Find Them All", route: "/games/find-user" },
   { name: "GAME 1", route: "/" },
 ];
 
