@@ -14,7 +14,7 @@ const HomePage = () => {
       title: "Rooms",
       description: "Description for Tile 1",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726852104/6_v5lzgu.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728228479/ipwvrdf4_bmy2wc.png",
       route: "/rooms",
     },
     {
@@ -22,7 +22,7 @@ const HomePage = () => {
       title: "Agenda",
       description: "Description for Tile 2",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726852104/4_xnuxcr.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728228627/A_serious_themed_agenda_image_l8bivk.jpg",
       route: "/agenda",
     },
     {
@@ -30,7 +30,7 @@ const HomePage = () => {
       title: "Marketplace",
       description: "Description for Tile 3",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726887645/5_wmlxav.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728228724/Marketplace_and_online_shop_with_a_modern_theme_ylxbr5.jpg",
       route: "/marketplace",
     },
     {
@@ -38,7 +38,7 @@ const HomePage = () => {
       title: "Speakers",
       description: "Description for Tile 4",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726852104/1_cqp6nt.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728228811/Speakers_and_lectures_in_a_modern_theme_ycayam.jpg",
       route: "/speakers",
     },
     {
@@ -46,7 +46,7 @@ const HomePage = () => {
       title: "Games",
       description: "Description for Tile 5",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726852104/3_fczaji.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728228891/online_and_virtual_games_in_modern_theme_tqpwxi.jpg",
       route: "/games",
     },
     {
@@ -54,7 +54,7 @@ const HomePage = () => {
       title: "Sponsors",
       description: "Description for Tile 6",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726852104/2_ffl42v.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728229138/sponsors_and_sponsorship_in_serious_official_theme_hybko8.jpg",
       route: "/sponsors",
     },
     {
@@ -62,7 +62,7 @@ const HomePage = () => {
       title: "Profile",
       description: "Description for Tile 6",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726887543/7_bqkbro.png",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728229221/user_profile_icons_in_a_serious_official_theme_neepb1.jpg",
       route: `/profile/${session?.user?.id}`,
     },
     {
@@ -70,7 +70,7 @@ const HomePage = () => {
       title: "Contact Us",
       description: "Description for Tile 6",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1726888499/8_yhis3a.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728229300/Contact_Us_in_a_serious_official_theme_a5kqji.jpg",
       route: "/contact",
     },
   ];
@@ -88,14 +88,14 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-purple-50 flex flex-col justify-center items-center p-8">
-      <div className="mb-6">
+      <div className="mb-4 justify-center items-center text-center">
   {isSuccess && (
-    <p className="bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out">
-      <div className="flex items-center gap-1 text-2xl justify-center text-white">
-        <span>Your Balance :</span>
-        <FcRating className="text-2xl" />
+    <p className="bg-gradient-to-r from-gray-900 to-emerald-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out">
+      <p className="flex items-center gap-1 text-2xl justify-center text-white">
+        <span>Balance :</span>
         <span>{coins.data}</span>
-      </div>
+        <FcRating className="text-2xl" />
+      </p>
     </p>
   )}
 
