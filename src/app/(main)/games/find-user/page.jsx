@@ -2,14 +2,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { TbQrcode } from "react-icons/tb";
-
-const users = [
-  { id: 1, name: "Alice Johnson", email: "alice.johnson@example.com" },
-  { id: 2, name: "Bob Smith", email: "bob.smith@example.com" },
-  { id: 3, name: "Carol Williams", email: "carol.williams@example.com" },
-  { id: 4, name: "David Brown", email: "david.brown@example.com" },
-  { id: 5, name: "Eva Davis", email: "eva.davis@example.com" },
-];
+import { useQuery } from "@tanstack/react-query";
+import { getFindAllusers } from "@/queries/game";
+import Link from "next/link";
+import { LoaderCircle, LoaderIcon } from "lucide-react";
 
 const tileVariants = {
   hidden: { opacity: 0, scale: 0.5, rotate: -60 },
@@ -35,35 +31,65 @@ const tileVariants = {
 };
 
 const User = () => {
-  return (
-    <div className="sm:min-h-[80vh] min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-      {/* Heading */}
-      <h1 className="text-4xl underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-500 mb-8">
-        Find Out Them
-      </h1>
+  const {
+    data: users,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useQuery({
+    queryKey: ["find-users"],
+    queryFn: getFindAllusers,
+    staleTime: Infinity,
+  });
 
-      {/* Tiles */}
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-        {users.map((user) => (
-          <motion.div
-            key={user.id}
-            className="bg-gradient-to-r text-center from-blue-500 to-teal-500 text-white rounded-lg p-6 shadow-2xl flex flex-col items-center"
-            variants={tileVariants}
-            initial="hidden"
-            animate="visible"
-            whileHover="hover"
-          >
-            <h2 className="text-xl cursor-default font-bold mb-2">{user.name}</h2>
-            <p className="text-xl cursor-default">{user.email}</p>
-            
-            {/* QR Code Icon */}
-            <div className="mt-4 w-12 h-12 flex justify-center items-center border-2 border-white rounded">
-              <TbQrcode className="text-4xl cursor-pointer text-white" />
+  return (
+    <>
+      {isLoading && (
+        <div className="sm:min-h-[80vh] min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+          <LoaderCircle className="w-8 h-8 animate-spin text-blue-500" />
+        </div>
+      )}
+      {isError && (
+        <div className="sm:min-h-[80vh] min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+          <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-500 mb-8">
+            Something went wrong
+          </h1>
+        </div>
+      )}
+      {isSuccess && (
+        <div className="sm:min-h-[80vh] min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+          {/* Heading */}
+          <h1 className="text-4xl underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-500 mb-8">
+            Find Them Out
+          </h1>
+
+          {/* Tiles */}
+          {
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+              {users?.data?.map((user) => (
+                <Link key={user.id} href={`/scan?uid=${user.id}`}>
+                  <motion.div
+                    className="bg-gradient-to-r text-center from-blue-500 to-teal-500 text-white rounded-lg p-6 shadow-2xl flex flex-col items-center"
+                    variants={tileVariants}
+                    initial="hidden"
+                    animate="visible"
+                    whileHover="hover"
+                  >
+                    <h2 className="text-xl cursor-default font-bold mb-2">
+                      {user.name}
+                    </h2>
+                    <p className="text-xl cursor-default">{user.email}</p>
+                    <div className="mt-4 w-12 h-12 flex justify-center items-center border-2 border-white rounded">
+                      <TbQrcode className="text-4xl cursor-pointer text-white" />
+                    </div>
+                  </motion.div>
+                </Link>
+              ))}
             </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
+          }
+        </div>
+      )}
+    </>
   );
 };
 
