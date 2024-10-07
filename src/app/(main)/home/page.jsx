@@ -11,11 +11,11 @@ const HomePage = () => {
   const tiles = [
     {
       id: 1,
-      title: "Rooms",
+      title: "Organizers",
       description: "Description for Tile 1",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728228479/ipwvrdf4_bmy2wc.png",
-      route: "/rooms",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728310813/An_organizer_in_a_serious_official_theme_with_a_female_and_two_additional_people_aceros.jpg",
+      route: "/organizers",
     },
     {
       id: 2,

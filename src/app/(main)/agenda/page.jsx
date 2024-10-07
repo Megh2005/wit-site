@@ -5,202 +5,68 @@ const AgendaPage = () => {
     {
       id: 1,
       gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
-      speaker: "Speaker 1",
-      title: "Talk Title 1",
+      speaker: "Sangeeta Sinha",
+      designation: "AVP, Barclays",
       time: "10:00 AM",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker1",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306945/speakers/Sangeeta_Sinha_ppsryr.jpg",
+      linkedinUrl: "https://www.linkedin.com/in/sangeeta-sinha-64bb171a",
+      twitterUrl: "https://x.com/Sangeet05242788",
     },
     {
       id: 2,
-      gradient: "bg-gradient-to-r from-pink-500 to-purple-500",
-      speaker: "Speaker 2",
-      title: "Talk Title 2",
-      time: "11:00 AM",
+      gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
+      speaker: "Priya Shaw",
+      designation: "Senior Specialist, LTIMindtree",
+      time: "10:00 AM",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker2",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306945/speakers/Priya_Shaw_bwfsdc.jpg",
+      linkedinUrl: "https://www.linkedin.com/in/priya-shaw/",
+      twitterUrl: "https://twitter.com/priyashaw260/",
     },
     {
       id: 3,
-      gradient: "bg-gradient-to-r from-green-400 to-blue-500",
-      speaker: "Speaker 3",
-      title: "Talk Title 3",
-      time: "12:00 PM",
+      gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
+      speaker: "Amit Malik",
+      designation: "Cloud Content Portfolio Lead-AI, Salesforce",
+      time: "10:00 AM",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker3",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306944/speakers/Amit_Malik_te9yno.png",
+      linkedinUrl: "https://www.linkedin.com/in/amitmalikus",
+      twitterUrl: "https://x.com/amitmalikus",
     },
     {
       id: 4,
-      gradient: "bg-gradient-to-r from-yellow-400 to-orange-500",
-      speaker: "Speaker 4",
-      title: "Talk Title 4",
-      time: "1:00 PM",
+      gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
+      speaker: "Lakhan Meghani",
+      designation: "Sr. Salesforce Developer, CUBE84",
+      time: "10:00 AM",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker4",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306944/speakers/Lakhan_Meghani_obnl4l.jpg",
+      linkedinUrl: "https://www.linkedin.com/in/lakhan-meghani-003639167/",
+      twitterUrl: "https://x.com/Lakhan_sfdc",
     },
     {
       id: 5,
-      gradient: "bg-gradient-to-r from-red-400 to-pink-400",
-      speaker: "Speaker 5",
-      title: "Talk Title 5",
-      time: "2:00 PM",
+      gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
+      speaker: "Santanu Boral",
+      designation: "Sr. Director - Software Engineering, Concentrix Catalyst",
+      time: "10:00 AM",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker5",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306944/speakers/Santanu_Boral_wtca6v.png",
+      linkedinUrl: "https://www.linkedin.com/in/santanuboral/",
+      twitterUrl: "https://x.com/santanuboral",
     },
     {
       id: 6,
-      gradient: "bg-gradient-to-r from-indigo-400 to-blue-600",
-      speaker: "Speaker 6",
-      title: "Talk Title 6",
-      time: "3:00 PM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker6",
-    },
-    {
-      id: 7,
-      gradient: "bg-gradient-to-r from-purple-500 to-pink-500",
-      speaker: "Speaker 7",
-      title: "Talk Title 7",
-      time: "4:00 PM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker7",
-    },
-    {
-      id: 8,
-      gradient: "bg-gradient-to-r from-green-300 to-lime-400",
-      speaker: "Speaker 8",
-      title: "Talk Title 8",
-      time: "5:00 PM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker8",
-    },
-    {
-      id: 9,
-      gradient: "bg-gradient-to-r from-red-500 to-yellow-500",
-      speaker: "Speaker 9",
-      title: "Talk Title 9",
-      time: "6:00 PM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker9",
-    },
-    {
-      id: 10,
-      gradient: "bg-gradient-to-r from-teal-400 to-cyan-500",
-      speaker: "Speaker 10",
-      title: "Talk Title 10",
-      time: "7:00 PM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker10",
-    },
-    {
-      id: 11,
-      gradient: "bg-gradient-to-r from-yellow-200 to-yellow-400",
-      speaker: "Speaker 11",
-      title: "Talk Title 11",
-      time: "8:00 AM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker11",
-    },
-    {
-      id: 12,
-      gradient: "bg-gradient-to-r from-pink-600 to-red-600",
-      speaker: "Speaker 12",
-      title: "Talk Title 12",
-      time: "9:00 AM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker12",
-    },
-    {
-      id: 13,
-      gradient: "bg-gradient-to-r from-green-500 to-teal-500",
-      speaker: "Speaker 13",
-      title: "Talk Title 13",
+      gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
+      speaker: "Paresh Kumar Lalchandani",
+      designation: "Senior Salesforce Business System Analyst, Arcserve",
       time: "10:00 AM",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker13",
-    },
-    {
-      id: 14,
-      gradient: "bg-gradient-to-r from-indigo-500 to-purple-500",
-      speaker: "Speaker 14",
-      title: "Talk Title 14",
-      time: "11:00 AM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker14",
-    },
-    {
-      id: 15,
-      gradient: "bg-gradient-to-r from-orange-500 to-yellow-500",
-      speaker: "Speaker 15",
-      title: "Talk Title 15",
-      time: "12:00 PM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker15",
-    },
-    {
-      id: 16,
-      gradient: "bg-gradient-to-r from-red-500 to-purple-500",
-      speaker: "Speaker 16",
-      title: "Talk Title 16",
-      time: "1:00 PM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker16",
-    },
-    {
-      id: 17,
-      gradient: "bg-gradient-to-r from-cyan-500 to-blue-500",
-      speaker: "Speaker 17",
-      title: "Talk Title 17",
-      time: "2:00 PM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker17",
-    },
-    {
-      id: 18,
-      gradient: "bg-gradient-to-r from-lime-400 to-green-500",
-      speaker: "Speaker 18",
-      title: "Talk Title 18",
-      time: "3:00 PM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker18",
-    },
-    {
-      id: 19,
-      gradient: "bg-gradient-to-r from-teal-400 to-lime-400",
-      speaker: "Speaker 19",
-      title: "Talk Title 19",
-      time: "4:00 PM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker19",
-    },
-    {
-      id: 20,
-      gradient: "bg-gradient-to-r from-yellow-400 to-green-400",
-      speaker: "Speaker 20",
-      title: "Talk Title 20",
-      time: "5:00 PM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1727320143/logo_prwbqk.png",
-      linkedinUrl: "https://linkedin.com/in/speaker20",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306944/speakers/Paresh_Kumar_zbtoev.jpg",
+      linkedinUrl: "https://www.linkedin.com/in/pareshlalchandani/",
+      twitterUrl: "https://x.com/Paresh_Kumar",
     },
   ];
 
@@ -214,16 +80,16 @@ const AgendaPage = () => {
           {agendaItems.map((item, index) => (
             <div
               key={index}
-              className={`flex flex-col md:flex-row md:justify-between md:items-center py-3 px-5 rounded-lg shadow-md text-white bg-gradient-to-r from-purple-600 to-pink-500 hover:opacity-95 transition-opacity duration-200`}
+              className={`flex flex-col md:flex-row md:justify-between md:items-center py-3 px-5 rounded-lg shadow-md text-white bg-gradient-to-r from-teal-600 to-emerald-800 hover:opacity-95 transition-opacity duration-200`}
             >
-              <div className="md:w-1/3 text-base font-bold text-center md:text-left">
+              <div className="md:w-1/3 text-lg font-bold text-center md:text-left">
                 {item.time}
               </div>
-              <div className="md:w-1/3 text-lg font-extrabold text-center">
-                {item.title}
+              <div className="md:w-1/3 text-md font-bold text-center">
+                {item.designation}
               </div>
-              <div className="md:w-1/3 text-sm font-medium text-center md:text-right">
-                {item.speaker}
+              <div className="md:w-1/3 text-lg font-extrabold text-center md:text-right">
+                Speaker : {item.speaker}
               </div>
             </div>
           ))}
