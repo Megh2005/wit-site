@@ -1,5 +1,4 @@
 import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from "bcryptjs";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "@/services/firebaseinit";
 
@@ -30,10 +29,7 @@ export const authOptions = {
           const user = results.docs[0].data();
           const userId = results.docs[0].id;
 
-          const isPasswordMatch = await bcrypt.compare(
-            credentials.password,
-            user.password
-          );
+          const isPasswordMatch = user.password === credentials.password;
 
           if (isPasswordMatch) {
             return { id: userId, ...user };
