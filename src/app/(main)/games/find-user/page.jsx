@@ -50,8 +50,8 @@ const User = () => {
         </div>
       )}
       {isError && (
-        <div className="sm:min-h-[80vh] min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-          <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-500 mb-8">
+        <div className="sm:min-h-[80vh] min-h-screen bg-white flex flex-col items-center justify-center p-8">
+          <h1 className="text-2xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 mb-8">
             Something went wrong
           </h1>
         </div>
