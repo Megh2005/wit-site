@@ -9,7 +9,6 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import bcrypt from "bcryptjs";
 
 export const register = async (credentials) => {
   try {
@@ -31,8 +30,6 @@ export const register = async (credentials) => {
     }
 
     // create user
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(credentials.password, salt);
 
     let coins;
 
@@ -46,7 +43,6 @@ export const register = async (credentials) => {
 
     const newUser = {
       ...credentials,
-      password: hashedPassword,
       coins,
     };
 
