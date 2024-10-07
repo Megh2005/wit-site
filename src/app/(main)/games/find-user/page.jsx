@@ -39,7 +39,7 @@ const User = () => {
   } = useQuery({
     queryKey: ["find-users"],
     queryFn: getFindAllusers,
-    staleTime: Infinity,
+    staleTime: 1 * 60 * 1000,
   });
 
   return (
