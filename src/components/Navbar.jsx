@@ -1,19 +1,18 @@
 "use client";
 
-import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="px-6 py-4 bg-gray-800 flex justify-between items-center">
+    <div className="px-6 py-4 bg-gray-800 flex justify-center items-center">
       <div>
         <Link href="/home">
           <Image
             src="https://res.cloudinary.com/dmbxx03vp/image/upload/v1726842359/logo2_wlg6sy.png"
-            width={80}
-            height={80}
+            width={100}
+            height={100}
             priority={true}
             quality={100}
             alt="Profile"
@@ -21,14 +20,7 @@ const Navbar = () => {
           />
         </Link>
       </div>
-      <div className="flex gap-4 items-center">
-        <button
-          onClick={() => signOut({ callbackUrl: "/" })}
-          className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-        >
-          Log Out
-        </button>
-      </div>
+      
     </div>
   );
 };

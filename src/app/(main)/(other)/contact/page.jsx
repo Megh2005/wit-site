@@ -33,6 +33,8 @@ const Contact = () => {
             onSubmit={handleSubmit}
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
             ref={formRef}
+            action="https://formspree.io/f/mqazvpyl"
+            method="POST"
           >
             <div className="mb-4">
               <label

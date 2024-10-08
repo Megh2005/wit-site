@@ -103,17 +103,10 @@ const HomePage = () => {
           backgroundImage: `url('https://res.cloudinary.com/dmbxx03vp/image/upload/v1728375736/wit-1_kdwa2w.jpg')`,
         }}
       >
-        <div className="flex justify-end p-4">
-          <button
-            onClick={() => signOut({ callbackUrl: "/" })}
-            className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-          >
-            Log Out
-          </button>
-        </div>
+        
       </div>
 
-      <div className="mb-4 justify-center items-center text-center">
+      <div className="mb-4 justify-between flex items-center text-center">
         {isSuccess && (
           <p className="bg-gradient-to-r from-gray-900 to-emerald-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out">
             <p className="flex items-center gap-1 text-2xl justify-center text-white">
@@ -122,7 +115,16 @@ const HomePage = () => {
               <FcRating className="text-2xl" />
             </p>
           </p>
+          
         )}
+        <div className="flex justify-end p-4">
+          <button
+            onClick={() => signOut({ callbackUrl: "/" })}
+            className="bg-gradient-to-r from-gray-900 to-emerald-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out text-white text-2xl"
+          >
+            Log Out
+          </button>
+        </div>
 
         {/* Loading State */}
         {isLoading && (
@@ -132,7 +134,7 @@ const HomePage = () => {
         )}
       </div>
 
-      <div className="px-8 py-4 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-screen-xl">
+      <div className="px-8 py-4 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols- gap-6 w-full max-w-screen-xl">
         {session?.user &&
           tiles
             .filter((tile) => (isSponsor ? tile.visibleToSponsor : true))
