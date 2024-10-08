@@ -1,12 +1,13 @@
 "use client";
 import { getCoinBalance } from "@/queries/coin";
 import { useQuery } from "@tanstack/react-query";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { FcRating } from "react-icons/fc";
 import Link from "next/link";
 
 const HomePage = () => {
   const { data: session } = useSession();
+  const isSponsor = session?.user?.role === "sponsor";
 
   const tiles = [
     {
@@ -16,6 +17,7 @@ const HomePage = () => {
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728310813/An_organizer_in_a_serious_official_theme_with_a_female_and_two_additional_people_aceros.jpg",
       route: "/organizers",
+      visibleToSponsor: true,
     },
     {
       id: 2,
@@ -24,6 +26,7 @@ const HomePage = () => {
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728228627/A_serious_themed_agenda_image_l8bivk.jpg",
       route: "/agenda",
+      visibleToSponsor: true,
     },
     {
       id: 3,
@@ -32,6 +35,7 @@ const HomePage = () => {
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728228724/Marketplace_and_online_shop_with_a_modern_theme_ylxbr5.jpg",
       route: "/marketplace",
+      visibleToSponsor: false,
     },
     {
       id: 4,
@@ -40,6 +44,7 @@ const HomePage = () => {
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728228811/Speakers_and_lectures_in_a_modern_theme_ycayam.jpg",
       route: "/speakers",
+      visibleToSponsor: true,
     },
     {
       id: 5,
@@ -48,6 +53,7 @@ const HomePage = () => {
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728228891/online_and_virtual_games_in_modern_theme_tqpwxi.jpg",
       route: "/games",
+      visibleToSponsor: false,
     },
     {
       id: 6,
@@ -56,6 +62,7 @@ const HomePage = () => {
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728229138/sponsors_and_sponsorship_in_serious_official_theme_hybko8.jpg",
       route: "/sponsors",
+      visibleToSponsor: true,
     },
     {
       id: 7,
@@ -64,6 +71,7 @@ const HomePage = () => {
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728229221/user_profile_icons_in_a_serious_official_theme_neepb1.jpg",
       route: `/profile/${session?.user?.id}`,
+      visibleToSponsor: true,
     },
     {
       id: 8,
@@ -72,6 +80,7 @@ const HomePage = () => {
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728229300/Contact_Us_in_a_serious_official_theme_a5kqji.jpg",
       route: "/contact",
+      visibleToSponsor: true,
     },
   ];
 
@@ -87,7 +96,23 @@ const HomePage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-purple-50 flex flex-col justify-center items-center p-8">
+    <div className="min-h-screen bg-purple-50 flex flex-col justify-center items-center">
+      <div
+        className="w-full h-[30vh] bg-cover bg-center shadow-lg mb-4"
+        style={{
+          backgroundImage: `url('https://res.cloudinary.com/dmbxx03vp/image/upload/v1728375736/wit-1_kdwa2w.jpg')`,
+        }}
+      >
+        <div className="flex justify-end p-4">
+          <button
+            onClick={() => signOut({ callbackUrl: "/" })}
+            className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          >
+            Log Out
+          </button>
+        </div>
+      </div>
+
       <div className="mb-4 justify-center items-center text-center">
         {isSuccess && (
           <p className="bg-gradient-to-r from-gray-900 to-emerald-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out">
@@ -107,26 +132,29 @@ const HomePage = () => {
         )}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
-        {tiles.map((tile) => (
-          <div
-            key={tile.id}
-            className="bg-purple-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-purple-400 transition duration-300 group"
-          >
-            <Link href={tile.route}>
-              <div className="w-full aspect-square overflow-hidden mb-1">
-                <img
-                  src={tile.imageUrl}
-                  alt={tile.title}
-                  className="object-cover w-full h-full rounded-md transition duration-300"
-                />
+      <div className="px-8 py-4 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
+        {session?.user &&
+          tiles
+            .filter((tile) => (isSponsor ? tile.visibleToSponsor : true))
+            .map((tile) => (
+              <div
+                key={tile.id}
+                className="bg-purple-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-purple-400 transition duration-300 group"
+              >
+                <Link href={tile.route}>
+                  <div className="w-full aspect-square overflow-hidden mb-1">
+                    <img
+                      src={tile.imageUrl}
+                      alt={tile.title}
+                      className="object-cover w-full h-full rounded-md transition duration-300"
+                    />
+                  </div>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-pink-600 mb-[-10px] group-hover:text-blue-800">
+                    {tile.title}
+                  </h2>
+                </Link>
               </div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-pink-600 mb-[-10px] group-hover:text-blue-800">
-                {tile.title}
-              </h2>
-            </Link>
-          </div>
-        ))}
+            ))}
         {(session?.user?.role === "admin" ||
           session?.user?.role === "sponsor") && (
           <div className="bg-purple-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-purple-400 transition duration-300 group">
