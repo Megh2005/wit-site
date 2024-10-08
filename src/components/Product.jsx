@@ -1,16 +1,16 @@
 "use client";
-import Image from "next/image";
-import React, { useState } from "react";
-import productImage from "../../public/assets/product-placeholder.png";
+
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { getProductRedeemStatus, redeemProduct } from "@/queries/product";
 import { LoaderCircle } from "lucide-react";
 import { FcRating } from "react-icons/fc";
 import toast from "react-hot-toast";
 import { CldImage } from "next-cloudinary";
+import { useSession } from "next-auth/react";
 
 const Product = ({ product, queryClient }) => {
   const productId = product.id;
+  const { data: session } = useSession();
 
   const { isPending, mutate } = useMutation({
     mutationFn: () => redeemProduct(product.id),
@@ -38,7 +38,7 @@ const Product = ({ product, queryClient }) => {
 
   return (
     <div className="flex gap-4 items-start shadow-xl px-4 py-2 rounded-md">
-      <div className="w-20 h-16">
+      <div className="w-20 h-16 overflow-hidden">
         <CldImage
           width="80"
           height="64"
@@ -57,7 +57,7 @@ const Product = ({ product, queryClient }) => {
             {product.price}
           </p>
         </div>
-        {!isError && (
+        {session?.user?.role === "attendee" && !isError && (
           <div className="flex justify-end">
             {isRedeemStatusLoading ? (
               <LoaderCircle className="animate-spin text-purple-500 w-5 h-5" />
