@@ -98,7 +98,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-purple-50 flex flex-col justify-center items-center">
       <div
-        className="w-full h-[30vh] bg-cover bg-center shadow-lg mb-4"
+        className="w-full h-[20vh] sm:h-[35vh] bg-cover bg-center shadow-lg mb-4"
         style={{
           backgroundImage: `url('https://res.cloudinary.com/dmbxx03vp/image/upload/v1728375736/wit-1_kdwa2w.jpg')`,
         }}
@@ -106,7 +106,7 @@ const HomePage = () => {
         <div className="flex justify-end p-4">
           <button
             onClick={() => signOut({ callbackUrl: "/" })}
-            className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
           >
             Log Out
           </button>
@@ -132,7 +132,7 @@ const HomePage = () => {
         )}
       </div>
 
-      <div className="px-8 py-4 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
+      <div className="px-8 py-4 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-screen-xl">
         {session?.user &&
           tiles
             .filter((tile) => (isSponsor ? tile.visibleToSponsor : true))
