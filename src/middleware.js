@@ -46,7 +46,8 @@ export async function middleware(req) {
   if (
     token &&
     token.role === "sponsor" &&
-    currentUrl.pathname.startsWith("/marketplace")
+    (currentUrl.pathname.startsWith("/marketplace") ||
+      currentUrl.pathname.startsWith("/games"))
   ) {
     return NextResponse.redirect(new URL("/home", req.url));
   }
@@ -71,6 +72,7 @@ export const config = {
     "/home",
     "/profile",
     "/games",
+    "/games/:path*",
     "/agenda",
     "/marketplace",
     "/rooms",

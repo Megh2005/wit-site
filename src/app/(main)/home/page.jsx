@@ -89,23 +89,23 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-purple-50 flex flex-col justify-center items-center p-8">
       <div className="mb-4 justify-center items-center text-center">
-  {isSuccess && (
-    <p className="bg-gradient-to-r from-gray-900 to-emerald-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out">
-      <p className="flex items-center gap-1 text-2xl justify-center text-white">
-        <span>Balance :</span>
-        <span>{coins.data}</span>
-        <FcRating className="text-2xl" />
-      </p>
-    </p>
-  )}
+        {isSuccess && (
+          <p className="bg-gradient-to-r from-gray-900 to-emerald-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out">
+            <p className="flex items-center gap-1 text-2xl justify-center text-white">
+              <span>Balance :</span>
+              <span>{coins.data}</span>
+              <FcRating className="text-2xl" />
+            </p>
+          </p>
+        )}
 
-  {/* Loading State */}
-  {isLoading && (
-    <p className="text-center text-gray-600 text-sm">
-      <span className="loader mr-2"></span>
-    </p>
-  )}
-</div>
+        {/* Loading State */}
+        {isLoading && (
+          <p className="text-center text-gray-600 text-sm">
+            <span className="loader mr-2"></span>
+          </p>
+        )}
+      </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
         {tiles.map((tile) => (
@@ -127,6 +127,23 @@ const HomePage = () => {
             </Link>
           </div>
         ))}
+        {(session?.user?.role === "admin" ||
+          session?.user?.role === "sponsor") && (
+          <div className="bg-purple-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-purple-400 transition duration-300 group">
+            <Link href={"/scan"}>
+              <div className="w-full aspect-square overflow-hidden mb-1">
+                <img
+                  src={""}
+                  alt="Scan QR"
+                  className="object-cover w-full h-full rounded-md transition duration-300"
+                />
+              </div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-pink-600 mb-[-10px] group-hover:text-blue-800">
+                Scan QR
+              </h2>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
