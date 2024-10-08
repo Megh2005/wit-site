@@ -10,7 +10,7 @@ const sponsors = [
     id: 1,
     name: "Deloitte",
     tier: "Platinum",
-    logo: "https://www2.deloitte.com/content/dam/assets/logos/deloitte.svg",
+    logo: "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728391070/Deloitte-Logo_drssm6.jpg",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
   },
   {
@@ -109,39 +109,39 @@ const sponsors = [
 // Define gradients and text colors for each tier
 const tierStyles = {
   Platinum: {
-    gradient: "bg-gradient-to-r from-emerald-700 to-blue-500",
+    gradient: "bg-transperant",
     textColor: "text-gray-100",
   },
   Gold: {
-    gradient: "bg-gradient-to-r from-yellow-500 to-yellow-700",
+    gradient: "bg-transperant",
     textColor: "text-gray-100",
   },
   Silver: {
-    gradient: "bg-gradient-to-r from-gray-700 to-gray-500",
+    gradient: "bg-transperant",
     textColor: "text-gray-200",
   },
   Bronze: {
-    gradient: "bg-gradient-to-r from-red-700 to-red-500",
+    gradient: "bg-transperant",
     textColor: "text-red-100",
   },
   NextGen: {
-    gradient: "bg-gradient-to-tl from-pink-600 to-teal-200",
+    gradient: "bg-transperant",
     textColor: "text-white",
   },
   Wifi: {
-    gradient: "bg-gradient-to-r from-teal-500 to-blue-400",
+    gradient: "bg-transperant",
     textColor: "text-gray-100",
   },
   "Pre-Dinner": {
-    gradient: "bg-gradient-to-r from-pink-500 to-red-500",
+    gradient: "bg-transperant",
     textColor: "text-white",
   },
   "Community Partners": {
-    gradient: "bg-gradient-to-r from-indigo-500 to-teal-400",
+    gradient: "bg-transperant",
     textColor: "text-white",
   },
   "After Party": {
-    gradient: "bg-gradient-to-r from-orange-500 to-yellow-400",
+    gradient: "bg-transperant",
     textColor: "text-gray-800",
   },
 };
@@ -279,20 +279,6 @@ const Sponsors = () => {
                     alt={`${sponsor.name} Logo`}
                     className="w-[80vw] h-24 mb-4 object-contain"
                   />
-                  <h3
-                    className={`${
-                      tierStyles[sponsor.tier]?.textColor
-                    } text-2xl font-bold mb-2`}
-                  >
-                    {sponsor.name}
-                  </h3>
-                  <p
-                    className={`${
-                      tierStyles[sponsor.tier]?.textColor
-                    } font-semibold`}
-                  >
-                    Tier: {sponsor.tier}
-                  </p>
                 </motion.div>
               ))}
             </div>
