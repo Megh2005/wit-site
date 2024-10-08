@@ -1,6 +1,5 @@
 "use client";
 
-import { QrCode } from "lucide-react";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,9 +22,6 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="flex gap-4 items-center">
-        <Link href={"/scan"}>
-          <QrCode className="w-6 h-6 text-white" />
-        </Link>
         <button
           onClick={() => signOut({ callbackUrl: "/" })}
           className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
