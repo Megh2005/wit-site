@@ -1,4 +1,7 @@
+"use client";
 import React from "react";
+import Link from "next/link";
+
 
 const AgendaPage = () => {
   const agendaItems = [
@@ -6,7 +9,7 @@ const AgendaPage = () => {
       id: 1,
       gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
       speaker: "Sangeeta Sinha",
-      designation: "AVP, Barclays",
+      talk: "Panel",
       time: "10:00 AM",
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306945/speakers/Sangeeta_Sinha_ppsryr.jpg",
@@ -17,7 +20,7 @@ const AgendaPage = () => {
       id: 2,
       gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
       speaker: "Priya Shaw",
-      designation: "Senior Specialist, LTIMindtree",
+      talk: "Enabling intelligent integration with Einstein and MuleSoft",
       time: "10:00 AM",
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306945/speakers/Priya_Shaw_bwfsdc.jpg",
@@ -28,7 +31,7 @@ const AgendaPage = () => {
       id: 3,
       gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
       speaker: "Amit Malik",
-      designation: "Cloud Content Portfolio Lead-AI, Salesforce",
+      talk: "An Architect eye to Salesforce AI",
       time: "10:00 AM",
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306944/speakers/Amit_Malik_te9yno.png",
@@ -39,7 +42,7 @@ const AgendaPage = () => {
       id: 4,
       gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
       speaker: "Lakhan Meghani",
-      designation: "Sr. Salesforce Developer, CUBE84",
+      talk: "Mastering SFMC REST APIs for Marketing Success",
       time: "10:00 AM",
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306944/speakers/Lakhan_Meghani_obnl4l.jpg",
@@ -50,7 +53,7 @@ const AgendaPage = () => {
       id: 5,
       gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
       speaker: "Santanu Boral",
-      designation: "Sr. Director - Software Engineering, Concentrix Catalyst",
+      talk: "Building your first Salesforce product for AppExchange",
       time: "10:00 AM",
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306944/speakers/Santanu_Boral_wtca6v.png",
@@ -61,7 +64,7 @@ const AgendaPage = () => {
       id: 6,
       gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
       speaker: "Paresh Kumar Lalchandani",
-      designation: "Senior Salesforce Business System Analyst, Arcserve",
+      talk: "Unlocking Collaboration: An Introduction to Salesforce.org Open Source Commons",
       time: "10:00 AM",
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306944/speakers/Paresh_Kumar_zbtoev.jpg",
@@ -85,12 +88,12 @@ const AgendaPage = () => {
               <div className="md:w-1/3 text-lg font-bold text-center md:text-left">
                 {item.time}
               </div>
-              <div className="md:w-1/3 text-md font-bold text-center">
-                {item.designation}
+              <div className="md:w-1/3 text-md capitalize font-bold text-center">
+                {item.talk}
               </div>
-              <div className="md:w-1/3 text-lg font-extrabold text-center md:text-right">
+              <Link href={item.linkedinUrl} target="_blank" className="md:w-1/3 underline text-lg font-extrabold text-center md:text-right">
                 Speaker : {item.speaker}
-              </div>
+              </Link>
             </div>
           ))}
         </div>
