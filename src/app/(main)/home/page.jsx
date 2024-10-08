@@ -133,7 +133,9 @@ const HomePage = () => {
             <Link href={"/scan"}>
               <div className="w-full aspect-square overflow-hidden mb-1">
                 <img
-                  src={""}
+                  src={
+                    "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728374392/WIT_rtsrnp.png"
+                  }
                   alt="Scan QR"
                   className="object-cover w-full h-full rounded-md transition duration-300"
                 />
