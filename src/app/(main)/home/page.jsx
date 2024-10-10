@@ -83,6 +83,24 @@ const HomePage = () => {
       route: "/contact",
       visibleToSponsor: true,
     },
+    {
+      id: 9,
+      title: "Privacy Policy",
+      description: "Description for Tile 6",
+      imageUrl:
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728583177/privacy_policy_theme_okzpsf.jpg",
+      route: "/privacy-policy",
+      visibleToSponsor: true,
+    },
+    {
+      id: 10,
+      title: "Terms",
+      description: "Description for Tile 6",
+      imageUrl:
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728584036/terms_conditions_ohcc5r.jpg",
+      route: "/terms",
+      visibleToSponsor: true,
+    },
   ];
 
   const {

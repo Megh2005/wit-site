@@ -34,5 +34,6 @@ module.exports = {
   plugins: [
     require("@tailwindcss/forms"), // Added forms plugin for better form styling
     // You can add more plugins here if needed
+    
   ],
 };
