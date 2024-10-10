@@ -165,7 +165,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="px-8 py-4 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols- gap-6 w-full max-w-screen-xl">
+      <div className="px-8 py-4 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
         {session?.user &&
           tiles
             .filter((tile) => (isSponsor ? tile.visibleToSponsor : true))
