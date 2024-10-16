@@ -111,7 +111,6 @@ const HomePage = () => {
   } = useQuery({
     queryKey: ["coin-balance"],
     queryFn: getCoinBalance,
-    staleTime: 2 * 60 * 1000,
   });
 
   if (!session?.user) {

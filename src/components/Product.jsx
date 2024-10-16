@@ -1,6 +1,6 @@
 "use client";
 
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getProductRedeemStatus, redeemProduct } from "@/queries/product";
 import { LoaderCircle } from "lucide-react";
 import { FcRating } from "react-icons/fc";
@@ -8,9 +8,10 @@ import toast from "react-hot-toast";
 import { CldImage } from "next-cloudinary";
 import { useSession } from "next-auth/react";
 
-const Product = ({ product, queryClient }) => {
+const Product = ({ product }) => {
   const productId = product.id;
   const { data: session } = useSession();
+  const queryClient = useQueryClient();
 
   const { isPending, mutate } = useMutation({
     mutationFn: () => redeemProduct(product.id),
