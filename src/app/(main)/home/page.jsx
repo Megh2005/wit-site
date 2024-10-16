@@ -83,6 +83,24 @@ const HomePage = () => {
       route: "/contact",
       visibleToSponsor: true,
     },
+    {
+      id: 9,
+      title: "Privacy Policy",
+      description: "Description for Tile 6",
+      imageUrl:
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728583177/privacy_policy_theme_okzpsf.jpg",
+      route: "/privacy-policy",
+      visibleToSponsor: true,
+    },
+    {
+      id: 10,
+      title: "Terms",
+      description: "Description for Tile 6",
+      imageUrl:
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728584036/terms_conditions_ohcc5r.jpg",
+      route: "/terms",
+      visibleToSponsor: true,
+    },
   ];
 
   const {
@@ -146,7 +164,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="px-8 py-4 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols- gap-6 w-full max-w-screen-xl">
+      <div className="px-8 py-4 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
         {session?.user &&
           tiles
             .filter((tile) => (isSponsor ? tile.visibleToSponsor : true))
