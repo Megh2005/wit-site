@@ -6,7 +6,7 @@ const elements = [
   { name: "Slogan Symphony", route: "/games/gameone" },
   { name: "Demo Jam", route: "/games/demo-jam" },
   { name: "Find Them All", route: "/games/find-user" },
-  { name: "GAME 1", route: "/" },
+  { name: "Treasure Hunt", route: "/games/treasure-hunt" },
 ];
 
 const tileVariants = {
