@@ -9,7 +9,11 @@ import React, { Suspense, useEffect, useState } from "react";
 import { authOptions } from "../api/auth/[...nextauth]/options";
 import PaymentSuccess from "@/components/Success";
 import PaymentFailure from "@/components/Failure";
-import { QueryClient, useMutation } from "@tanstack/react-query";
+import {
+  QueryClient,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { transferFromSponsorToUser } from "@/queries/coin";
 import toast from "react-hot-toast";
 
@@ -25,7 +29,7 @@ const PaymentPage = () => {
   const [success, setSuccess] = useState("");
   const [transferring, setTransferring] = useState(false);
 
-  const queryClient = new QueryClient();
+  const queryClient = useQueryClient();
 
   const { isPending, mutate } = useMutation({
     mutationFn: () =>
@@ -38,7 +42,6 @@ const PaymentPage = () => {
       // Invalidate and refetch
       setTransferring(false);
       setSuccess("Coins transferred successfully!");
-      queryClient.invalidateQueries({ queryKey: ["coin-balance"] });
     },
     onError: (error) => {
       setError(error.response?.data?.message || "Error transferring coins");

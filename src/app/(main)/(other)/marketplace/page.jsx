@@ -44,13 +44,7 @@ const Marketplace = () => {
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl p-4">
         {products?.data.map((product) => {
-          return (
-            <Product
-              key={product.id}
-              product={product}
-              queryClient={queryClient}
-            />
-          );
+          return <Product key={product.id} product={product} />;
         })}
       </div>
     </div>
