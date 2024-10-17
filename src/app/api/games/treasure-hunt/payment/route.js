@@ -52,7 +52,7 @@ export async function POST(req) {
       const { coins: senderCoins } = senderData;
       const { coins: receiverCoins } = receiverData;
 
-      const amount = senderCoins;
+      const amount = parseInt(senderCoins);
 
       // Check if sender has enough coins
       if (parseInt(senderCoins) < amount) {
@@ -83,8 +83,14 @@ export async function POST(req) {
 
       // create a record of the transaction
       transaction.set(doc(db, "treasure-hunt-txns", Date.now().toString()), {
-        sender,
-        receiver,
+        sender: {
+          id: sender,
+          ...senderData,
+        },
+        receiver: {
+          id: receiver,
+          ...receiverData,
+        },
         amount,
       });
     });
