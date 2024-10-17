@@ -54,11 +54,6 @@ export async function POST(req) {
 
       const amount = parseInt(senderCoins);
 
-      // Check if sender has enough coins
-      if (parseInt(senderCoins) < amount) {
-        throw new Error("Insufficient coins");
-      }
-
       // Check if transaction already made
 
       const transactionRef = collection(db, "treasure-hunt-txns");
