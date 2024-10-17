@@ -17,6 +17,10 @@ export async function POST(req) {
       throw new Error("Sender, receiver, and amount are required");
     }
 
+    if (sender === receiver) {
+      throw new Error("Sender and receiver cannot be the same");
+    }
+
     if (amount > 2000) {
       throw new Error("Cannot transfer more than 2000 coins");
     }

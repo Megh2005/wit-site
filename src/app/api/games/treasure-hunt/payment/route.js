@@ -17,8 +17,16 @@ export async function POST(req) {
   const { id: sender } = user;
 
   try {
-    if (!receiver) {
+    if (!receiver || !user) {
       throw new Error("Receiver is required");
+    }
+
+    if (user.role !== "volunteer") {
+      throw new Error("Unauthorized");
+    }
+
+    if (receiver === sender) {
+      throw new Error("Sender and receiver cannot be the same");
     }
 
     // Run transaction
