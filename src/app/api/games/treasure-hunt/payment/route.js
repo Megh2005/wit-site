@@ -64,8 +64,8 @@ export async function POST(req) {
       const transactionRef = collection(db, "treasure-hunt-txns");
       const q = query(
         transactionRef,
-        where("sender", "==", sender),
-        where("receiver", "==", receiver)
+        where("sender.id", "==", sender),
+        where("receiver.id", "==", receiver)
       );
       const transactionDoc = await getDocs(q);
 
@@ -85,11 +85,17 @@ export async function POST(req) {
       transaction.set(doc(db, "treasure-hunt-txns", Date.now().toString()), {
         sender: {
           id: sender,
-          ...senderData,
+          name: senderData.name,
+          email: senderData.email,
+          contactNumber: senderData.contactNumber,
+          role: senderData.role,
         },
         receiver: {
           id: receiver,
-          ...receiverData,
+          name: receiverData.name,
+          email: receiverData.email,
+          contactNumber: receiverData.contactNumber,
+          role: receiverData.role,
         },
         amount,
       });
