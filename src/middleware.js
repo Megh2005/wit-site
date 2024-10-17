@@ -30,14 +30,18 @@ export async function middleware(req) {
       currentUrl.pathname.startsWith("/sponspors") ||
       currentUrl.pathname.startsWith("/scan") ||
       currentUrl.pathname.startsWith("/payment") ||
-      currentUrl.pathname.startsWith("/add-product"))
+      currentUrl.pathname.startsWith("/add-product") ||
+      currentUrl.pathname.startsWith("/organizers") ||
+      currentUrl.pathname.startsWith("/contact") ||
+      currentUrl.pathname.startsWith("/privacy-policy") ||
+      currentUrl.pathname.startsWith("/terms"))
   ) {
     return NextResponse.redirect(new URL("/", req.url));
   }
 
   if (
     token &&
-    token.role === "attendee" &&
+    (token.role === "attendee" || token.role === "volunteer") &&
     currentUrl.pathname.startsWith("/payment")
   ) {
     return NextResponse.redirect(new URL("/home", req.url));
@@ -83,5 +87,9 @@ export const config = {
     "/marketplace/orders",
     "/api/order/:path*",
     "/add-product",
+    "/organizers",
+    "/contact",
+    "/privacy-policy",
+    "/terms",
   ],
 };

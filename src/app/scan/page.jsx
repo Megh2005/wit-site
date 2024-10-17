@@ -46,6 +46,29 @@ const ScanPage = () => {
       setTransferring(false);
     }
   };
+  const transferCoinsFromVolunteerToUser = async (uid) => {
+    scannerRef.current.clear(); // Clear the scanner after a successful scan
+
+    setTransferring(true);
+
+    try {
+      const res = await axios.post("/api/games/treasure-hunt/payment", {
+        receiver: uid,
+      });
+
+      if (res.data.status === "SUCCESS") {
+        setSuccess(true);
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        setError(error.response?.data?.message || "Error transferring coins");
+      } else {
+        setError("Something went wrong. Please try again");
+      }
+    } finally {
+      setTransferring(false);
+    }
+  };
 
   const onSuccessHandler = useCallback(
     async (result) => {
@@ -61,6 +84,8 @@ const ScanPage = () => {
       } else if (session.user?.role === "sponsor") {
         // redirect to payment page
         router.replace(`/payment?to=${result}`);
+      } else if (session.user?.role === "volunteer") {
+        transferCoinsFromVolunteerToUser(result);
       }
     },
     [session, uid]

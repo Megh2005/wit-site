@@ -14,3 +14,8 @@ export async function getFindAllusers() {
   const res = await axios.get("/api/games/find-user");
   return res.data;
 }
+
+export async function getTreasureHunts() {
+  const res = await axios.get("/api/games/treasure-hunt");
+  return res.data;
+}
