@@ -30,6 +30,7 @@ const Hunt1 = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["hunt-1"] });
+      queryClient.invalidateQueries({ queryKey: ["treasure-hunt"] });
     },
     onError: (error) => {},
   });
