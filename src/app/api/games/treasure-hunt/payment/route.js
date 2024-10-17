@@ -1,3 +1,4 @@
+import { authOptions } from "@/app/api/auth/[...nextauth]/options";
 import { db } from "@/services/firebaseinit";
 import {
   collection,
@@ -7,22 +8,25 @@ import {
   runTransaction,
   where,
 } from "firebase/firestore";
+import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
-  const { sender, receiver, amount } = await req.json();
+  const { receiver } = await req.json();
+  const { user } = await getServerSession(authOptions);
+  const { id: sender } = user;
 
   try {
-    if (!sender || !receiver || !amount) {
-      throw new Error("Sender, receiver, and amount are required");
+    if (!receiver || !user) {
+      throw new Error("Receiver is required");
     }
 
-    if (sender === receiver) {
+    if (user.role !== "volunteer") {
+      throw new Error("Unauthorized");
+    }
+
+    if (receiver === sender) {
       throw new Error("Sender and receiver cannot be the same");
-    }
-
-    if (amount > 2000) {
-      throw new Error("Cannot transfer more than 2000 coins");
     }
 
     // Run transaction
@@ -48,18 +52,15 @@ export async function POST(req) {
       const { coins: senderCoins } = senderData;
       const { coins: receiverCoins } = receiverData;
 
-      // Check if sender has enough coins
-      if (parseInt(senderCoins) < amount) {
-        throw new Error("Insufficient coins");
-      }
+      const amount = parseInt(senderCoins);
 
       // Check if transaction already made
 
-      const transactionRef = collection(db, "transactions");
+      const transactionRef = collection(db, "treasure-hunt-txns");
       const q = query(
         transactionRef,
-        where("sender", "==", sender),
-        where("receiver", "==", receiver)
+        where("sender.id", "==", sender),
+        where("receiver.id", "==", receiver)
       );
       const transactionDoc = await getDocs(q);
 
@@ -76,9 +77,21 @@ export async function POST(req) {
       transaction.update(receiverRef, { coins: newReceiverCoins.toString() });
 
       // create a record of the transaction
-      transaction.set(doc(db, "transactions", Date.now().toString()), {
-        sender,
-        receiver,
+      transaction.set(doc(db, "treasure-hunt-txns", Date.now().toString()), {
+        sender: {
+          id: sender,
+          name: senderData.name,
+          email: senderData.email,
+          contactNumber: senderData.contactNumber,
+          role: senderData.role,
+        },
+        receiver: {
+          id: receiver,
+          name: receiverData.name,
+          email: receiverData.email,
+          contactNumber: receiverData.contactNumber,
+          role: receiverData.role,
+        },
         amount,
       });
     });

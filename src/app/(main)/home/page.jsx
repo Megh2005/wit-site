@@ -188,7 +188,8 @@ const HomePage = () => {
               </div>
             ))}
         {(session?.user?.role === "admin" ||
-          session?.user?.role === "sponsor") && (
+          session?.user?.role === "sponsor" ||
+          session?.user?.role === "volunteer") && (
           <div className="bg-purple-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-purple-400 transition duration-300 group">
             <Link href={"/scan"}>
               <div className="w-full aspect-square overflow-hidden mb-1">
