@@ -29,7 +29,7 @@ const TreasureHuntPage = () => {
               {game.name}
             </h2>
             <div className="flex text-sm justify-between px-[-2rem] font-semibold gap-6">
-              <p className="text-gray-700 text-lg">Status: {game.status}</p>
+              <p className="text-gray-700 capitalize text-lg">Status: {game.status}</p>
               <p className="text-gray-700 text-lg">
                 Target Coins: {game.targetCoins}
               </p>

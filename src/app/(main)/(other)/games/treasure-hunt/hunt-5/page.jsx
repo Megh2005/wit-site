@@ -4,7 +4,7 @@ import axios from "axios";
 import { LoaderCircle } from "lucide-react";
 import { useSession } from "next-auth/react";
 
-const Hunt1 = () => {
+const Hunt5 = () => {
   const { data: session } = useSession();
   const queryClient = useQueryClient();
 
@@ -13,9 +13,9 @@ const Hunt1 = () => {
     isLoading: huntLoading,
     isError: huntError,
   } = useQuery({
-    queryKey: ["hunt-1"],
+    queryKey: ["hunt-5"],
     queryFn: async () => {
-      const res = await axios.get("/api/games/treasure-hunt/hunt-1");
+      const res = await axios.get("/api/games/treasure-hunt/hunt-5");
       return res.data;
     },
     staleTime: Infinity,
@@ -23,13 +23,13 @@ const Hunt1 = () => {
 
   const { mutate, isPending } = useMutation({
     mutationFn: async () => {
-      const res = await axios.post("/api/games/treasure-hunt/hunt-1", {
+      const res = await axios.post("/api/games/treasure-hunt/hunt-5", {
         huntId: huntData?.data.id,
       });
       return res.data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["hunt-1"] });
+      queryClient.invalidateQueries({ queryKey: ["hunt-5"] });
       queryClient.invalidateQueries({ queryKey: ["treasure-hunt"] });
     },
     onError: (error) => {},
@@ -54,16 +54,16 @@ const Hunt1 = () => {
   if (huntData?.data.status === "closed") {
     return (
       <div className="px-4 py-6">
-        <p className="text-center font-bold text-xl">Hunt has been closed</p>
+        <p className="text-center capitalize font-bold text-xl">
+          Hunt has been closed
+        </p>
       </div>
     );
   }
 
   return (
     <div className="overflow-hidden h-screen px-4 py-6 justify-center items-center">
-      <h1 className="text-center underline font-bold text-xl">
-        The Encrypted Map
-      </h1>
+      <h1 className="text-center underline font-bold text-xl">The Alchemist</h1>
       <p className="text-center text-lg font-extrabold my-4">
         Assigned Volunteer:{" "}
         <span className="font-bold">{huntData?.data.volunteer.name}</span>
@@ -90,28 +90,27 @@ const Hunt1 = () => {
           Background
         </h2>
         <p className="text-blue-700 text-center font-semibold">
-          In the ancient city of Alzara, treasure hunters found a cryptic map
-          with a message written in strange symbols. The map is said to lead to
-          a lost treasure, but only those who can decode the symbols will find
-          their way
+          In a hidden chamber of a forgotten castle, an alchemist’s codex was
+          discovered. This ancient book contained wisdom about the transmutation
+          of elements, but a mysterious sequence of numbers was written in the
+          margins. Only those who can decode the numbers will unlock the secrets
+          of the alchemist.
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">
           Question
         </h2>
         <p className="text-emerald-600 text-center font-semibold">
-          "You hold the key to riches untold. But first, unlock the map's hidden
-          fold. A pattern of numbers guides the way, converting letters with
-          ease today"
+          "Elements change, but numbers remain. Follow the pattern, and
+          knowledge you'll gain. From the periodic table, take your clue, find
+          the symbols, and see what’s true."
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
         <p className="text-fuchsia-500 text-center font-semibold">
-          The sequence of numbers is 3, 1, 4, 1, 5. Use it as a shift cipher for
-          the alphabet, starting from the first letter of the alphabet for the
-          first shift
+          The sequence of numbers is: 6, 8, 15, 39 <br/>Use these wisely
         </p>
       </div>
     </div>
   );
 };
 
-export default Hunt1;
+export default Hunt5;

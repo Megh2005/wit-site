@@ -4,7 +4,7 @@ import axios from "axios";
 import { LoaderCircle } from "lucide-react";
 import { useSession } from "next-auth/react";
 
-const Hunt1 = () => {
+const Hunt4 = () => {
   const { data: session } = useSession();
   const queryClient = useQueryClient();
 
@@ -13,9 +13,9 @@ const Hunt1 = () => {
     isLoading: huntLoading,
     isError: huntError,
   } = useQuery({
-    queryKey: ["hunt-1"],
+    queryKey: ["hunt-4"],
     queryFn: async () => {
-      const res = await axios.get("/api/games/treasure-hunt/hunt-1");
+      const res = await axios.get("/api/games/treasure-hunt/hunt-4");
       return res.data;
     },
     staleTime: Infinity,
@@ -23,13 +23,13 @@ const Hunt1 = () => {
 
   const { mutate, isPending } = useMutation({
     mutationFn: async () => {
-      const res = await axios.post("/api/games/treasure-hunt/hunt-1", {
+      const res = await axios.post("/api/games/treasure-hunt/hunt-4", {
         huntId: huntData?.data.id,
       });
       return res.data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["hunt-1"] });
+      queryClient.invalidateQueries({ queryKey: ["hunt-4"] });
       queryClient.invalidateQueries({ queryKey: ["treasure-hunt"] });
     },
     onError: (error) => {},
@@ -54,7 +54,9 @@ const Hunt1 = () => {
   if (huntData?.data.status === "closed") {
     return (
       <div className="px-4 py-6">
-        <p className="text-center font-bold text-xl">Hunt has been closed</p>
+        <p className="text-center capitalize font-bold text-xl">
+          Hunt has been closed
+        </p>
       </div>
     );
   }
@@ -62,7 +64,7 @@ const Hunt1 = () => {
   return (
     <div className="overflow-hidden h-screen px-4 py-6 justify-center items-center">
       <h1 className="text-center underline font-bold text-xl">
-        The Encrypted Map
+        The Clock Tower
       </h1>
       <p className="text-center text-lg font-extrabold my-4">
         Assigned Volunteer:{" "}
@@ -90,28 +92,26 @@ const Hunt1 = () => {
           Background
         </h2>
         <p className="text-blue-700 text-center font-semibold">
-          In the ancient city of Alzara, treasure hunters found a cryptic map
-          with a message written in strange symbols. The map is said to lead to
-          a lost treasure, but only those who can decode the symbols will find
-          their way
+          In the town of Rivenmoor, an old clock tower was said to hide the key
+          to an ancient mystery. Inside, a note was found on the face of the
+          clock, with a set of strange, mixed-up letters. The town elders say
+          the clue lies within the workings of time itself.
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">
           Question
         </h2>
         <p className="text-emerald-600 text-center font-semibold">
-          "You hold the key to riches untold. But first, unlock the map's hidden
-          fold. A pattern of numbers guides the way, converting letters with
-          ease today"
+          "Time ticks, but words don’t rhyme. Arrange the letters according to
+          time. Start at midnight, and go around. The correct order will soon be
+          found."
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
         <p className="text-fuchsia-500 text-center font-semibold">
-          The sequence of numbers is 3, 1, 4, 1, 5. Use it as a shift cipher for
-          the alphabet, starting from the first letter of the alphabet for the
-          first shift
+          The scrambled letters are: <span className="italic text-red-600">KLOCCOTWERTI</span><br/> Arrange them as if the hands of a clock guided their order.
         </p>
       </div>
     </div>
   );
 };
 
-export default Hunt1;
+export default Hunt4;

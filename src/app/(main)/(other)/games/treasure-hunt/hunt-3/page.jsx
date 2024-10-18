@@ -4,7 +4,7 @@ import axios from "axios";
 import { LoaderCircle } from "lucide-react";
 import { useSession } from "next-auth/react";
 
-const Hunt1 = () => {
+const Hunt3 = () => {
   const { data: session } = useSession();
   const queryClient = useQueryClient();
 
@@ -13,9 +13,9 @@ const Hunt1 = () => {
     isLoading: huntLoading,
     isError: huntError,
   } = useQuery({
-    queryKey: ["hunt-1"],
+    queryKey: ["hunt-3"],
     queryFn: async () => {
-      const res = await axios.get("/api/games/treasure-hunt/hunt-1");
+      const res = await axios.get("/api/games/treasure-hunt/hunt-3");
       return res.data;
     },
     staleTime: Infinity,
@@ -23,13 +23,13 @@ const Hunt1 = () => {
 
   const { mutate, isPending } = useMutation({
     mutationFn: async () => {
-      const res = await axios.post("/api/games/treasure-hunt/hunt-1", {
+      const res = await axios.post("/api/games/treasure-hunt/hunt-3", {
         huntId: huntData?.data.id,
       });
       return res.data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["hunt-1"] });
+      queryClient.invalidateQueries({ queryKey: ["hunt-3"] });
       queryClient.invalidateQueries({ queryKey: ["treasure-hunt"] });
     },
     onError: (error) => {},
@@ -54,7 +54,9 @@ const Hunt1 = () => {
   if (huntData?.data.status === "closed") {
     return (
       <div className="px-4 py-6">
-        <p className="text-center font-bold text-xl">Hunt has been closed</p>
+        <p className="text-center capitalize font-bold text-xl">
+          Hunt has been closed
+        </p>
       </div>
     );
   }
@@ -62,7 +64,7 @@ const Hunt1 = () => {
   return (
     <div className="overflow-hidden h-screen px-4 py-6 justify-center items-center">
       <h1 className="text-center underline font-bold text-xl">
-        The Encrypted Map
+        The Secret Recipe
       </h1>
       <p className="text-center text-lg font-extrabold my-4">
         Assigned Volunteer:{" "}
@@ -90,28 +92,26 @@ const Hunt1 = () => {
           Background
         </h2>
         <p className="text-blue-700 text-center font-semibold">
-          In the ancient city of Alzara, treasure hunters found a cryptic map
-          with a message written in strange symbols. The map is said to lead to
-          a lost treasure, but only those who can decode the symbols will find
-          their way
+          A famous chef left behind a secret recipe encoded in a strange set of
+          ingredients. It is said that the recipe would unlock a vault full of
+          culinary secrets, but only if the code is cracked
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">
           Question
         </h2>
         <p className="text-emerald-600 text-center font-semibold">
-          "You hold the key to riches untold. But first, unlock the map's hidden
-          fold. A pattern of numbers guides the way, converting letters with
-          ease today"
+          "Five ingredients, five numbers too. But what they spell is hidden
+          from view. Convert them right, from taste to sight, and soon you'll
+          see the code in flight"
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
         <p className="text-fuchsia-500 text-center font-semibold">
-          The sequence of numbers is 3, 1, 4, 1, 5. Use it as a shift cipher for
-          the alphabet, starting from the first letter of the alphabet for the
-          first shift
+          The ingredients are: Salt-19, Pepper-16, Olive Oil-9, Vinegar-22,
+          Garlic-5. Use the numbers to find letters in the alphabet
         </p>
       </div>
     </div>
   );
 };
 
-export default Hunt1;
+export default Hunt3;

@@ -97,7 +97,7 @@ const sponsors = [
   {
     id: 13,
     name: "Cyntexa",
-    tier: "Pre-Dinner",
+    tier: "Photography",
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuUq2lofwjYFAyLCBp1AO9ekt2MEpCoAXXDw&s",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
@@ -146,7 +146,7 @@ const tierStyles = {
     gradient: "bg-transperant",
     textColor: "text-gray-100",
   },
-  "Pre-Dinner": {
+  "Photography": {
     gradient: "bg-transperant",
     textColor: "text-white",
   },
@@ -175,7 +175,7 @@ const getTierRank = (tier) => {
       return 5;
     case "NextGen":
       return 6;
-    case "Pre-Dinner":
+    case "Photography":
       return 7;
     case "Community Partners":
       return 8;
@@ -230,7 +230,7 @@ const Sponsors = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-5">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white p-5">
       <AnimatePresence>
         {showModal && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -269,7 +269,7 @@ const Sponsors = () => {
           "Bronze",
           "Wifi",
           "NextGen",
-          "Pre-Dinner",
+          "Photography",
           "Community Partners",
           "After Party",
         ].map((tier) => (
