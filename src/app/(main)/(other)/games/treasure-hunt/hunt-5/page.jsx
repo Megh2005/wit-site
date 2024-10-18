@@ -90,7 +90,7 @@ const Hunt5 = () => {
           Background
         </h2>
         <p className="text-blue-700 text-center font-semibold">
-          In a hidden chamber of a forgotten castle, an alchemist’s codex was
+          In a hidden chamber of a forgotten castle, an alchemist&apos;s codex was
           discovered. This ancient book contained wisdom about the transmutation
           of elements, but a mysterious sequence of numbers was written in the
           margins. Only those who can decode the numbers will unlock the secrets
@@ -101,8 +101,8 @@ const Hunt5 = () => {
         </h2>
         <p className="text-emerald-600 text-center font-semibold">
           Elements change, but numbers remain. Follow the pattern, and
-          knowledge you'll gain. From the periodic table, take your clue, find
-          the symbols, and see what’s true.
+          knowledge you will gain. From the periodic table, take your clue, find
+          the symbols, and see what&apos;s true.
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
         <p className="text-fuchsia-500 text-center font-semibold">

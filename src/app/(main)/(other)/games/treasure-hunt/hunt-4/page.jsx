@@ -101,7 +101,7 @@ const Hunt4 = () => {
           Question
         </h2>
         <p className="text-emerald-600 text-center font-semibold">
-          Time ticks, but words don’t rhyme. Arrange the letters according to
+          Time ticks, but words do not rhyme. Arrange the letters according to
           time. Start at midnight, and go around. The correct order will soon be
           found.
         </p>

@@ -93,7 +93,7 @@ const Hunt2 = () => {
           During the Cold War, a top-secret military base received a distress
           signal from an undercover agent. The signal was a series of seemingly
           random letters and numbers, but hidden within was a code that would
-          reveal the agent's location
+          reveal the agent&apos;s location
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">
           Question
@@ -105,7 +105,7 @@ const Hunt2 = () => {
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
         <p className="text-fuchsia-500 text-center font-semibold">
-          The agent's signal is: <span className="italic text-red-600">M4E1S5S2A1G3E</span><br/> Extract the letters that appear
+          The agent&apos;s signal is: <span className="italic text-red-600">M4E1S5S2A1G3E</span><br/> Extract the letters that appear
           right after the numbers.
         </p>
       </div>
