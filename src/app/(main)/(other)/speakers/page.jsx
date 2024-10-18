@@ -1,5 +1,9 @@
 "use client";
-import { getKeynoteSpeakers, getPanelSpeakers } from "@/queries/speaker";
+import {
+  getEsteemedSpeakers,
+  getKeynoteSpeakers,
+  getPanelSpeakers,
+} from "@/queries/speaker";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { LoaderCircle } from "lucide-react";
@@ -16,28 +20,19 @@ const SpeakerArriveAnimation = () => {
     useQuery({
       queryKey: ["keynote-speakers"],
       queryFn: getKeynoteSpeakers,
-      onSuccess: (data) => {
-        console.log(data);
-      },
       staleTime: Infinity,
     });
 
   const { data: panelSpeakers, isLoading: isPanelSpeakerLoading } = useQuery({
     queryKey: ["panel-speakers"],
     queryFn: getPanelSpeakers,
-    onSuccess: (data) => {
-      console.log(data);
-    },
     staleTime: Infinity,
   });
 
   const { data: esteemedSpeakers, isLoading: isEsteemedSpeakerLoading } =
     useQuery({
       queryKey: ["esteemed-speakers"],
-      queryFn: getPanelSpeakers,
-      onSuccess: (data) => {
-        console.log(data);
-      },
+      queryFn: getEsteemedSpeakers,
       staleTime: Infinity,
     });
 
