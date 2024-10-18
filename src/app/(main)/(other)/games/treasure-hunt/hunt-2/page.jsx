@@ -110,9 +110,11 @@ const Hunt2 = () => {
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
         <p className="text-fuchsia-500 text-center font-semibold">
-          The agent&apos;s signal is:{" "}
-          <span className="italic text-red-600">M4E1S5S2A1G3E</span>
-          <br /> Extract the letters that appear right after the numbers.
+          The agent&apos;s signal is :{" "}
+          <span className="italic text-red-600">4d455353414745</span>
+          <br /> You can take a look into your{" "}
+          <span className="italic text-teal-600">Number System</span>
+          <br /> chapter for better reference
         </p>
       </div>
     </div>
