@@ -38,12 +38,12 @@ const SpeakerArriveAnimation = () => {
 
   return (
     <>
-      <h1 className="text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-500 text-transparent bg-clip-text pt-[10vh] mb-8">
+      <h1 className="text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-teal-400 via-teal-500 to-yellow-500 text-transparent bg-clip-text pt-[10vh] mb-8">
         Keynote Speaker
       </h1>
       {isKeynoteSpeakerLoading && (
         <div className="w-full flex mt-6 justify-center">
-          <LoaderCircle className="animate-spin text-purple-500 w-6 h-6" />
+          <LoaderCircle className="animate-spin text-teal-500 w-6 h-6" />
         </div>
       )}
       <div className="w-full flex items-center justify-center overflow-hidden px-4">
@@ -61,7 +61,7 @@ const SpeakerArriveAnimation = () => {
             <motion.div
               key={speaker.id}
               variants={itemVariants}
-              className="w-full h-auto flex flex-col items-center justify-center bg-gradient-to-tl from-amber-500 via-purple-500 to-purple-700 text-white rounded-lg shadow-lg p-4 transition-transform transform hover:scale-105 duration-300"
+              className="w-full h-auto flex flex-col items-center justify-center bg-gradient-to-tl from-amber-500 via-teal-500 to-teal-700 text-white rounded-lg shadow-lg p-4 transition-transform transform hover:scale-105 duration-300"
             >
               {/* Speaker Image */}
               <div className="h-56 w-56 sm:h-48 sm:w-48 lg:h-64 lg:w-64 rounded-full overflow-hidden flex items-center justify-center">
@@ -100,12 +100,13 @@ const SpeakerArriveAnimation = () => {
           ))}
         </motion.div>
       </div>
-      <h1 className="text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-500 text-transparent bg-clip-text pt-[10vh] mb-8">
-        Our Esteemed Speakers
+
+      <h1 className="text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-teal-400 via-teal-500 to-yellow-500 text-transparent bg-clip-text pt-[10vh] mb-8">
+        Our Panel Speakers
       </h1>
-      {isEsteemedSpeakerLoading && (
+      {isPanelSpeakerLoading && (
         <div className="w-full flex mt-6 justify-center">
-          <LoaderCircle className="animate-spin text-purple-500 w-6 h-6" />
+          <LoaderCircle className="animate-spin text-teal-500 w-6 h-6" />
         </div>
       )}
       <div className="w-full flex items-center justify-center overflow-hidden px-4">
@@ -119,7 +120,7 @@ const SpeakerArriveAnimation = () => {
             },
           }}
         >
-          {esteemedSpeakers?.data.map((speaker, index) => (
+          {panelSpeakers?.data.map((speaker, index) => (
             <motion.div
               key={speaker.id}
               variants={itemVariants}
@@ -173,12 +174,12 @@ const SpeakerArriveAnimation = () => {
           ))}
         </motion.div>
       </div>
-      <h1 className="text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-500 text-transparent bg-clip-text pt-[10vh] mb-8">
-        Our Panel Speakers
+      <h1 className="text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-teal-400 via-teal-500 to-yellow-500 text-transparent bg-clip-text pt-[10vh] mb-8">
+        Our Esteemed Speakers
       </h1>
-      {isPanelSpeakerLoading && (
+      {isEsteemedSpeakerLoading && (
         <div className="w-full flex mt-6 justify-center">
-          <LoaderCircle className="animate-spin text-purple-500 w-6 h-6" />
+          <LoaderCircle className="animate-spin text-teal-500 w-6 h-6" />
         </div>
       )}
       <div className="w-full flex items-center justify-center overflow-hidden px-4">
@@ -192,11 +193,11 @@ const SpeakerArriveAnimation = () => {
             },
           }}
         >
-          {panelSpeakers?.data.map((speaker, index) => (
+          {esteemedSpeakers?.data.map((speaker, index) => (
             <motion.div
               key={speaker.id}
               variants={itemVariants}
-              className="w-full h-auto flex flex-col items-center justify-center bg-gradient-to-r from-gray-600 to-black text-white rounded-lg shadow-lg p-4 transition-transform transform hover:scale-105 duration-300"
+              className="w-full h-auto flex flex-col items-center justify-center bg-gradient-to-r from-green-600 to-slate-900 text-white rounded-lg shadow-lg p-4 transition-transform transform hover:scale-105 duration-300"
             >
               {/* Speaker Image */}
               <div className="h-56 w-56 sm:h-48 sm:w-48 lg:h-64 lg:w-64 rounded-full overflow-hidden flex items-center justify-center">

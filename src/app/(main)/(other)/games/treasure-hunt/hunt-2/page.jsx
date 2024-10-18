@@ -38,7 +38,7 @@ const Hunt2 = () => {
   if (huntLoading) {
     return (
       <div className="flex justify-center mt-6">
-        <LoaderCircle className="animate-spin text-purple-500 w-6 h-6 " />
+        <LoaderCircle className="animate-spin text-teal-500 w-6 h-6 " />
       </div>
     );
   }
@@ -76,7 +76,7 @@ const Hunt2 = () => {
             <button
               disabled={isPending}
               onClick={mutate}
-              className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              className="text-white bg-gradient-to-r from-teal-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-teal-200 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
             >
               {isPending ? (
                 <LoaderCircle className="animate-spin text-white w-6 h-6" />

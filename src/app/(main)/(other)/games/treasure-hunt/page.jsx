@@ -19,7 +19,7 @@ const TreasureHuntPage = () => {
   if (isLoading) {
     return (
       <div className="w-full flex mt-6 justify-center">
-        <LoaderCircle className="animate-spin text-purple-500 w-6 h-6" />
+        <LoaderCircle className="animate-spin text-teal-500 w-6 h-6" />
       </div>
     );
   }

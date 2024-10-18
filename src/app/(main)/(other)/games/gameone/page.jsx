@@ -69,7 +69,7 @@ export default function SloganSymphony() {
           <div className="relative z-10 w-full max-w-md sm:max-w-2xl bg-white bg-opacity-90 backdrop-blur-md rounded-3xl shadow-2xl p-6 sm:p-8 animate-fadeIn">
             {/* Header Section */}
             <div className="text-center mb-6 sm:mb-8">
-              <h1 className="text-4xl sm:text-5xl py-4 font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-violet-500">
+              <h1 className="text-4xl sm:text-5xl py-4 font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-teal-500">
                 Slogan Symphony
               </h1>
               <p className="mt-2 text-base sm:text-lg capitalize font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-800 to-blue-600">

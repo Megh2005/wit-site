@@ -116,15 +116,15 @@ const HomePage = () => {
   if (!session?.user) {
     return (
       <div>
-        <div className="min-h-screen bg-purple-50 flex justify-center items-center">
-          <LoaderCircle className="w-8 h-8 animate-spin text-purple-500" />
+        <div className="min-h-screen bg-teal-50 flex justify-center items-center">
+          <LoaderCircle className="w-8 h-8 animate-spin text-teal-500" />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-purple-50 flex flex-col justify-center items-center">
+    <div className="min-h-screen bg-teal-50 flex flex-col justify-center items-center">
       <div
         className="w-full h-[20vh] sm:h-[35vh] bg-cover bg-center shadow-lg mb-4"
         style={{
@@ -133,7 +133,7 @@ const HomePage = () => {
       ></div>
 
       <div className="px-2 justify-between gap-2 flex items-center text-center">
-        <div className="bg-gradient-to-r from-gray-900 to-emerald-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out">
+        <div className="bg-gradient-to-r from-gray-900 to-emerald-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-teal-200 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out">
           <p className="flex items-center text-lg sm:text-xl gap-1 justify-center text-white">
             <span>Balance :</span>
             {isLoading ? (
@@ -157,7 +157,7 @@ const HomePage = () => {
         <div className="flex justify-end p-4">
           <button
             onClick={() => signOut({ callbackUrl: "/" })}
-            className="bg-gradient-to-r from-gray-900 to-emerald-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out text-white text-lg sm:text-xl"
+            className="bg-gradient-to-r from-gray-900 to-emerald-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-teal-200 dark:focus:ring-teal-800 font-medium rounded-lg px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out text-white text-lg sm:text-xl"
           >
             Log Out
           </button>
@@ -171,7 +171,7 @@ const HomePage = () => {
             .map((tile) => (
               <div
                 key={tile.id}
-                className="bg-purple-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-purple-400 transition duration-300 group"
+                className="bg-teal-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-teal-400 transition duration-300 group"
               >
                 <Link href={tile.route}>
                   <div className="w-full aspect-square overflow-hidden mb-1">
@@ -190,7 +190,7 @@ const HomePage = () => {
         {(session?.user?.role === "admin" ||
           session?.user?.role === "sponsor" ||
           session?.user?.role === "volunteer") && (
-          <div className="bg-purple-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-purple-400 transition duration-300 group">
+          <div className="bg-teal-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-teal-400 transition duration-300 group">
             <Link href={"/scan"}>
               <div className="w-full aspect-square overflow-hidden mb-1">
                 <img

@@ -10,7 +10,7 @@ const BackButton = () => {
     <div className="px-4 mt-6 cursor-pointer">
       <ArrowLeft
         onClick={() => router.back()}
-        className="w-6 h-6 text-purple-500"
+        className="w-6 h-6 text-teal-500"
       />
     </div>
   );
