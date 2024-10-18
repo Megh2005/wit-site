@@ -49,7 +49,7 @@ const sponsors = [
   {
     id: 6,
     name: "SmartInternz",
-    tier: "Silver",
+    tier: "Learning Partner",
     logo: "https://witblogpic.s3.amazonaws.com/1727465140282-9c85e3cb-3c4e-4012-9646-68768600808e.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
@@ -118,6 +118,22 @@ const sponsors = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
   },
+  {
+    id: 16,
+    name: "Creatique Technologies",
+    tier: "NextGen",
+    logo: "https://creatiquetech.com/wp-content/uploads/2023/05/final-logo.png",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+  },
+  {
+    id: 17,
+    name: "Creatique Technologies",
+    tier: "NextGen",
+    logo: "https://agilecloudconsulting.com/wp-content/uploads/2024/03/Horizontal-Logo-Blue-1-1-768x244.png",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+  },
 ];
 
 // Define gradients and text colors for each tier
@@ -158,6 +174,10 @@ const tierStyles = {
     gradient: "bg-transperant",
     textColor: "text-gray-800",
   },
+  "Learning Partner": {
+    gradient: "bg-transperant",
+    textColor: "text-gray-800",
+  },
 };
 
 // Function to get the tier rank based on the desired hierarchy
@@ -181,8 +201,10 @@ const getTierRank = (tier) => {
       return 8;
     case "After Party":
       return 9;
+    case "Learning Partner":
+      return 2.5;
     default:
-      return 10; // For any undefined tiers
+      return 11; // For any undefined tiers
   }
 };
 
@@ -235,7 +257,7 @@ const Sponsors = () => {
         {showModal && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
             <motion.div
-              className="bg-white rounded-lg shadow-xl w-11/12 max-w-md p-6"
+              className="bg-white outline-blue-700 border-blue-700 border-6 rounded-lg shadow-6xl w-11/12 max-w-md p-6"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
@@ -265,6 +287,7 @@ const Sponsors = () => {
         {[
           "Platinum",
           "Gold",
+          "Learning Partner",
           "Silver",
           "Bronze",
           "Wifi",
@@ -274,7 +297,7 @@ const Sponsors = () => {
           "After Party",
         ].map((tier) => (
           <div key={tier} className="mb-10">
-            <h2 className="text-3xl font-extrabold underline text-center text-gray-800 mb-6">
+            <h2 className="text-3xl font-extrabold underline text-center text-emerald-600 mb-6">
               {tier}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
