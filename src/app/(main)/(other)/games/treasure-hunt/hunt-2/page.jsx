@@ -99,9 +99,9 @@ const Hunt2 = () => {
           Question
         </h2>
         <p className="text-emerald-600 text-center font-semibold">
-          "The numbers speak, but in disguise, between each letter the answer
+          The numbers speak, but in disguise, between each letter the answer
           lies. From top to bottom, look with care. The place you seek is hidden
-          there."
+          there.
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
         <p className="text-fuchsia-500 text-center font-semibold">

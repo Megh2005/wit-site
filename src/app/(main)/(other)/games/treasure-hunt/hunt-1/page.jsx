@@ -99,9 +99,9 @@ const Hunt1 = () => {
           Question
         </h2>
         <p className="text-emerald-600 text-center font-semibold">
-          "You hold the key to riches untold. But first, unlock the map's hidden
+          You hold the key to riches untold. But first, unlock the map's hidden
           fold. A pattern of numbers guides the way, converting letters with
-          ease today"
+          ease today
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
         <p className="text-fuchsia-500 text-center font-semibold">

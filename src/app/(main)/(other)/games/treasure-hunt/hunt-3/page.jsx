@@ -100,9 +100,9 @@ const Hunt3 = () => {
           Question
         </h2>
         <p className="text-emerald-600 text-center font-semibold">
-          "Five ingredients, five numbers too. But what they spell is hidden
+          Five ingredients, five numbers too. But what they spell is hidden
           from view. Convert them right, from taste to sight, and soon you'll
-          see the code in flight"
+          see the code in flight
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
         <p className="text-fuchsia-500 text-center font-semibold">

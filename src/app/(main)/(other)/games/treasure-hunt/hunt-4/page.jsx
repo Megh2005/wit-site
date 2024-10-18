@@ -101,9 +101,9 @@ const Hunt4 = () => {
           Question
         </h2>
         <p className="text-emerald-600 text-center font-semibold">
-          "Time ticks, but words don’t rhyme. Arrange the letters according to
+          Time ticks, but words don’t rhyme. Arrange the letters according to
           time. Start at midnight, and go around. The correct order will soon be
-          found."
+          found.
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
         <p className="text-fuchsia-500 text-center font-semibold">

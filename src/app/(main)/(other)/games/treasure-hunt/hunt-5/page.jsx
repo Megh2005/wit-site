@@ -100,9 +100,9 @@ const Hunt5 = () => {
           Question
         </h2>
         <p className="text-emerald-600 text-center font-semibold">
-          "Elements change, but numbers remain. Follow the pattern, and
+          Elements change, but numbers remain. Follow the pattern, and
           knowledge you'll gain. From the periodic table, take your clue, find
-          the symbols, and see what’s true."
+          the symbols, and see what’s true.
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
         <p className="text-fuchsia-500 text-center font-semibold">
