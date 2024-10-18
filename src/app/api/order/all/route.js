@@ -10,10 +10,18 @@ import {
   startAfter,
   where,
 } from "firebase/firestore";
+import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
+import { authOptions } from "../../auth/[...nextauth]/options";
 
 export async function GET(req) {
   try {
+    const { user } = await getServerSession(authOptions);
+
+    if (!user) {
+      throw new Error("Unauthorized");
+    }
+
     const url = new URL(req.url);
     const pageParam = url.searchParams.get("pageParam") || null; // This is a serialized value (e.g., 'name')
     const pageLimit = 15;

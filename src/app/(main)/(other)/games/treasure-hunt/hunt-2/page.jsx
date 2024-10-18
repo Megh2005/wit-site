@@ -38,7 +38,7 @@ const Hunt2 = () => {
   if (huntLoading) {
     return (
       <div className="flex justify-center mt-6">
-        <LoaderCircle className="animate-spin text-black w-6 h-6 " />
+        <LoaderCircle className="animate-spin text-purple-500 w-6 h-6 " />
       </div>
     );
   }
@@ -54,7 +54,9 @@ const Hunt2 = () => {
   if (huntData?.data.status === "closed") {
     return (
       <div className="px-4 py-6">
-        <p className="text-center capitalize font-bold text-xl">Hunt has been closed</p>
+        <p className="text-center capitalize font-bold text-xl">
+          Hunt has been closed
+        </p>
       </div>
     );
   }
@@ -70,7 +72,7 @@ const Hunt2 = () => {
       </p>
       <div className="flex justify-center">
         {huntData?.data.volunteer.id === session?.user.id && (
-          <div className="">
+          <div className="flex flex-col items-center">
             <button
               disabled={isPending}
               onClick={mutate}
@@ -82,6 +84,9 @@ const Hunt2 = () => {
                 "Close Hunt"
               )}
             </button>
+            <p className="text-center text-lg font-extrabold my-4">
+              Answer: <span className="font-bold">{huntData?.data.answer}</span>
+            </p>
           </div>
         )}
       </div>
@@ -105,8 +110,9 @@ const Hunt2 = () => {
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
         <p className="text-fuchsia-500 text-center font-semibold">
-          The agent&apos;s signal is: <span className="italic text-red-600">M4E1S5S2A1G3E</span><br/> Extract the letters that appear
-          right after the numbers.
+          The agent&apos;s signal is:{" "}
+          <span className="italic text-red-600">M4E1S5S2A1G3E</span>
+          <br /> Extract the letters that appear right after the numbers.
         </p>
       </div>
     </div>

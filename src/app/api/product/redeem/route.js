@@ -9,7 +9,7 @@ export async function POST(req) {
     const { user } = await getServerSession(authOptions);
 
     if (!user) {
-      throw new Error("User not found");
+      throw new Error("Unauthorized");
     }
 
     const userId = user.id;

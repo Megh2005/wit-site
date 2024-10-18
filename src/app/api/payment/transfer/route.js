@@ -7,12 +7,20 @@ import {
   runTransaction,
   where,
 } from "firebase/firestore";
+import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
+import { authOptions } from "../../auth/[...nextauth]/options";
 
 export async function POST(req) {
   const { sender, receiver, amount } = await req.json();
 
   try {
+    const { user } = await getServerSession(authOptions);
+
+    if (!user) {
+      throw new Error("Unauthorized");
+    }
+
     if (!sender || !receiver || !amount) {
       throw new Error("Sender, receiver, and amount are required");
     }

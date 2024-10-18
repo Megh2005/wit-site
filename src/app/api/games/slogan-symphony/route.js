@@ -10,12 +10,10 @@ export async function POST(req) {
     const { user } = await getServerSession(authOptions);
 
     if (!user) {
-      throw new Error("User not found");
+      throw new Error("Unauthorized");
     }
 
     const { slogan1, slogan2 } = await req.json();
-
-    console.log(slogan1, slogan2);
 
     const aiGamesRef = collection(db, "aigamedata");
 

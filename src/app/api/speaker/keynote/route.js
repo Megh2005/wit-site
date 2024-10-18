@@ -1,26 +1,25 @@
 import { db } from "@/services/firebaseinit";
+import { ApiResponse } from "@/utils/Response";
 import { collection, getDocs } from "firebase/firestore";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 import { authOptions } from "../../auth/[...nextauth]/options";
-import { ApiResponse } from "@/utils/Response";
 
-export async function GET(req) {
+export async function GET() {
   try {
-    const session = await getServerSession(authOptions);
+    const { user } = await getServerSession(authOptions);
 
-    if (!session?.user) {
+    if (!user) {
       throw new Error("Unauthorized");
     }
+    const esteemedRef = collection(db, "keynote-speakers");
+    const result = await getDocs(esteemedRef);
 
-    const productRef = collection(db, "products");
-    const products = await getDocs(productRef);
-
-    const data = products.docs.map((doc) => {
+    const data = result.docs.map((doc) => {
       return { id: doc.id, ...doc.data() };
     });
 
-    return NextResponse.json(new ApiResponse(200, "Products fetched", data), {
+    return NextResponse.json(new ApiResponse(200, "Speakers fetched", data), {
       status: 200,
     });
   } catch (error) {
