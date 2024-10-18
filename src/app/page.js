@@ -165,7 +165,7 @@ const LoginForm = () => {
               Welcome To
               <br />
             </span>
-            <span style={{ color: "#FF0000", fontWeight: "800" }}>কলকাতা</span>
+            <span style={{ color: "#FF0000", fontWeight: "800" }}>WIT Dreamin কলকাতা</span>
             <hr width="true" style={{ color: "#000" }} />
           </h1>
           <div style={styles.inputBox}>
