@@ -17,12 +17,12 @@ export async function POST(req) {
   const { id: sender } = user;
 
   try {
-    if (!receiver || !user) {
-      throw new Error("Receiver is required");
+    if (!user || user?.role !== "volunteer") {
+      throw new Error("Unauthorized");
     }
 
-    if (user.role !== "volunteer") {
-      throw new Error("Unauthorized");
+    if (!receiver) {
+      throw new Error("Receiver is required");
     }
 
     if (receiver === sender) {

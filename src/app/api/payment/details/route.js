@@ -10,6 +10,10 @@ export async function GET(req) {
   const id = params.searchParams.get("sendTo");
   const { user: sessionUser } = await getServerSession(authOptions);
 
+  if (!sessionUser) {
+    throw new Error("Unauthorized");
+  }
+
   if (sessionUser.id == id) {
     return NextResponse.json(new ApiResponse(400, "Invalid User", null), {
       status: 400,

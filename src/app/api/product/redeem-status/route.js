@@ -15,7 +15,7 @@ export async function GET(req) {
     }
 
     if (!user) {
-      throw new Error("User not found");
+      throw new Error("Unauthorized");
     }
 
     const userId = user.id;

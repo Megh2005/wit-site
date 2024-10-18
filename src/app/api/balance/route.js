@@ -10,7 +10,7 @@ export async function GET() {
     const { user: sessionUser } = await getServerSession(authOptions);
 
     if (!sessionUser) {
-      throw new Error("User not found");
+      throw new Error("Unauthorized");
     }
 
     const user = await getDoc(doc(db, "users", sessionUser.id));

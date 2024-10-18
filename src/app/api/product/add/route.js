@@ -2,10 +2,18 @@ import { db } from "@/services/firebaseinit";
 import { uploadToCloudinary } from "@/utils/cloudinary";
 import { ApiResponse } from "@/utils/Response";
 import { doc, runTransaction } from "firebase/firestore";
+import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
+import { authOptions } from "../../auth/[...nextauth]/options";
 
 export async function POST(req) {
   try {
+    const { user } = await getServerSession(authOptions);
+
+    if (!user) {
+      throw new Error("Unauthorized");
+    }
+
     const formData = await req.formData();
     const name = formData.get("name");
     const price = formData.get("price");

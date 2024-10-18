@@ -57,13 +57,16 @@ export async function middleware(req) {
   }
 
   if (
-    token &&
-    token.role !== "admin" &&
-    (currentUrl.pathname.startsWith("/marketplace/orders") ||
-      currentUrl.pathname.startsWith("/api/order") ||
-      currentUrl.pathname.startsWith("/register") ||
-      currentUrl.pathname.startsWith("/games/spin") ||
-      currentUrl.pathname.startsWith("/add-product"))
+    (token &&
+      token.role !== "admin" &&
+      (currentUrl.pathname.startsWith("/marketplace/orders") ||
+        currentUrl.pathname.startsWith("/api/order") ||
+        currentUrl.pathname.startsWith("/api/product/add") ||
+        currentUrl.pathname.startsWith("/api/speaker/add") ||
+        currentUrl.pathname.startsWith("/register") ||
+        currentUrl.pathname.startsWith("/games/spin") ||
+        currentUrl.pathname.startsWith("/add-product"))) ||
+    currentUrl.pathname.startsWith("/add-speaker")
   ) {
     return NextResponse.redirect(new URL("/home", req.url));
   }
@@ -86,7 +89,10 @@ export const config = {
     "/payment",
     "/marketplace/orders",
     "/api/order/:path*",
+    "/api/product/add",
+    "/api/speaker/add",
     "/add-product",
+    "/add-speaker",
     "/organizers",
     "/contact",
     "/privacy-policy",

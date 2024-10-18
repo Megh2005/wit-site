@@ -17,7 +17,7 @@ export async function GET() {
     const { user } = await getServerSession(authOptions);
 
     if (!user) {
-      throw new Error("User not found");
+      throw new Error("Unauthorized");
     }
 
     const findUserRef = doc(db, "findtheuser-gamedata", user.id);

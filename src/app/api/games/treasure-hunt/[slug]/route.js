@@ -1,3 +1,4 @@
+import { authOptions } from "@/app/api/auth/[...nextauth]/options";
 import { db } from "@/services/firebaseinit";
 import { ApiResponse } from "@/utils/Response";
 import {
@@ -9,10 +10,17 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
+import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
 export async function GET(req) {
   try {
+    const { user } = await getServerSession(authOptions);
+
+    if (!user) {
+      throw new Error("Unauthorized");
+    }
+
     const url = new URL(req.url);
     const slug = url.pathname.split("/").pop();
 
@@ -53,6 +61,11 @@ export async function GET(req) {
 
 export async function POST(req) {
   try {
+    const { user } = await getServerSession(authOptions);
+
+    if (!user) {
+      throw new Error("Unauthorized");
+    }
     const { huntId } = await req.json();
 
     await updateDoc(doc(db, "treasure-hunt", huntId), {

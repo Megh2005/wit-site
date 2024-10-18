@@ -2,6 +2,7 @@
 
 import { getTreasureHunts } from "@/queries/game";
 import { useQuery } from "@tanstack/react-query";
+import { LoaderCircle } from "lucide-react";
 import Link from "next/link";
 
 const TreasureHuntPage = () => {
@@ -15,8 +16,24 @@ const TreasureHuntPage = () => {
     staleTime: Infinity,
   });
 
+  if (isLoading) {
+    return (
+      <div className="w-full flex mt-6 justify-center">
+        <LoaderCircle className="animate-spin text-purple-500 w-6 h-6" />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="w-full flex mt-6 justify-center">
+        <p className="text-red-500">Something went wrong</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="container mx-auto p-4 h-screen">
+    <div className="container mx-auto p-4 min-h-screen">
       {games?.data?.map((game, index) => (
         <Link key={index} href={game.route}>
           <div
@@ -29,7 +46,9 @@ const TreasureHuntPage = () => {
               {game.name}
             </h2>
             <div className="flex text-sm justify-between px-[-2rem] font-semibold gap-6">
-              <p className="text-gray-700 capitalize text-lg">Status: {game.status}</p>
+              <p className="text-gray-700 capitalize text-lg">
+                Status: {game.status}
+              </p>
               <p className="text-gray-700 text-lg">
                 Target Coins: {game.targetCoins}
               </p>
