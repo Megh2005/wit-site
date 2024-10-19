@@ -1,6 +1,6 @@
 import { db } from "@/services/firebaseinit";
 import { ApiResponse } from "@/utils/Response";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 import { authOptions } from "../../auth/[...nextauth]/options";
@@ -13,7 +13,8 @@ export async function GET() {
       throw new Error("Unauthorized");
     }
     const esteemedRef = collection(db, "keynote-speakers");
-    const result = await getDocs(esteemedRef);
+    const q = query(esteemedRef, orderBy("speaker", "asc"));
+    const result = await getDocs(q);
 
     const data = result.docs.map((doc) => {
       return { id: doc.id, ...doc.data() };

@@ -37,8 +37,8 @@ const SpeakerArriveAnimation = () => {
     });
 
   return (
-    <>
-      <h1 className="text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-500 text-transparent bg-clip-text pt-[10vh] mb-8">
+    <div className="min-h-screen py-6">
+      <h1 className="text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-500 text-transparent bg-clip-text pt-4 mb-8">
         Keynote Speaker
       </h1>
       {isKeynoteSpeakerLoading && (
@@ -246,7 +246,7 @@ const SpeakerArriveAnimation = () => {
           ))}
         </motion.div>
       </div>
-    </>
+    </div>
   );
 };
 
