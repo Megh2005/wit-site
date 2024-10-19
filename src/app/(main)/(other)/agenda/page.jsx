@@ -2,74 +2,87 @@
 import React from "react";
 import Link from "next/link";
 
-
 const AgendaPage = () => {
   const agendaItems = [
     {
       id: 1,
       gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
-      speaker: "Sangeeta Sinha",
-      talk: "Panel",
-      time: "10:00 AM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306945/speakers/Sangeeta_Sinha_ppsryr.jpg",
-      linkedinUrl: "https://www.linkedin.com/in/sangeeta-sinha-64bb171a",
-      twitterUrl: "https://x.com/Sangeet05242788",
+      speaker: "WIT Dreamin 2024",
+      talk: "Registration & Breakfast",
+      time: "08:30 - 09:30 AM",
+      place: "--------",
     },
     {
       id: 2,
       gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
-      speaker: "Priya Shaw",
-      talk: "Enabling intelligent integration with Einstein and MuleSoft",
-      time: "10:00 AM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306945/speakers/Priya_Shaw_bwfsdc.jpg",
-      linkedinUrl: "https://www.linkedin.com/in/priya-shaw/",
-      twitterUrl: "https://twitter.com/priyashaw260/",
+      speaker: "Khyati Mehta & Neetu Bansal",
+      talk: "Inaugral Note",
+      time: "09:30 - 10:00 AM",
+      place: "--------",
     },
     {
       id: 3,
       gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
-      speaker: "Amit Malik",
-      talk: "An Architect eye to Salesforce AI",
-      time: "10:00 AM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306944/speakers/Amit_Malik_te9yno.png",
-      linkedinUrl: "https://www.linkedin.com/in/amitmalikus",
-      twitterUrl: "https://x.com/amitmalikus",
+      speaker: "Arundhati Bhattacharya & Monika Goyal",
+      talk: "Keynote",
+      time: "10:00 - 11:15 AM",
+      place: "--------",
     },
     {
       id: 4,
       gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
-      speaker: "Lakhan Meghani",
-      talk: "Mastering SFMC REST APIs for Marketing Success",
-      time: "10:00 AM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306944/speakers/Lakhan_Meghani_obnl4l.jpg",
-      linkedinUrl: "https://www.linkedin.com/in/lakhan-meghani-003639167/",
-      twitterUrl: "https://x.com/Lakhan_sfdc",
+      speaker: "--------",
+      talk: "Settle In",
+      time: "11:15 - 11:30 AM",
+      place: "Allocated Halls",
     },
     {
       id: 5,
       gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
-      speaker: "Santanu Boral",
-      talk: "Building your first Salesforce product for AppExchange",
-      time: "10:00 AM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306944/speakers/Santanu_Boral_wtca6v.png",
-      linkedinUrl: "https://www.linkedin.com/in/santanuboral/",
-      twitterUrl: "https://x.com/santanuboral",
+      speaker: "Satya Sekhar & Aaditya Nag",
+      talk: "Unlock Unstructured Data with RAG, Vector & Hybrid Search",
+      time: "11:30 - 12:00 AM",
+      place: "Victoria Hall",
     },
     {
       id: 6,
       gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
-      speaker: "Paresh Kumar Lalchandani",
-      talk: "Unlocking Collaboration: An Introduction to Salesforce.org Open Source Commons",
-      time: "10:00 AM",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728306944/speakers/Paresh_Kumar_zbtoev.jpg",
-      linkedinUrl: "https://www.linkedin.com/in/pareshlalchandani/",
-      twitterUrl: "https://x.com/Paresh_Kumar",
+      speaker: "Sridevi Sira",
+      talk: "Salesforce Power Developer - 10x Faster Developer powered by Agentforce",
+      time: "11:30 - 12:00 AM",
+      place: "Howrah Bridge Hall",
+    },
+    {
+      id: 7,
+      gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
+      speaker: "Arunangshu Pal",
+      talk: "Engage Like a Pro: Messaging In-App Web Best Practices",
+      time: "11:30 - 12:00 AM",
+      place: "Eden Garden Hall",
+    },
+    {
+      id: 8,
+      gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
+      speaker: "Lakhan Meghani",
+      talk: "Mastering SFMC REST APIs for Marketing Success",
+      time: "11:30 - 12:00 AM",
+      place: "Belur Hall",
+    },
+    {
+      id: 9,
+      gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
+      speaker: "Shivani Singh",
+      talk: "Empower your Salesforce org in the Age of AI: Data Readiness",
+      time: "11:30 - 12:00 AM",
+      place: "Kalighat Hall",
+    },
+    {
+      id: 10,
+      gradient: "bg-gradient-to-r from-blue-500 to-teal-400",
+      speaker: "Salesforce",
+      talk: "Agentforce Workshop 1",
+      time: "11:30 - 12:00 AM",
+      place: "Tagore Hall",
     },
   ];
 
@@ -88,12 +101,19 @@ const AgendaPage = () => {
               <div className="md:w-1/3 text-lg font-bold text-center md:text-left">
                 {item.time}
               </div>
-              <div className="md:w-1/3 text-md capitalize font-bold text-center">
+              <div className="md:w-1/3 text-md underline underline-offset-4 capitalize font-bold text-center">
                 {item.talk}
               </div>
-              <Link href={item.linkedinUrl} target="_blank" className="md:w-1/3 underline text-lg font-extrabold text-center md:text-right">
-                Speaker : {item.speaker}
+              <Link
+                href={"#"}
+                className="md:w-1/3 text-md font-extrabold text-center md:text-right"
+              >
+                By : {item.speaker}
               </Link>
+              <div className="md:w-1/3 text-md capitalize font-bold text-center">
+                Place :{" "}
+                <span className="italic text-yellow-300">{item.place}</span>
+              </div>
             </div>
           ))}
         </div>
