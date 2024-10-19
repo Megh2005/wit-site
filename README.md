@@ -18,7 +18,6 @@ npm run dev
 http://localhost:3000
 ```
 
-
 <hr/>
 
 ## Speaker - Agenda Data
@@ -35,7 +34,7 @@ http://localhost:3000
   },
   {
     id: 2,
-    gradient: "bg-gradient-to-r from-pink-500 to-purple-500",
+    gradient: "bg-gradient-to-r from-pink-500 to-teal-500",
     speaker: "Speaker 2",
     title: "Talk Title 2",
     time: "11:00 AM",
@@ -80,7 +79,7 @@ http://localhost:3000
   },
   {
     id: 7,
-    gradient: "bg-gradient-to-r from-purple-500 to-pink-500",
+    gradient: "bg-gradient-to-r from-teal-500 to-pink-500",
     speaker: "Speaker 7",
     title: "Talk Title 7",
     time: "4:00 PM",
@@ -143,7 +142,7 @@ http://localhost:3000
   },
   {
     id: 14,
-    gradient: "bg-gradient-to-r from-indigo-500 to-purple-500",
+    gradient: "bg-gradient-to-r from-indigo-500 to-teal-500",
     speaker: "Speaker 14",
     title: "Talk Title 14",
     time: "11:00 AM",
@@ -161,7 +160,7 @@ http://localhost:3000
   },
   {
     id: 16,
-    gradient: "bg-gradient-to-r from-red-500 to-purple-500",
+    gradient: "bg-gradient-to-r from-red-500 to-teal-500",
     speaker: "Speaker 16",
     title: "Talk Title 16",
     time: "1:00 PM",

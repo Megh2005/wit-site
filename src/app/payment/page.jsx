@@ -93,7 +93,7 @@ const PaymentPage = () => {
       <div className="min-h-screen h-full flex flex-col overflow-hidden">
         <BackButton />
         <div className="flex-grow flex justify-center items-center">
-          <LoaderCircle className="animate-spin text-purple-400 w-6 h-6 mr-2" />
+          <LoaderCircle className="animate-spin text-teal-400 w-6 h-6 mr-2" />
           <div>
             <p className="text-black">Getting Receiver Details</p>
           </div>
@@ -111,7 +111,7 @@ const PaymentPage = () => {
     <div className="min-h-screen flex flex-col">
       <BackButton />
       <div className="flex-grow flex justify-center items-center">
-        <div className="mx-4 w-full max-w-xl bg-gradient-to-b from-purple-600 to-cyan-400 shadow-lg rounded-lg p-8">
+        <div className="mx-4 w-full max-w-xl bg-gradient-to-b from-teal-600 to-cyan-400 shadow-lg rounded-lg p-8">
           {/* Receiver's Name */}
           <h2 className="text-2xl text-white font-bold mb-6">
             Transfering to <span>{receiver?.name}</span>
@@ -134,10 +134,10 @@ const PaymentPage = () => {
           <button
             disabled={transferring}
             onClick={transferCoinsFromSponsorToUser}
-            className="flex justify-center w-full bg-yellow-300 text-purple-700 font-bold py-3 rounded-md hover:bg-yellow-400 transition duration-300"
+            className="flex justify-center w-full bg-yellow-300 text-teal-700 font-bold py-3 rounded-md hover:bg-yellow-400 transition duration-300"
           >
             {transferring ? (
-              <LoaderCircle className="animate-spin text-purple-700 w-6 h-6" />
+              <LoaderCircle className="animate-spin text-teal-700 w-6 h-6" />
             ) : (
               "Transfer Now"
             )}
@@ -155,7 +155,7 @@ const PaymentPageWrapper = () => (
         <div className="min-h-screen flex flex-col">
           <BackButton />
           <div className="flex-grow flex justify-center items-center">
-            <LoaderCircle className="animate-spin text-purple-500 w-6 h-6 mr-2" />
+            <LoaderCircle className="animate-spin text-teal-500 w-6 h-6 mr-2" />
             <div>
               <p className="text-black">Loading...</p>
             </div>

@@ -61,7 +61,7 @@ const Product = ({ product }) => {
         {session?.user?.role === "attendee" && !isError && (
           <div className="flex justify-end">
             {isRedeemStatusLoading ? (
-              <LoaderCircle className="animate-spin text-purple-500 w-5 h-5" />
+              <LoaderCircle className="animate-spin text-teal-500 w-5 h-5" />
             ) : redeemStatus.data ? (
               <div className="px-5 py-2.5 text-center me-2 mb-2 text-sm cursor-not-allowed rounded-md bg-gradient-to-r from-slate-700 via-gray-600 to-gray-800 font-bold text-white">
                 Redeemed
@@ -70,7 +70,7 @@ const Product = ({ product }) => {
               <button
                 disabled={isPending}
                 onClick={() => mutate()}
-                className="text-white bg-gradient-to-r cursor-pointer from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                className="text-white bg-gradient-to-r cursor-pointer from-teal-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-teal-200 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
               >
                 {isPending ? (
                   <LoaderCircle className="animate-spin text-white w-5 h-5" />

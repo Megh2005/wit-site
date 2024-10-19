@@ -74,7 +74,7 @@ const Hunt5 = () => {
             <button
               disabled={isPending}
               onClick={mutate}
-              className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              className="text-white bg-gradient-to-r from-teal-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-teal-200 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
             >
               {isPending ? (
                 <LoaderCircle className="animate-spin text-white w-6 h-6" />
@@ -90,23 +90,24 @@ const Hunt5 = () => {
           Background
         </h2>
         <p className="text-blue-700 text-center font-semibold">
-          In a hidden chamber of a forgotten castle, an alchemist&apos;s codex was
-          discovered. This ancient book contained wisdom about the transmutation
-          of elements, but a mysterious sequence of numbers was written in the
-          margins. Only those who can decode the numbers will unlock the secrets
-          of the alchemist.
+          In a hidden chamber of a forgotten castle, an alchemist&apos;s codex
+          was discovered. This ancient book contained wisdom about the
+          transmutation of elements, but a mysterious sequence of numbers was
+          written in the margins. Only those who can decode the numbers will
+          unlock the secrets of the alchemist.
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">
           Question
         </h2>
         <p className="text-emerald-600 text-center font-semibold">
-          Elements change, but numbers remain. Follow the pattern, and
-          knowledge you will gain. From the periodic table, take your clue, find
-          the symbols, and see what&apos;s true.
+          Elements change, but numbers remain. Follow the pattern, and knowledge
+          you will gain. From the periodic table, take your clue, find the
+          symbols, and see what&apos;s true.
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
         <p className="text-fuchsia-500 text-center font-semibold">
-          The sequence of numbers is: 6, 8, 15, 39 <br/>Use these wisely
+          The sequence of numbers is: 6, 8, 15, 39 <br />
+          Use these wisely
         </p>
       </div>
     </div>

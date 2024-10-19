@@ -27,7 +27,7 @@ export default function Home() {
         {elements.map((el, index) => (
           <Link href={el.route} key={index}>
             <motion.div
-              className="rounded-lg h-40 sm:h-28 w-full flex items-center justify-center text-white font-bold text-2xl cursor-pointer bg-gradient-to-r from-pink-500 via-purple-600 to-blue-700 shadow-lg"
+              className="rounded-lg h-40 sm:h-28 w-full flex items-center justify-center text-white font-bold text-2xl cursor-pointer bg-gradient-to-r from-teal-500 via-teal-600 to-blue-700 shadow-lg"
               variants={tileVariants}
               whileHover={{ scale: 1.05 }} // Hover effect
               whileTap={{ scale: 0.95 }} // Tap effect

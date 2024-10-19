@@ -56,7 +56,7 @@ const Orders = () => {
       </div>
       {isLoading ? (
         <div className="w-full flex mt-6 justify-center">
-          <LoaderCircle className="animate-spin text-purple-500 w-6 h-6" />
+          <LoaderCircle className="animate-spin text-teal-500 w-6 h-6" />
         </div>
       ) : (
         <div>
@@ -74,7 +74,7 @@ const Orders = () => {
           {isFetchingNextPage && (
             <div className="my-4">
               <div className="flex justify-center">
-                <LoaderCircle className="animate-spin text-purple-500 w-6 h-6" />
+                <LoaderCircle className="animate-spin text-teal-500 w-6 h-6" />
               </div>
             </div>
           )}

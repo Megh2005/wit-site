@@ -140,7 +140,7 @@ const ScanPage = () => {
       <div className="min-h-screen h-full flex flex-col overflow-hidden">
         <BackButton />
         <div className="flex-grow flex justify-center items-center">
-          <LoaderCircle className="animate-spin text-purple-500 w-6 h-6" />
+          <LoaderCircle className="animate-spin text-teal-500 w-6 h-6" />
         </div>
       </div>
     );
