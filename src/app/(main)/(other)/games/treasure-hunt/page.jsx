@@ -34,10 +34,13 @@ const TreasureHuntPage = () => {
 
   return (
     <div className="container mx-auto p-4 min-h-screen">
+      <h1 className="bg-gradient-to-r text-center text-4xl font-extrabold py-6 from-orange-500 to-blue-700 bg-clip-text text-transparent">
+        Treasure Hunt
+      </h1>
       {games?.data?.map((game, index) => (
         <Link key={index} href={game.route}>
           <div
-            className="bg-white shadow-2xl p-8 px-[-4vw] mb-4 rounded-lg flex flex-col items-center cursor-pointer transition-transform transform hover:scale-105 border-4 border-blue-700"
+            className="bg-white shadow-xl p-8 px-[-4vw] mb-4 rounded-lg flex flex-col items-center cursor-pointer transition-transform transform hover:scale-105"
             style={{
               boxShadow: "0 10px 30px rgba(0, 0, 0, 0.8)",
             }}

@@ -7,27 +7,6 @@ const PrivacyPolicy = () => {
       <p className="text-sm text-gray-500 mb-6">
         Last updated: October 10, 2024
       </p>
-      <p>
-        This Privacy Policy describes Our policies and procedures on the
-        collection, use, and disclosure of Your information when You use the
-        Service and tells You about Your privacy rights and how the law protects
-        You.
-      </p>
-      <p>
-        We use Your Personal data to provide and improve the Service. By using
-        the Service, You agree to the collection and use of information in
-        accordance with this Privacy Policy. This Privacy Policy has been
-        created with the help of the{" "}
-        <a
-          href="https://www.termsfeed.com/privacy-policy-generator/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 hover:underline"
-        >
-          Privacy Policy Generator
-        </a>
-        .
-      </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4">
         Interpretation and Definitions

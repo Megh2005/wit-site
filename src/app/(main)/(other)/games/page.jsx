@@ -18,6 +18,9 @@ const tileVariants = {
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] p-5 bg-gray-100">
+      <h1 className="bg-gradient-to-r text-center text-4xl font-extrabold py-6 from-orange-500 to-blue-700 bg-clip-text text-transparent">
+        Games
+      </h1>
       <motion.div
         className="grid grid-cols-1 gap-4 w-full max-w-6xl"
         initial="hidden"
