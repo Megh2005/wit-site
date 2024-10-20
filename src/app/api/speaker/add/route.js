@@ -16,7 +16,7 @@ export async function POST(req) {
     const formData = await req.formData();
     const speaker = formData.get("speaker");
     const designation = formData.get("designation");
-    const time = formData.get("time");
+
     const category = formData.get("category");
     const imageUrl = formData.get("imageUrl");
     const linkedinUrl = formData.get("linkedinUrl");
@@ -25,7 +25,6 @@ export async function POST(req) {
     if (
       !speaker ||
       !designation ||
-      !time ||
       !category ||
       !imageUrl ||
       !linkedinUrl ||
@@ -41,7 +40,6 @@ export async function POST(req) {
       await addDoc(keynoteRef, {
         speaker,
         designation,
-        time,
         category,
         imageUrl,
         linkedinUrl,
@@ -52,7 +50,6 @@ export async function POST(req) {
       await addDoc(panelRef, {
         speaker,
         designation,
-        time,
         category,
         imageUrl,
         linkedinUrl,
@@ -63,7 +60,6 @@ export async function POST(req) {
       await addDoc(esteemedRef, {
         speaker,
         designation,
-        time,
         category,
         imageUrl,
         linkedinUrl,
