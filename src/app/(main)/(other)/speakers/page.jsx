@@ -157,17 +157,19 @@ const SpeakerArriveAnimation = () => {
                       className="w-6 bg-white h-6 lg:w-8 lg:h-8"
                     />
                   </a>
-                  <a
-                    href={speaker.twitterUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 text-white hover:text-gray-200"
-                  >
-                    <FaTwitter
-                      fill="#00ACEE"
-                      className="w-6 h-6 lg:w-8 lg:h-8"
-                    />
-                  </a>
+                  {speaker.twitterUrl !== "#" && (
+                    <a
+                      href={speaker.twitterUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 text-white hover:text-gray-200"
+                    >
+                      <FaTwitter
+                        fill="#00ACEE"
+                        className="w-6 h-6 lg:w-8 lg:h-8"
+                      />
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -230,17 +232,19 @@ const SpeakerArriveAnimation = () => {
                       className="w-6 bg-white h-6 lg:w-8 lg:h-8"
                     />
                   </a>
-                  <a
-                    href={speaker.twitterUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 text-white hover:text-gray-200"
-                  >
-                    <FaTwitter
-                      fill="#00ACEE"
-                      className="w-6 h-6 lg:w-8 lg:h-8"
-                    />
-                  </a>
+                  {speaker.twitterUrl !== "#" && (
+                    <a
+                      href={speaker.twitterUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 text-white hover:text-gray-200"
+                    >
+                      <FaTwitter
+                        fill="#00ACEE"
+                        className="w-6 h-6 lg:w-8 lg:h-8"
+                      />
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
