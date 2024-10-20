@@ -228,7 +228,7 @@ const AgendaPage = () => {
                 <span className="italic text-yellow-300">{item.speaker}</span>
               </Link>
               <div className="md:w-1/3 text-md capitalize font-bold text-center">
-                Place :{" "}
+                Hall :{" "}
                 <span className="italic text-yellow-300">{item.place}</span>
               </div>
             </div>
