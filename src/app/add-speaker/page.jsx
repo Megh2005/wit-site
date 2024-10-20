@@ -11,7 +11,6 @@ const AddSpeaker = () => {
     speaker: "",
     designation: "",
     category: "Keynote",
-    time: "",
     imageUrl: "",
     linkedinUrl: "",
     twitterUrl: "",
@@ -25,7 +24,6 @@ const AddSpeaker = () => {
     if (
       !speaker.speaker ||
       !speaker.designation ||
-      !speaker.time ||
       !speaker.imageUrl ||
       !speaker.linkedinUrl ||
       !speaker.twitterUrl ||
@@ -119,15 +117,6 @@ const AddSpeaker = () => {
               className="rounded-md w-full px-4 py-2 border-black border"
               type="text"
               placeholder="Designation"
-            />
-          </div>
-          <div>
-            <input
-              value={speaker.time}
-              onChange={(e) => setSpeaker({ ...speaker, time: e.target.value })}
-              className="rounded-md w-full px-4 py-2 border-black border"
-              type="text"
-              placeholder="Time"
             />
           </div>
           <div>
