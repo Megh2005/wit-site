@@ -1,5 +1,6 @@
 "use client";
 
+import { Footer } from "@/components/Footer";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SessionProvider } from "next-auth/react";
 
@@ -12,6 +13,7 @@ export default function MainLayout({ children }) {
     <div>
       <QueryClientProvider client={queryClient}>
         <SessionProvider>{children}</SessionProvider>
+        {/* <Footer /> */}
       </QueryClientProvider>
     </div>
   );
