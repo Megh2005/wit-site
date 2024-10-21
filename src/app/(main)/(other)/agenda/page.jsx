@@ -200,6 +200,63 @@ const AgendaPage = () => {
       time: "02:00 - 02:45 PM",
       place: "Allocated Area",
     },
+    {
+      id: 29,
+      speaker: "Poonam Patole-Santanu Boral-Ankit Arora-Poulomi Ghosh-Anup Das",
+      talk: "Community's E=MC2 (Elevate = Mission X Collaboration X Change)",
+      time: "02:45 - 03:30 PM",
+      place: "Main Auditorium",
+    },
+    {
+      id: 30,
+      speaker: "Anirudh Sreerambhatla",
+      talk: "Well architected Workshop",
+      time: "02:45 - 03:30 PM",
+      place: "Tagore Hall",
+    },
+    {
+      id: 31,
+      speaker: "Salesforce, Deloitte & Cognizant",
+      talk: "Sponsors Hours",
+      time: "03:30 - 04:00 PM",
+      place: "Main Auditorium",
+    },
+    {
+      id: 32,
+      speaker: "Salesforce",
+      talk: "Agentforce Workshop 5",
+      time: "03:30 - 04:00 PM",
+      place: "Tagore Hall",
+    },
+    {
+      id: 33,
+      speaker:
+        "Kiran Manyala, Sunil Saha, Arijit Hajra, Sangeeta Sinha, Sanket",
+      talk: "Both sides of the table (Builders & Users)",
+      time: "04:00 - 04:45 PM",
+      place: "Main Auditorium",
+    },
+    {
+      id: 34,
+      speaker: "Salesforce",
+      talk: "Agentforce Workshop 6",
+      time: "04:00 - 04:45 PM",
+      place: "Tagore Hall",
+    },
+    {
+      id: 35,
+      speaker: "Swati Kumari, Smita, Bilquis, Swati Taunk, Ankita Sharma",
+      talk: "WIT Leaders Appreciation",
+      time: "04:45 - 05:15 PM",
+      place: "Tagore Hall",
+    },
+    {
+      id: 36,
+      speaker: "Salesforce",
+      talk: "Agentforce Workshop 7",
+      time: "04:45 - 05:15 PM",
+      place: "Tagore Hall",
+    },
   ];
 
   return (
