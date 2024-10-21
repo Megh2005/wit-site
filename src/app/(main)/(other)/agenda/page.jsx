@@ -291,45 +291,49 @@ const AgendaPage = () => {
             </div>
           ))}
         </div>
-        <div className="flex gap-2 overflow-x-auto my-2 py-2">
-          <div
-            className={`min-w-max flex flex-col md:flex-row md:justify-between md:items-center py-3 px-5 rounded-lg shadow-md text-white bg-gradient-to-r from-teal-600 to-emerald-800 hover:opacity-95 transition-opacity duration-200`}
-          >
-            <div className="md:w-1/3 text-lg font-bold text-center md:text-left">
-              5:15 - 6:00 PM
+        <div className="space-y-2 my-2">
+          <div className="flex gap-2">
+            <div
+              className={` w-full flex flex-col md:flex-row md:justify-between md:items-center py-3 px-5 rounded-lg shadow-md text-white bg-gradient-to-r from-teal-600 to-emerald-800 hover:opacity-95 transition-opacity duration-200`}
+            >
+              <div className="md:w-1/3 text-lg font-bold text-center md:text-left">
+                5:15 - 6:00 PM
+              </div>
+              <div className="md:w-1/3 text-md underline underline-offset-4 capitalize font-bold text-center">
+                DEMO JAM
+              </div>
             </div>
-            <div className="md:w-1/3 text-md underline underline-offset-4 capitalize font-bold text-center">
-              DEMO JAM
-            </div>
-          </div>
-          <div
-            className={`min-w-max flex flex-col md:flex-row md:justify-between md:items-center py-3 px-5 rounded-lg shadow-md text-white bg-gradient-to-r from-teal-600 to-emerald-800 hover:opacity-95 transition-opacity duration-200`}
-          >
-            <div className="md:w-1/3 text-lg font-bold text-center md:text-left">
-              6:00 - 6:30 PM
-            </div>
-            <div className="md:w-1/3 text-md underline underline-offset-4 capitalize font-bold text-center">
-              Closing Keynote
-            </div>
-          </div>
-          <div
-            className={`min-w-max flex flex-col md:flex-row md:justify-between md:items-center py-3 px-5 rounded-lg shadow-md text-white bg-gradient-to-r from-teal-600 to-emerald-800 hover:opacity-95 transition-opacity duration-200`}
-          >
-            <div className="md:w-1/3 text-lg font-bold text-center md:text-left">
-              6:30 - 6:45 PM
-            </div>
-            <div className="md:w-1/3 text-md underline underline-offset-4 capitalize font-bold text-center">
-              SWAG STORE
+            <div
+              className={` w-full flex flex-col md:flex-row md:justify-between md:items-center py-3 px-5 rounded-lg shadow-md text-white bg-gradient-to-r from-teal-600 to-emerald-800 hover:opacity-95 transition-opacity duration-200`}
+            >
+              <div className="md:w-1/3 text-lg font-bold text-center md:text-left">
+                6:00 - 6:30 PM
+              </div>
+              <div className="md:w-1/3 text-md underline underline-offset-4 capitalize font-bold text-center">
+                Closing Keynote
+              </div>
             </div>
           </div>
-          <div
-            className={`min-w-max flex flex-col md:flex-row md:justify-between md:items-center py-3 px-5 rounded-lg shadow-md text-white bg-gradient-to-r from-teal-600 to-emerald-800 hover:opacity-95 transition-opacity duration-200`}
-          >
-            <div className="md:w-1/3 text-lg font-bold text-center md:text-left">
-              7:30 - 11:00 PM
+          <div className="flex gap-2">
+            <div
+              className={` w-full flex flex-col md:flex-row md:justify-between md:items-center py-3 px-5 rounded-lg shadow-md text-white bg-gradient-to-r from-teal-600 to-emerald-800 hover:opacity-95 transition-opacity duration-200`}
+            >
+              <div className="md:w-1/3 text-lg font-bold text-center md:text-left">
+                6:30 - 6:45 PM
+              </div>
+              <div className="md:w-1/3 text-md underline underline-offset-4 capitalize font-bold text-center">
+                SWAG STORE
+              </div>
             </div>
-            <div className="md:w-1/3 text-md underline underline-offset-4 capitalize font-bold text-center">
-              AFTER PARTY
+            <div
+              className={` w-full flex flex-col md:flex-row md:justify-between md:items-center py-3 px-5 rounded-lg shadow-md text-white bg-gradient-to-r from-teal-600 to-emerald-800 hover:opacity-95 transition-opacity duration-200`}
+            >
+              <div className="md:w-1/3 text-lg font-bold text-center md:text-left">
+                7:30 - 11:00 PM
+              </div>
+              <div className="md:w-1/3 text-md underline underline-offset-4 capitalize font-bold text-center">
+                AFTER PARTY
+              </div>
             </div>
           </div>
         </div>
