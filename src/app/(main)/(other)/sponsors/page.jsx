@@ -12,7 +12,7 @@ const sponsors = [
     tier: "Platinum",
     logo: "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728391070/Deloitte-Logo_drssm6.jpg",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "Deloitte is a global professional services firm that provides audit, tax, consulting, enterprise risk and financial advisory services. We are committed to making an impact that matters for our clients, our people, and society. With over 150 years of hard work and commitment to making a real difference, our organization has grown in scale and diversity—approximately 312,000 people in 150 countries and territories, providing these services—yet our shared culture remains the same. Our organization serves four out of five Fortune Global 500® companies. Our network of member firms in more than 150 countries and territories serves four out of five Fortune Global 500® companies.",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const sponsors = [
     tier: "Gold",
     logo: "https://www.witdreamin.com/Cognizant.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "In todays fast-changing technology landscape, Cognizant works with clients to advance every aspect of how they serve their customers: digitizing their products, services, and customer experiences; automating their business processes; and modernizing their technology infrastructures. Put simply, we help clients harness digital to address their daily needs and keep their businesses relevant. As the partner they turn to execute on their digital priorities, we focus on IoT, AI, software engineering and cloud— the technologies that are changing the nature of business. We consider it our responsibility to make people feel at home in the future, no matter how technology enabled it becomes. So, we are committed to helping to solve some of humankind’s most difficult challenges in a way that is beneficial and comfortable for people through the work we do, and through investing in training people around the world in the digital skills that will be needed to do that work. We believe that the opportunity presented by technology has never been greater, and because of that opportunity, Cognizant will continue to collaborate with clients to modernize their businesses, making everyday life even better for them, their customers and the communities they serve.",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const sponsors = [
     tier: "Silver",
     logo: "https://witblogpic.s3.amazonaws.com/1727465196841-0ebf9253-eed2-44c0-bb86-eb2dc8f23796.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "CloudFulcrum is a global professional services firm specializing in Salesforce DevOps, Enterprise DevOps, and Digital Transformation. As a trusted partner, we empower businesses to optimize their Salesforce environments for peak performance through: Copado as a Service: We partner with Copado to provide automated end-to-end delivery, facilitating CI/CD across the Salesforce platform. DevOps Managed Services: Customized services to enhance operational efficiency. Accelerated Test Automation: Faster time-to-market through automated testing. DevOps Assessments: Expert guidance for achieving DevOps excellence. Our OpsBridge suite transforms Salesforce DevOps by leveraging advanced AI to enhance efficiency, security, and compliance. It empowers organizations to achieve operational excellence and drive strategic innovation.",
   },
   {
     id: 4,
@@ -36,15 +36,15 @@ const sponsors = [
     tier: "Silver",
     logo: "https://360smsapp.com/wp-content/uploads/2022/01/logo_b046c853129b1637fa48a6e91c6a7b17_1x.webp",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "Delivering unmatched value to businesses. By harnessing the full potential of Salesforce, 360 Degree empowers its clients with unique insights that drive informed decision-making, uncover new opportunities, and create customized experiences. This commitment to excellence positions 360 Degree as one of the Topmost Salesforce Companies In 2024.360 Degree also offers a flexible engagement model, including staff augmentation to bolster the existing team with skilled Salesforce professionals on an hourly or full-time basis. Additionally, it has developed a suite of Salesforce-native flagship products that address specific business challenges and accelerate time-to-value.",
   },
   {
     id: 5,
-    name: "360 SMS",
+    name: "Exavalue",
     tier: "Silver",
     logo: "https://witblogpic.s3.amazonaws.com/1726416420491-074a6654-4a7b-4b9e-8436-1b5b8213f152.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "Exavalu is a specialized digital transformation partner, founded by industry veterans, delivering cutting-edge solutions to Insurance, financial services, healthcare and non-profits. Deep industry knowledge coupled with multi-cloud Salesforce expertise makes us the right partner for operations transformation and fuel business growth. Our key business dimensions: Exavalu Consulting focusing on business advisory and digital strategy, Exavalu Digital offering CX, Salesforce, data analytics and core platform services and Exasure suite of business accelerators.  Accelerate business transformation with our offerings: Exasure on Industry clouds, Data Cloud services, Smart Analytics and Industry API blueprint Partner with us and supercharge your Salesforce journey",
   },
   {
     id: 6,
@@ -52,7 +52,7 @@ const sponsors = [
     tier: "Learning Partner",
     logo: "https://witblogpic.s3.amazonaws.com/1727465140282-9c85e3cb-3c4e-4012-9646-68768600808e.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "The SmartInternz platform provides a collaborative work environment, remote internships, and mentor support. Over 400,000 interns have benefited from this platform, improving their skill index and career readiness. We also offer credit courses that provide specialized knowledge and skills in specific fields. These courses can be applied towards degrees or certifications, equipping students with the competencies required for various industry roles. Our impact is significant: we've trained 10,000+ students, collaborated with 50+ industry partners, and achieved a successful placement rate of 85% for program participants. We've also contributed to curriculum redesign at the state level, ensuring academic programs align with industry needs. Our focus areas include high-demand technologies like IoT, Data Science, and Artificial Intelligence. SmartBridge is committed to fostering strong industry-academia connections and providing students with the tools they need to succeed in the evolving job market",
   },
   {
     id: 7,
@@ -60,7 +60,7 @@ const sponsors = [
     tier: "Bronze",
     logo: "https://www.witdreamin.com/tbx.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "Trailblazex, your digital transformation partner, empowers businesses with cutting-edge technology solutions. Specializing in Salesforce services, Cloud solutions, Mobile Technology, and personalized customer experiences, we drive growth and efficiency. From Marketing Cloud Engagement and Data Cloud to Pardot, Marketing Cloud Personalization, and Intelligence, we deliver innovative strategies. Our expertise extends to Salesforce Sales &amp; Service Cloud, Open Source Development, and Digital Studio solutions, keeping your business ahead in today’s fast- moving digital world.",
   },
   {
     id: 8,
@@ -68,7 +68,7 @@ const sponsors = [
     tier: "Bronze",
     logo: "https://brinkview.com/wp-content/uploads/2024/01/BV-Logo-1024x483.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "Brinkview is a design-driven interdisciplinary consultancy headquartered in Pune with a mix bag of remote and in-house workforce comprised of employees and contractors. We have strong fundamentals in design thinking and mapping with in-house training programmes. Our leadership team has years of experience in training in their areas of expertise. Our combined decades of experience serving a wide range of industries and wide sector agnostic skillset empowers our clients to build solutions in almost any human-centric context.",
   },
   {
     id: 9,
@@ -76,7 +76,7 @@ const sponsors = [
     tier: "NextGen",
     logo: "https://www.witdreamin.com/PCSglobal.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "",
   },
   {
     id: 10,
@@ -84,7 +84,7 @@ const sponsors = [
     tier: "NextGen",
     logo: "https://witblogpic.s3.amazonaws.com/1727465254366-2ea7f7b2-7bd0-4ec0-8077-4c4d35324d01.jpeg",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "",
   },
   {
     id: 12,
@@ -92,7 +92,7 @@ const sponsors = [
     tier: "Wifi",
     logo: "https://www.witdreamin.com/copado.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "Transform your Salesforce development journey with Copado, the premier DevOps platform that turbocharges innovation and ensures flawless releases. Elevate Your DevOps Game with AI-Driven Version Control, Seamless Automated Testing & Deployments, Smart Conflict Resolution, Bulletproof Compliance Tools & Cutting-Edge Value Stream Management Copado provides - Slash Development Time, Skyrocket Release Quality, Effortless Regulatory Compliance, Unify Teams, Amplify Results, Accelerate Feature Delivery Level Up with Copado Academy and tap into our DevOps Exchange for game-changing solutions. Join a thriving community of 1,000+ certified DevOps pros, backed by global support and events. From agile startups to industry titans, Copado is your catalyst for DevOps excellence.",
   },
   {
     id: 13,
@@ -100,7 +100,7 @@ const sponsors = [
     tier: "Photography",
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuUq2lofwjYFAyLCBp1AO9ekt2MEpCoAXXDw&s",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      " Welcome to Cyntexa, your trusted partner in unlocking the full potential of Salesforce! As experts in Salesforce solutions, we deliver seamless implementations and customizations to ensure your CRM operates at peak performance. With Cyntexa, you can streamline your business processes and elevate customer experiences effortlessly. What makes us stand out? We’re more than just a leading Salesforce consulting company—we’re a dynamic community that thrives on innovation, collaboration, and inclusivity. Our commitment to nurturing talent and delivering excellence makes us the ideal partner for your Salesforce transformation journey.",
   },
   {
     id: 14,
@@ -108,7 +108,7 @@ const sponsors = [
     tier: "Community Partners",
     logo: "https://placehold.co/1600x900.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "",
   },
   {
     id: 15,
@@ -116,7 +116,7 @@ const sponsors = [
     tier: "After Party",
     logo: "https://placehold.co/1600x900.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "",
   },
   {
     id: 16,
@@ -124,7 +124,7 @@ const sponsors = [
     tier: "NextGen",
     logo: "https://creatiquetech.com/wp-content/uploads/2023/05/final-logo.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "",
   },
   {
     id: 17,
@@ -132,7 +132,7 @@ const sponsors = [
     tier: "NextGen",
     logo: "https://agilecloudconsulting.com/wp-content/uploads/2024/03/Horizontal-Logo-Blue-1-1-768x244.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel finibus est, ac pellentesque leo. Proin convallis, leo sed auctor elementum, nunc ipsum elementum neque, nec finibus quam nibh hendrerit nibh. Sed varius lectus at turpis aliquam, vel rutrum sapien posuere. In mattis et magna ut tempor. Duis nec massa nec nunc pretium gravida. Donec vel ex varius, fermentum risus ut, aliquam purus. Nulla lobortis sapien erat, in molestie odio pretium id.",
+      "",
   },
 ];
 
@@ -162,7 +162,7 @@ const tierStyles = {
     gradient: "bg-transperant",
     textColor: "text-gray-100",
   },
-  "Photography": {
+  Photography: {
     gradient: "bg-transperant",
     textColor: "text-white",
   },
