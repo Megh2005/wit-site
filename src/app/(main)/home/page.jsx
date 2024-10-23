@@ -183,7 +183,7 @@ const HomePage = () => {
             .map((tile) => (
               <div
                 key={tile.id}
-                className="bg-gray-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center  transition duration-300 group"
+                className="bg-gradient-to-tr from-stone-100 via-yellow-100 to-green-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center  transition duration-300 group"
               >
                 <Link href={tile.route}>
                   <div className="w-full aspect-square overflow-hidden mb-1">
@@ -202,18 +202,18 @@ const HomePage = () => {
         {(session?.user?.role === "admin" ||
           session?.user?.role === "sponsor" ||
           session?.user?.role === "volunteer") && (
-          <div className="bg-teal-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-teal-400 transition duration-300 group">
+          <div className="bg-gradient-to-tr from-stone-100 via-yellow-100 to-green-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center  transition duration-300 group">
             <Link href={"/scan"}>
               <div className="w-full aspect-square overflow-hidden mb-1">
                 <img
                   src={
-                    "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728374392/WIT_rtsrnp.png"
+                    "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729716068/icons/QR_aetpil.png"
                   }
                   alt="Scan QR"
                   className="object-cover w-full h-full rounded-md transition duration-300"
                 />
               </div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-pink-600 mb-[-10px] group-hover:text-blue-800">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-teal-700 mb-[-10px] ">
                 Scan QR
               </h2>
             </Link>
