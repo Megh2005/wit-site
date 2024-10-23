@@ -19,7 +19,7 @@ const HomePage = () => {
       title: "Organizers",
       description: "Description for Tile 1",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728310813/An_organizer_in_a_serious_official_theme_with_a_female_and_two_additional_people_aceros.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714390/icons/ORGANIZER_xyfagv.png",
       route: "/organizers",
       visibleToSponsor: true,
     },
@@ -28,7 +28,7 @@ const HomePage = () => {
       title: "Agenda",
       description: "Description for Tile 2",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728228627/A_serious_themed_agenda_image_l8bivk.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714390/icons/AGENDA_i1rgtm.png",
       route: "/agenda",
       visibleToSponsor: true,
     },
@@ -37,7 +37,7 @@ const HomePage = () => {
       title: "Marketplace",
       description: "Description for Tile 3",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728228724/Marketplace_and_online_shop_with_a_modern_theme_ylxbr5.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714986/icons/marketplace_17225443_pntvmx.png",
       route: "/marketplace",
       visibleToSponsor: false,
     },
@@ -46,7 +46,7 @@ const HomePage = () => {
       title: "Speakers",
       description: "Description for Tile 4",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728228811/Speakers_and_lectures_in_a_modern_theme_ycayam.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/SPEAKER_fcip4x.png",
       route: "/speakers",
       visibleToSponsor: true,
     },
@@ -55,7 +55,7 @@ const HomePage = () => {
       title: "Games",
       description: "Description for Tile 5",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728228891/online_and_virtual_games_in_modern_theme_tqpwxi.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/GAME_drqi91.png",
       route: "/games",
       visibleToSponsor: false,
     },
@@ -64,7 +64,7 @@ const HomePage = () => {
       title: "Sponsors",
       description: "Description for Tile 6",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728229138/sponsors_and_sponsorship_in_serious_official_theme_hybko8.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/SPONS_gktc9a.png",
       route: "/sponsors",
       visibleToSponsor: true,
     },
@@ -73,7 +73,7 @@ const HomePage = () => {
       title: "Profile",
       description: "Description for Tile 6",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728229221/user_profile_icons_in_a_serious_official_theme_neepb1.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/PROFILE_pmxo1h.png",
       route: `/profile/${session?.user?.id}`,
       visibleToSponsor: true,
     },
@@ -82,26 +82,17 @@ const HomePage = () => {
       title: "Contact Us",
       description: "Description for Tile 6",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728229300/Contact_Us_in_a_serious_official_theme_a5kqji.jpg",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/CONTACT_q4ukcd.png",
       route: "/contact",
       visibleToSponsor: true,
     },
     {
       id: 9,
-      title: "Privacy Policy",
+      title: "Swag Corner",
       description: "Description for Tile 6",
       imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728583177/privacy_policy_theme_okzpsf.jpg",
-      route: "/privacy-policy",
-      visibleToSponsor: true,
-    },
-    {
-      id: 10,
-      title: "Terms",
-      description: "Description for Tile 6",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728584036/terms_conditions_ohcc5r.jpg",
-      route: "/terms",
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729715171/icons/SWAG_agnylg.png",
+      route: "/contact",
       visibleToSponsor: true,
     },
   ];
@@ -156,7 +147,7 @@ const HomePage = () => {
       ></div>
 
       <div className="px-2 justify-between gap-2 flex items-center text-center">
-        <div className="bg-gradient-to-r from-gray-900 to-emerald-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-teal-200 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out">
+        <div className="bg-gradient-to-r from-gray-900 to-emerald-600 focus:ring-4 focus:outline-none focus:ring-teal-200 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out">
           <div className="flex items-center text-base line-clamp-1 sm:text-xl gap-1 justify-center text-white">
             {isLoading ? (
               <LoaderCircle className="w-5 h-5 animate-spin text-white" />
@@ -192,7 +183,7 @@ const HomePage = () => {
             .map((tile) => (
               <div
                 key={tile.id}
-                className="bg-teal-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center hover:bg-teal-400 transition duration-300 group"
+                className="bg-gray-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center  transition duration-300 group"
               >
                 <Link href={tile.route}>
                   <div className="w-full aspect-square overflow-hidden mb-1">
@@ -202,7 +193,7 @@ const HomePage = () => {
                       className="object-cover w-full h-full rounded-md transition duration-300"
                     />
                   </div>
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-pink-600 mb-[-10px] group-hover:text-blue-800">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-teal-700 mb-[-10px] ">
                     {tile.title}
                   </h2>
                 </Link>

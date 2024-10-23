@@ -8,9 +8,9 @@ const organizers = [
   {
     id: 1,
     name: "Khyati Mehta",
-    post: "Co-founder & Organiser of WIT Dreamin",
+    post: "Co-founder & Organiser of WIT Dreamin'",
     designation:
-      "Founder of WIT Dreamin',Group Leader of Salesforce Women In Tech,Kolkata,Salesforce Marketing Champion,Trailblazer Community Forum Ambassador,Speaker,Trailhead Mentor,Hosts Podcast in India,Led Initiatives in India",
+      "Sr. Salesforce Developer | Salesforce Marketing Champion | Trailblazer Community Forum Ambassasor | Featured on Salesforce Blog | Speaker | Trailhead Mentor | Hosts Podcast in India | Led Initiatives in India | Traveller | Classical Dancer",
     imageUri:
       "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728367617/speakers/khyati_oy240f.png",
     twitterUri: "https://x.com/khyatu07",
@@ -21,7 +21,7 @@ const organizers = [
     name: "Neetu Bansal",
     post: "Co-founder & Organiser of WIT Dreamin",
     designation:
-      "Technical Architect at Deloitte | Salesforce MVP | Salesforce Trailblazer | Jaipur Women in Technology Leader | Adventurer | Traveller",
+      "Technical Architect | Salesforce MVP | Salesforce Trailblazer | Jaipur Women in Technology Leader | Adventurer | Traveller",
     imageUri:
       "https://res.cloudinary.com/dmbxx03vp/image/upload/v1728367887/speakers/neetu_wzc1zf.png",
     twitterUri: "https://x.com/NeetuBansal5",
@@ -39,7 +39,7 @@ const OrganizersPage = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Organizers
+        Organisers
       </motion.h1>
 
       <motion.div

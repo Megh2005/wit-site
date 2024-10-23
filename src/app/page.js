@@ -173,7 +173,7 @@ const LoginForm = () => {
               <br />
             </span>
             <span style={{ color: "#FF0000", fontWeight: "800" }}>
-              WIT Dreamin কলকাতা
+              WIT Dreamin'
             </span>
             <hr width="true" style={{ color: "#000" }} />
           </h1>
