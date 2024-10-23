@@ -141,12 +141,19 @@ const LoginForm = () => {
     setSubmitting(false);
 
     if (result?.error) {
-      toast.error(result.error);
+      if (result.error === "AccessDenied")
+        toast.error(
+          "You already have an active session. Please sign out and try again.",
+          {
+            duration: 3000,
+            position: "top-center",
+          }
+        );
+      else toast.error(result.error);
     }
 
     if (result?.ok) {
       toast.success("Logged in Successfully");
-      console.log(`Logged In`);
       router.replace("/home");
     }
   };
@@ -165,7 +172,9 @@ const LoginForm = () => {
               Welcome To
               <br />
             </span>
-            <span style={{ color: "#FF0000", fontWeight: "800" }}>WIT Dreamin কলকাতা</span>
+            <span style={{ color: "#FF0000", fontWeight: "800" }}>
+              WIT Dreamin কলকাতা
+            </span>
             <hr width="true" style={{ color: "#000" }} />
           </h1>
           <div style={styles.inputBox}>

@@ -1,5 +1,13 @@
 import CredentialsProvider from "next-auth/providers/credentials";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  updateDoc,
+  where,
+} from "firebase/firestore";
 import { db } from "@/services/firebaseinit";
 
 export const authOptions = {
@@ -56,6 +64,21 @@ export const authOptions = {
         session.user.role = token.role;
       }
       return session;
+    },
+    async signIn({ user }) {
+      const currentUser = await getDoc(doc(db, "users", user.id));
+
+      const activeSession = currentUser.data().activeSession;
+
+      if (activeSession) {
+        return false;
+      } else {
+        await updateDoc(doc(db, "users", user.id), {
+          activeSession: true,
+        });
+
+        return true;
+      }
     },
   },
   pages: {
