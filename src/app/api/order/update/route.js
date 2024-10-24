@@ -19,7 +19,7 @@ export async function POST(req) {
       throw new Error("Unauthorized");
     }
 
-    if (user.role !== "admin") {
+    if (user.role !== "admin" && user.role !== "storeVolunteer") {
       throw new Error("Unauthorized");
     }
 
