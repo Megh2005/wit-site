@@ -19,7 +19,7 @@ const organizers = [
   {
     id: 2,
     name: "Neetu Bansal",
-    post: "Co-founder & Organiser of WIT Dreamin",
+    post: "Co-founder & Organiser of WIT Dreamin'",
     designation:
       "Technical Architect | Salesforce MVP | Salesforce Trailblazer | Jaipur Women in Technology Leader | Adventurer | Traveller",
     imageUri:
