@@ -124,19 +124,19 @@ const QuizPage = () => {
           </h2>
           <div className="flex flex-col space-y-2">
             <div className="text-xl flex items-center w-full">
-              <h2 className="font-bold">Correct Answers: </h2>
+              <h2 className="font-bold">Correct Answers: {" "}</h2>
               <span className="ml-2 text-green-600">
                 {quizData?.data.result.correct_answers}
               </span>
             </div>
             <div className="text-xl flex items-center w-full">
-              <h2 className="font-bold">Incorrect Answers: </h2>
+              <h2 className="font-bold">Incorrect Answers:{" "}</h2>
               <span className="ml-2 text-red-600">
                 {quizData?.data.result.incorrect_answers}
               </span>
             </div>
             <div className="text-xl flex items-center w-full">
-              <h2 className="font-bold">Not Answered: </h2>
+              <h2 className="font-bold">Not Answered:{" "}</h2>
               <span className="ml-2 text-gray-600">
                 {quizData?.data.result.unanswered}
               </span>
