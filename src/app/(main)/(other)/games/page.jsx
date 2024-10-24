@@ -7,6 +7,7 @@ const elements = [
   { name: "Demo Jam", route: "/games/demo-jam" },
   { name: "Find Them All", route: "/games/find-user" },
   { name: "Treasure Hunt", route: "/games/treasure-hunt" },
+  { name: "Quiz", route: "/games/quiz" },
 ];
 
 const tileVariants = {
