@@ -192,7 +192,7 @@ const LoginForm = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
-              placeholder="Email Address"
+              placeholder="Registred Email"
               required
               style={styles.input}
             />
@@ -201,10 +201,10 @@ const LoginForm = () => {
             <input
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              type="password"
+              type="number"
               minLength={8}
               maxLength={16}
-              placeholder="Password"
+              placeholder="Registred Mobile Number"
               required
               style={styles.input}
             />
