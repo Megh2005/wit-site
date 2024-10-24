@@ -45,8 +45,8 @@ const QuizPage = () => {
   const [submissionData, setSubmissionData] = useState({});
 
   useEffect(() => {
-    if (quizData?.data) {
-      setQuiz(quizData.data.questions);
+    if (quizData?.data.quiz) {
+      setQuiz(quizData.data.quiz.questions);
     }
   }, [quizData]);
 
@@ -112,18 +112,47 @@ const QuizPage = () => {
     );
   }
 
-  if (!quizData?.data) {
+  if (quizData?.data.submitted) {
     return (
-      <div className="px-4 min-h-[60vh] flex items-center justify-center">
+      <div className="px-4 min-h-[60vh] flex flex-col items-center justify-center">
         <p className="text-center text-balance text-black text-xl font-bold">
           {quizData?.message}
         </p>
+        <div className="mt-6 shadow-xl p-6 rounded-md border border-gray-300">
+          <h2 className="text-center font-bold text-2xl mb-2 text-teal-500">
+            Result
+          </h2>
+          <div className="flex flex-col space-y-2">
+            <div className="text-xl flex items-center w-full">
+              <h2 className="font-bold">Correct Answers: </h2>
+              <span className="ml-2 text-green-600">
+                {quizData?.data.result.correct_answers}
+              </span>
+            </div>
+            <div className="text-xl flex items-center w-full">
+              <h2 className="font-bold">Incorrect Answers: </h2>
+              <span className="ml-2 text-red-600">
+                {quizData?.data.result.incorrect_answers}
+              </span>
+            </div>
+            <div className="text-xl flex items-center w-full">
+              <h2 className="font-bold">Not Answered: </h2>
+              <span className="ml-2 text-gray-600">
+                {quizData?.data.result.unanswered}
+              </span>
+            </div>
+          </div>
+          <div className="mt-4 font-bold text-white text-xl flex items-center w-full bg-teal-500 rounded-md px-4 py-2">
+            <h2 className="">Coins Earned:</h2>
+            <span className="ml-2">200</span>
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    quizData?.data && (
+    !quizData?.data.submitted && (
       <div className="min-h-screen px-4 py-6">
         <h1 className="text-center text-xl font-bold text-blue-500">Quiz</h1>
         <div>
