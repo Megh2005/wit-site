@@ -58,7 +58,7 @@ export async function middleware(req) {
 
   if (
     token &&
-    token.role !== "store-volunteer" &&
+    token.role !== "storeVolunteer" &&
     token.role !== "admin" &&
     (currentUrl.pathname.startsWith("/marketplace/orders") ||
       currentUrl.pathname.startsWith("/api/order"))
