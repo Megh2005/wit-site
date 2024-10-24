@@ -19,3 +19,13 @@ export async function getTreasureHunts() {
   const res = await axios.get("/api/games/treasure-hunt");
   return res.data;
 }
+
+export async function getQuiz(quizName) {
+  const res = await axios.get("/api/games/quiz/" + quizName);
+  return res.data;
+}
+
+export async function submitQuiz(quizName, data) {
+  const res = await axios.post("/api/games/quiz/" + quizName, data);
+  return res.data;
+}
