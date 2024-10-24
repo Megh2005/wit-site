@@ -36,13 +36,23 @@ export async function GET(req) {
 
     if (isQuizAlreadySubmitted.exists()) {
       return NextResponse.json(
-        new ApiResponse(200, "You have already submitted this quiz", null),
+        new ApiResponse(
+          200,
+          "You have attempted the current quiz. Stay tuned for the upcoming ones",
+          {
+            result: isQuizAlreadySubmitted.data(),
+            submitted: true,
+          }
+        ),
         { status: 200 }
       );
     }
 
     return NextResponse.json(
-      new ApiResponse(200, "Quiz fetched", quiz.data()),
+      new ApiResponse(200, "Quiz fetched", {
+        quiz: quiz.data(),
+        submitted: false,
+      }),
       { status: 200 }
     );
   } catch (error) {
