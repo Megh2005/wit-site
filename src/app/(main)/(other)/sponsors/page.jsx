@@ -75,14 +75,16 @@ const sponsors = [
     name: "PCS Global",
     tier: "NextGen",
     logo: "https://www.witdreamin.com/PCSglobal.png",
-    description: "PCS Global Pvt. Ltd. partners with clients to provide tailored solutions, leveraging industry expertise to meet their needs across sectors. Our team delivers customized strategies that help businesses stay competitive in the evolving market",
+    description:
+      "PCS Global Pvt. Ltd. partners with clients to provide tailored solutions, leveraging industry expertise to meet their needs across sectors. Our team delivers customized strategies that help businesses stay competitive in the evolving market",
   },
   {
     id: 10,
     name: "Perigeon",
     tier: "NextGen",
     logo: "https://witblogpic.s3.amazonaws.com/1727465254366-2ea7f7b2-7bd0-4ec0-8077-4c4d35324d01.jpeg",
-    description: "Perigeon specializes in crafting innovative, technically complex solutions for dynamic TI needs. We prioritize quality to ensure clients achieve optimal returns on their investments, delivering customized strategies that meet evolving business requirements.",
+    description:
+      "Perigeon specializes in crafting innovative, technically complex solutions for dynamic TI needs. We prioritize quality to ensure clients achieve optimal returns on their investments, delivering customized strategies that meet evolving business requirements.",
   },
   {
     id: 12,
@@ -100,70 +102,68 @@ const sponsors = [
     description:
       "With Cyntexa, you can streamline your business processes and elevate customer experiences effortlessly. What makes us stand out? We’re more than just a leading Salesforce consulting company—we’re a dynamic community that thrives on innovation, collaboration, and inclusivity. Our commitment to nurturing talent and delivering excellence makes us the ideal partner for your Salesforce transformation journey.",
   },
-  // {
-  //   id: 14,
-  //   name: "Community Connect",
-  //   tier: "Community Partners",
-  //   logo: "https://placehold.co/1600x900.png",
-  //   description:
-  //     "",
-  // },
-  // {
-  //   id: 15,
-  //   name: "After Party Inc.",
-  //   tier: "After Party",
-  //   logo: "https://placehold.co/1600x900.png",
-  //   description:
-  //     "",
-  // },
   {
     id: 16,
     name: "Creatique Technologies",
     tier: "NextGen",
     logo: "https://creatiquetech.com/wp-content/uploads/2023/05/final-logo.png",
-    description: "We deliver tailored Salesforce solutions and services to help small, medium, and enterprise clients optimize processes and maximize their Salesforce investment. Our team customizes solutions, provides training, and ongoing support to empower clients for future success.",
+    description:
+      "We deliver tailored Salesforce solutions and services to help small, medium, and enterprise clients optimize processes and maximize their Salesforce investment. Our team customizes solutions, provides training, and ongoing support to empower clients for future success.",
   },
   {
     id: 17,
     name: "Creatique Technologies",
     tier: "NextGen",
     logo: "https://agilecloudconsulting.com/wp-content/uploads/2024/03/Horizontal-Logo-Blue-1-1-768x244.png",
-    description: "Agile Cloud Consulting provides comprehensive Salesforce services, including implementation, support, data migration, system integration, and product development. With an agile methodology and holistic approach, we deliver exceptional value, building lasting client partnerships to drive business growth.",
+    description:
+      "Agile Cloud Consulting provides comprehensive Salesforce services, including implementation, support, data migration, system integration, and product development. With an agile methodology and holistic approach, we deliver exceptional value, building lasting client partnerships to drive business growth.",
+  },
+  {
+    id: 18,
+    name: "Salesforce",
+    tier: "Diamond",
+    logo: "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729755053/Trailhead_Audience_Groups_Developers_Vert_Logo_RGB_co33or.png",
+    description:
+      "The Agentforce workshop stands out as a unique opportunity to explore the transformative power of agents and generative AI in app development. This workshop is designed to equip developers and admins with the knowledge and skills needed to navigate this landscape. Join us to unlock the potential of these technologies and connect with industry experts",
   },
 ];
 
 // Define gradients and text colors for each tier
 const tierStyles = {
+  Diamond: {
+    gradient: "bg-transparent",
+    textColor: "text-gray-100",
+  },
   Platinum: {
-    gradient: "bg-transperant",
+    gradient: "bg-transparent",
     textColor: "text-gray-100",
   },
   Gold: {
-    gradient: "bg-transperant",
+    gradient: "bg-transparent",
     textColor: "text-gray-100",
   },
   Silver: {
-    gradient: "bg-transperant",
+    gradient: "bg-transparent",
     textColor: "text-gray-200",
   },
   Bronze: {
-    gradient: "bg-transperant",
+    gradient: "bg-transparent",
     textColor: "text-red-100",
   },
   NextGen: {
-    gradient: "bg-transperant",
+    gradient: "bg-transparent",
     textColor: "text-white",
   },
   Wifi: {
-    gradient: "bg-transperant",
+    gradient: "bg-transparent",
     textColor: "text-gray-100",
   },
   Photography: {
-    gradient: "bg-transperant",
+    gradient: "bg-transparent",
     textColor: "text-white",
   },
   "Learning Partner": {
-    gradient: "bg-transperant",
+    gradient: "bg-transparent",
     textColor: "text-gray-800",
   },
 };
@@ -171,6 +171,8 @@ const tierStyles = {
 // Function to get the tier rank based on the desired hierarchy
 const getTierRank = (tier) => {
   switch (tier) {
+    case "Diamond":
+      return 0; // Diamond is now the highest priority
     case "Platinum":
       return 1;
     case "Gold":
@@ -269,6 +271,7 @@ const Sponsors = () => {
         animate="show"
       >
         {[
+          "Diamond",
           "Platinum",
           "Gold",
           "Learning Partner",
@@ -277,7 +280,6 @@ const Sponsors = () => {
           "Wifi",
           "Bronze",
           "NextGen",
-          
         ].map((tier) => (
           <div key={tier} className="mb-10">
             <h2 className="text-3xl font-extrabold underline text-center text-emerald-600 mb-6">

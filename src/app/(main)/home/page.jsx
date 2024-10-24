@@ -92,7 +92,7 @@ const HomePage = () => {
       description: "Description for Tile 6",
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729715171/icons/SWAG_agnylg.png",
-      route: "/contact",
+      route: "/swags",
       visibleToSponsor: true,
     },
   ];
@@ -183,7 +183,7 @@ const HomePage = () => {
             .map((tile) => (
               <div
                 key={tile.id}
-                className="bg-gradient-to-tr from-stone-100 via-yellow-100 to-green-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center  transition duration-300 group"
+                className="bg-gradient-to-tr from-stone-300  to-green-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center  transition duration-300 group"
               >
                 <Link href={tile.route}>
                   <div className="w-full aspect-square overflow-hidden mb-1">
@@ -202,7 +202,7 @@ const HomePage = () => {
         {(session?.user?.role === "admin" ||
           session?.user?.role === "sponsor" ||
           session?.user?.role === "volunteer") && (
-          <div className="bg-gradient-to-tr from-stone-100 via-yellow-100 to-green-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center  transition duration-300 group">
+          <div className="bg-gradient-to-tr from-stone-300  to-green-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center  transition duration-300 group">
             <Link href={"/scan"}>
               <div className="w-full aspect-square overflow-hidden mb-1">
                 <img
