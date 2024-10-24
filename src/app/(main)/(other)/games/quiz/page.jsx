@@ -9,7 +9,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 const QuizPage = () => {
-  const activeQuiz = "";
+  const activeQuiz = "quiz-1";
   const queryClient = useQueryClient();
 
   const {
