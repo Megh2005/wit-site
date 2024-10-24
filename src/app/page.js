@@ -45,7 +45,7 @@ const LoginForm = () => {
     input: {
       width: "100%",
       height: "100%",
-      background: "transparent",
+      background: "#fff",
       outline: "none",
       border: "2px solid rgba(0, 0, 0, 0.2)",
       borderRadius: "40px",
@@ -122,6 +122,11 @@ const LoginForm = () => {
         fontSize: "12px",
       },
     },
+    logo: {
+      display: "block",
+      margin: "0 auto 10px",
+      maxWidth: "150px",
+    },
   };
 
   const router = useRouter();
@@ -167,13 +172,18 @@ const LoginForm = () => {
             submitLoginForm();
           }}
         >
+          <img
+            src="https://res.cloudinary.com/dmbxx03vp/image/upload/v1726842359/logo2_wlg6sy.png"
+            alt="Logo"
+            style={styles.logo}
+          />
           <h1 style={styles.h1}>
             <span style={{ color: "#000", fontWeight: "800" }}>
               Welcome To
-              <br />
             </span>
+            <br/>
             <span style={{ color: "#FF0000", fontWeight: "800" }}>
-              WIT Dreamin&apos;
+              WIT Dreamin&apos; Kolkata
             </span>
             <hr width="true" style={{ color: "#000" }} />
           </h1>
