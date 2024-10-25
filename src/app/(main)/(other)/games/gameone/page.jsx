@@ -4,6 +4,7 @@ import { getGameStatus, submitAiGameResponse } from "@/queries/game";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { LoaderCircle } from "lucide-react";
 import React, { useState } from "react";
+import { FcRating } from "react-icons/fc";
 import toast from "react-hot-toast";
 import { ToastContainer } from "react-toastify"; // Import Toastify components
 
@@ -75,6 +76,10 @@ export default function SloganSymphony() {
               <p className="mt-2 text-base sm:text-lg capitalize font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-800 to-blue-600">
                 Compose harmonious slogans with the power of AI
               </p>
+              <div className="text-red-500 flex font-semibold py-2 items-center justify-center text-center">
+                500 Coins{" "}
+                <FcRating className="w-7 h-7" />
+              </div>
             </div>
 
             {/* About Section */}
@@ -101,7 +106,7 @@ export default function SloganSymphony() {
                   Your First Slogan
                 </label>
                 <textarea
-                  className="w-full px-4 py-2 resize-none font-extrabold text-blue-800 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300"
+                  className="w-full px-4 py-2 resize-none font-semibold text-blue-800 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300"
                   id="slogan1"
                   name="slogan1"
                   value={slogans.slogan1}
@@ -121,7 +126,7 @@ export default function SloganSymphony() {
                   Your Second Slogan
                 </label>
                 <textarea
-                  className="w-full px-4 py-2 font-extrabold text-blue-800 resize-none rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300"
+                  className="w-full px-4 py-2 font-semibold text-blue-800 resize-none rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300"
                   id="slogan2"
                   name="slogan2"
                   value={slogans.slogan2}
@@ -145,10 +150,13 @@ export default function SloganSymphony() {
                   {isPending && (
                     <LoaderCircle className="animate-spin text-white w-6 h-6 mr-2" />
                   )}
-                  Submit Slogan
+                  Submit Slogans
                 </button>
               </div>
             </form>
+            <p className="text-red-500 italic font-semibold py-8 text-center">
+              *The winner will be declared at 5 pm
+            </p>
           </div>
         )}
       </>

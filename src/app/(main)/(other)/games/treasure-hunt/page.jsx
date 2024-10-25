@@ -42,7 +42,7 @@ const TreasureHuntPage = () => {
           <div
             className="bg-white shadow-xl p-8 px-[-4vw] mb-4 rounded-lg flex flex-col items-center cursor-pointer transition-transform transform hover:scale-105"
             style={{
-              boxShadow: "0 10px 30px rgba(0, 0, 0, 0.8)",
+              boxShadow: "0 10px 0 rgba(0, 0, 0, 0.4)",
             }}
           >
             <h2 className="text-3xl text-emerald-600 font-bold mb-2 text-center">

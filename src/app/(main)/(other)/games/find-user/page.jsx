@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { TbQrcode } from "react-icons/tb";
 import { useQuery } from "@tanstack/react-query";
 import { getFindAllusers } from "@/queries/game";
+import { FcRating } from "react-icons/fc";
 import Link from "next/link";
 import { LoaderCircle, LoaderIcon } from "lucide-react";
 
@@ -78,10 +79,13 @@ const User = () => {
                     <h2 className="text-xl cursor-default font-bold mb-2">
                       {user.name}
                     </h2>
-                    <p className="text-xl cursor-default">{user.email}</p>
                     <div className="mt-4 w-12 h-12 flex justify-center items-center border-2 border-white rounded">
                       <TbQrcode className="text-4xl cursor-pointer text-white" />
                     </div>
+                    <div className="text-white gap-1 pt-2 flex font-semibold py-2 items-center justify-center text-center">
+                250 Coins{" "}
+                <FcRating className="w-6 h-6" />
+              </div>
                   </motion.div>
                 </Link>
               ))}

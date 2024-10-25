@@ -31,19 +31,6 @@ const Tile = ({ heading, description }) => {
       initial={{ opacity: 0, y: 70 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.9 }}
-      onClick={() =>
-        toast("🎁 Exclusive swags are waiting for you", {
-          position: "top-center",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: false,
-          progress: undefined,
-          theme: "light",
-          transition: Flip,
-        })
-      }
     >
       <h2 className="text-3xl font-extrabold mb-2 text-emerald-500">
         {heading}
@@ -56,7 +43,6 @@ const Tile = ({ heading, description }) => {
 const App = () => {
   return (
     <div className="min-h-screen gap-10 bg-yellow-100 flex flex-col items-center p-6">
-      <ToastContainer />
       <h1 className="text-4xl font-bold mb-4 text-center text-purple-600">Exciting Rewards Await At WITDreamin&apos; 24!
 </h1>
       <div className="w-full gap-10 max-w-4xl">

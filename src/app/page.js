@@ -182,7 +182,7 @@ const LoginForm = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
-              placeholder="Registred Email"
+              placeholder="Registered Email ID"
               required
               style={styles.input}
             />
@@ -194,7 +194,7 @@ const LoginForm = () => {
               type="number"
               minLength={8}
               maxLength={16}
-              placeholder="Registred Mobile Number"
+              placeholder="Registered Mobile Number"
               required
               style={styles.input}
             />
