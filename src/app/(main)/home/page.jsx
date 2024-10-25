@@ -75,7 +75,7 @@ const HomePage = () => {
       visibleToSponsor: true,
     },
     {
-      id: 8,
+      id: 9,
       title: "Contact Us",
       description: "Description for Tile 6",
       imageUrl:
@@ -84,7 +84,7 @@ const HomePage = () => {
       visibleToSponsor: true,
     },
     {
-      id: 9,
+      id: 8,
       title: "Swag Corner",
       description: "Description for Tile 6",
       imageUrl:
