@@ -70,25 +70,30 @@ const ScanPage = () => {
     }
   };
 
+  const [isProcessing, setIsProcessing] = useState(false);
+
   const onSuccessHandler = useCallback(
     async (result) => {
-      if (!session) return;
+      if (!session || isProcessing) return;
+
+      setIsProcessing(true);
 
       if (session.user?.role === "attendee") {
         if (result === uid) {
-          transferCoinsFromUserToUser();
+          await transferCoinsFromUserToUser();
         } else {
           toast.error("Invalid QR code");
           router.replace("/games/find-user");
         }
       } else if (session.user?.role === "sponsor") {
-        // redirect to payment page
         router.replace(`/payment?to=${result}`);
       } else if (session.user?.role === "volunteer") {
-        transferCoinsFromVolunteerToUser(result);
+        await transferCoinsFromVolunteerToUser(result);
       }
+
+      setTimeout(() => setIsProcessing(false), 1000); // Reset processing state after 1 second
     },
-    [session, uid]
+    [session, uid, isProcessing]
   );
 
   const onErrorHandler = () => {
