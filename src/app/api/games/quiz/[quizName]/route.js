@@ -109,7 +109,7 @@ export async function POST(req) {
       transaction.update(userRef, {
         coins: (
           parseInt(userData.coins) +
-          submissionData.correct_answers * 50
+          submissionData.correct_answers * 100
         ).toString(),
       });
 

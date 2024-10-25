@@ -67,18 +67,18 @@ export async function POST(req) {
       }
 
       // Deduct coins from sender and add to receiver
-      //const newSenderCoins = parseInt(senderCoins) + 250;
-      const newReceiverCoins = parseInt(receiverCoins) + 250;
+      const newSenderCoins = parseInt(senderCoins) + 200;
+      //const newReceiverCoins = parseInt(receiverCoins) + 200;
 
       // Update both sender and receiver coins in the transaction
-      //transaction.update(senderRef, { coins: newSenderCoins.toString() });
-      transaction.update(receiverRef, { coins: newReceiverCoins.toString() });
+      transaction.update(senderRef, { coins: newSenderCoins.toString() });
+      //transaction.update(receiverRef, { coins: newReceiverCoins.toString() });
 
       // create a record of the transaction
       transaction.set(doc(db, "transactions", Date.now().toString()), {
         sender,
         receiver,
-        amount: 250,
+        amount: 200,
       });
     });
 

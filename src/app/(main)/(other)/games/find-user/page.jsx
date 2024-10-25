@@ -90,7 +90,7 @@ const User = () => {
                       <TbQrcode className="text-4xl cursor-pointer text-white" />
                     </div>
                     <div className="text-white gap-1 pt-2 flex font-semibold py-2 items-center justify-center text-center">
-                      250 Coins <FcRating className="w-6 h-6" />
+                      200 Coins <FcRating className="w-6 h-6" />
                     </div>
                   </motion.div>
                 </Link>

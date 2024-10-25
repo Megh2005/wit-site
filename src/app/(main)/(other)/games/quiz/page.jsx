@@ -154,7 +154,7 @@ const QuizPage = () => {
           <div className="mt-4 font-bold text-white text-xl flex items-center w-full bg-teal-500 rounded-md px-4 py-2">
             <h2 className="">Coins Earned:</h2>
             <span className="ml-2">
-              {quizData?.data.result.correct_answers * 50}
+              {quizData?.data.result.correct_answers * 100}
             </span>
           </div>
         </div>
