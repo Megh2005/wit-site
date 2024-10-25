@@ -9,6 +9,7 @@ import { LoaderCircle } from "lucide-react";
 import { SessionProvider, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import toast from "react-hot-toast";
 
 const ScanPage = () => {
   const router = useRouter();
@@ -27,10 +28,9 @@ const ScanPage = () => {
     setTransferring(true);
 
     try {
-      const res = await axios.post("/api/payment/transfer", {
+      const res = await axios.post("/api/payment/user", {
         sender: session.user.id,
         receiver: uid,
-        amount: 100,
       });
 
       if (res.data.status === "SUCCESS") {
@@ -78,8 +78,7 @@ const ScanPage = () => {
         if (result === uid) {
           transferCoinsFromUserToUser();
         } else {
-          toast.error("Invalid QR code");
-          router.replace("/home");
+          setError("Invalid QR code");
         }
       } else if (session.user?.role === "sponsor") {
         // redirect to payment page

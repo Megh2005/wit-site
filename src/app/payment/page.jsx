@@ -52,8 +52,8 @@ const PaymentPage = () => {
     // Add your payment logic here
     if (!amount || !session) return;
 
-    if (parseInt(amount) > 2000) {
-      toast.error("Cannot transfer more than 2000 coins");
+    if (parseInt(amount) > 500) {
+      toast.error("Cannot transfer more than 500 coins");
       return;
     }
 
