@@ -48,6 +48,24 @@ const HomePage = () => {
       visibleToSponsor: true,
     },
     {
+      id: 8,
+      title: "Swag Corner",
+      description: "Description for Tile 6",
+      imageUrl:
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729715171/icons/SWAG_agnylg.png",
+      route: "/swags",
+      visibleToSponsor: false,
+    },
+    {
+      id: 10,
+      title: "Notice",
+      description: "Description for Tile 6",
+      imageUrl:
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729870486/icons/pinned_4631148_lctlqu.png",
+      route: "/notice",
+      visibleToSponsor: true,
+    },
+    {
       id: 5,
       title: "Games",
       description: "Description for Tile 5",
@@ -81,15 +99,6 @@ const HomePage = () => {
       imageUrl:
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/CONTACT_q4ukcd.png",
       route: "/contact",
-      visibleToSponsor: true,
-    },
-    {
-      id: 8,
-      title: "Swag Corner",
-      description: "Description for Tile 6",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729715171/icons/SWAG_agnylg.png",
-      route: "/swags",
       visibleToSponsor: true,
     },
   ];
