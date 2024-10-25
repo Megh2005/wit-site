@@ -27,10 +27,9 @@ const ScanPage = () => {
     setTransferring(true);
 
     try {
-      const res = await axios.post("/api/payment/transfer", {
+      const res = await axios.post("/api/payment/user", {
         sender: session.user.id,
         receiver: uid,
-        amount: 100,
       });
 
       if (res.data.status === "SUCCESS") {

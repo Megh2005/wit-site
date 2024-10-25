@@ -12,7 +12,7 @@ import { NextResponse } from "next/server";
 import { authOptions } from "../../auth/[...nextauth]/options";
 
 export async function POST(req) {
-  const { sender, receiver, amount } = await req.json();
+  const { sender, receiver } = await req.json();
 
   try {
     const { user } = await getServerSession(authOptions);
@@ -27,10 +27,6 @@ export async function POST(req) {
 
     if (sender === receiver) {
       throw new Error("Sender and receiver cannot be the same");
-    }
-
-    if (amount > 500) {
-      throw new Error("Cannot transfer more than 500 coins");
     }
 
     // Run transaction
@@ -56,11 +52,6 @@ export async function POST(req) {
       const { coins: senderCoins } = senderData;
       const { coins: receiverCoins } = receiverData;
 
-      // Check if sender has enough coins
-      if (parseInt(senderCoins) < amount) {
-        throw new Error("Insufficient coins");
-      }
-
       // Check if transaction already made
 
       const transactionRef = collection(db, "transactions");
@@ -76,18 +67,18 @@ export async function POST(req) {
       }
 
       // Deduct coins from sender and add to receiver
-      const newSenderCoins = parseInt(senderCoins) - amount;
-      const newReceiverCoins = parseInt(receiverCoins) + amount;
+      //const newSenderCoins = parseInt(senderCoins) + 250;
+      const newReceiverCoins = parseInt(receiverCoins) + 250;
 
       // Update both sender and receiver coins in the transaction
-      transaction.update(senderRef, { coins: newSenderCoins.toString() });
+      //transaction.update(senderRef, { coins: newSenderCoins.toString() });
       transaction.update(receiverRef, { coins: newReceiverCoins.toString() });
 
       // create a record of the transaction
       transaction.set(doc(db, "transactions", Date.now().toString()), {
         sender,
         receiver,
-        amount,
+        amount: 250,
       });
     });
 

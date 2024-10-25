@@ -20,7 +20,6 @@ const QuizPage = () => {
   } = useQuery({
     queryKey: ["quiz"],
     queryFn: () => getQuiz(activeQuiz),
-    staleTime: Infinity,
     enabled: !!activeQuiz,
   });
 
@@ -104,6 +103,16 @@ const QuizPage = () => {
     );
   }
 
+  if (isQuizError) {
+    return (
+      <div className="px-4 min-h-[60vh] flex items-center justify-center">
+        <p className="text-center text-balance text-black text-xl font-bold">
+          Something went wrong. Please try again
+        </p>
+      </div>
+    );
+  }
+
   if (isQuizLoading || isQuizRefetching) {
     return (
       <div className="px-4 mt-6 flex justify-center">
@@ -124,19 +133,19 @@ const QuizPage = () => {
           </h2>
           <div className="flex flex-col space-y-2">
             <div className="text-xl flex items-center w-full">
-              <h2 className="font-bold">Correct Answers: {" "}</h2>
+              <h2 className="font-bold">Correct Answers: </h2>
               <span className="ml-2 text-green-600">
                 {quizData?.data.result.correct_answers}
               </span>
             </div>
             <div className="text-xl flex items-center w-full">
-              <h2 className="font-bold">Incorrect Answers:{" "}</h2>
+              <h2 className="font-bold">Incorrect Answers: </h2>
               <span className="ml-2 text-red-600">
                 {quizData?.data.result.incorrect_answers}
               </span>
             </div>
             <div className="text-xl flex items-center w-full">
-              <h2 className="font-bold">Not Answered:{" "}</h2>
+              <h2 className="font-bold">Not Answered: </h2>
               <span className="ml-2 text-gray-600">
                 {quizData?.data.result.unanswered}
               </span>
@@ -144,7 +153,9 @@ const QuizPage = () => {
           </div>
           <div className="mt-4 font-bold text-white text-xl flex items-center w-full bg-teal-500 rounded-md px-4 py-2">
             <h2 className="">Coins Earned:</h2>
-            <span className="ml-2">200</span>
+            <span className="ml-2">
+              {quizData?.data.result.correct_answers * 50}
+            </span>
           </div>
         </div>
       </div>

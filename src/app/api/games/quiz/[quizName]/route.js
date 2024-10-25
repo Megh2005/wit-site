@@ -1,7 +1,7 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/options";
 import { db } from "@/services/firebaseinit";
 import { ApiResponse } from "@/utils/Response";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, runTransaction, setDoc } from "firebase/firestore";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
@@ -95,10 +95,29 @@ export async function POST(req) {
 
     // TODO: based on the submission data calculate the coins to reward
 
-    const submissionRef = doc(db, `${quizName}-submissions`, user.id);
-    await setDoc(submissionRef, {
-      ...submissionData,
-      userId: user.id,
+    // Run transaction
+    await runTransaction(db, async (transaction) => {
+      const userRef = doc(db, "users", user.id);
+      const userDoc = await transaction.get(userRef);
+
+      if (!userDoc.exists()) {
+        throw new Error("User not found");
+      }
+
+      const userData = userDoc.data();
+
+      transaction.update(userRef, {
+        coins: (
+          parseInt(userData.coins) +
+          submissionData.correct_answers * 50
+        ).toString(),
+      });
+
+      const submissionRef = doc(db, `${quizName}-submissions`, user.id);
+      transaction.set(submissionRef, {
+        ...submissionData,
+        userId: user.id,
+      });
     });
 
     return NextResponse.json(new ApiResponse(200, "Quiz submitted", null), {
