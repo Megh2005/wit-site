@@ -146,15 +146,7 @@ const LoginForm = () => {
     setSubmitting(false);
 
     if (result?.error) {
-      if (result.error === "AccessDenied")
-        toast.error(
-          "You already have an active session. Please sign out and try again.",
-          {
-            duration: 3000,
-            position: "top-center",
-          }
-        );
-      else toast.error(result.error);
+      toast.error(result.error);
     }
 
     if (result?.ok) {
@@ -178,10 +170,8 @@ const LoginForm = () => {
             style={styles.logo}
           />
           <h1 style={styles.h1}>
-            <span style={{ color: "#000", fontWeight: "800" }}>
-              Welcome To
-            </span>
-            <br/>
+            <span style={{ color: "#000", fontWeight: "800" }}>Welcome To</span>
+            <br />
             <span style={{ color: "#FF0000", fontWeight: "800" }}>
               WIT Dreamin&apos; Kolkata
             </span>
