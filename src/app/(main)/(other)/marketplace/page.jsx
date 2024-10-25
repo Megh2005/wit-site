@@ -28,6 +28,9 @@ const Marketplace = () => {
 
   return (
     <div>
+       <h2 className="text-lg underline italic capitalize underline-offset-2 font-bold py-4 text-transparent text-center bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500 mb-6">
+        Redeemed products will be distributed after 05:30 PM
+      </h2>
       <div className="mt-4 mb-2 gap-10 flex justify-center">
         {session?.user?.role === "admin" && (
           <Link href={"/add-product"}>

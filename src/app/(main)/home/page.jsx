@@ -169,17 +169,17 @@ const HomePage = () => {
             .map((tile) => (
               <div
                 key={tile.id}
-                className="bg-gradient-to-tr from-stone-300  to-green-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center  transition duration-300 group"
+                className="bg-gradient-to-tr from-stone-300 to-green-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center transition duration-300 group flex flex-col items-center justify-center"
               >
                 <Link href={tile.route}>
-                  <div className="w-full aspect-square overflow-hidden mb-1">
+                  <div className="w-full aspect-square flex items-center justify-center overflow-hidden mb-1">
                     <img
                       src={tile.imageUrl}
                       alt={tile.title}
-                      className="object-cover w-full h-full rounded-md transition duration-300"
+                      className="object-cover w-[5rem] h-[5rem] rounded-md transition duration-300"
                     />
                   </div>
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-teal-700 mb-[-10px] ">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-teal-700 mt-2">
                     {tile.title}
                   </h2>
                 </Link>
@@ -188,18 +188,18 @@ const HomePage = () => {
         {(session?.user?.role === "admin" ||
           session?.user?.role === "sponsor" ||
           session?.user?.role === "volunteer") && (
-          <div className="bg-gradient-to-tr from-stone-300  to-green-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center  transition duration-300 group">
+          <div className="bg-gradient-to-tr from-stone-300 to-green-300 shadow-4xl h-50 w-50 cursor-pointer rounded-lg p-4 sm:p-6 text-center transition duration-300 group flex flex-col items-center justify-center">
             <Link href={"/scan"}>
-              <div className="w-full aspect-square overflow-hidden mb-1">
+              <div className="w-full aspect-square flex items-center justify-center overflow-hidden mb-1">
                 <img
                   src={
                     "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729716068/icons/QR_aetpil.png"
                   }
                   alt="Scan QR"
-                  className="object-cover w-full h-full rounded-md transition duration-300"
+                  className="object-cover w-[5rem] h-[5rem] rounded-md transition duration-300"
                 />
               </div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-teal-700 mb-[-10px] ">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-teal-700 mt-2">
                 Scan QR
               </h2>
             </Link>
