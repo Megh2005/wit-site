@@ -9,6 +9,7 @@ import { LoaderCircle } from "lucide-react";
 import { SessionProvider, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import toast from "react-hot-toast";
 
 const ScanPage = () => {
   const router = useRouter();
