@@ -65,6 +65,13 @@ const User = () => {
           </h1>
 
           {/* Tiles */}
+          {users?.data?.length === 0 && (
+            <div className="w-full flex mt-6 justify-center">
+              <p className="text-center text-lg font-bold">
+                You have found out all the users
+              </p>
+            </div>
+          )}
           {
             <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
               {users?.data?.map((user) => (
@@ -83,9 +90,8 @@ const User = () => {
                       <TbQrcode className="text-4xl cursor-pointer text-white" />
                     </div>
                     <div className="text-white gap-1 pt-2 flex font-semibold py-2 items-center justify-center text-center">
-                250 Coins{" "}
-                <FcRating className="w-6 h-6" />
-              </div>
+                      250 Coins <FcRating className="w-6 h-6" />
+                    </div>
                   </motion.div>
                 </Link>
               ))}
