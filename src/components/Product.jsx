@@ -58,6 +58,13 @@ const Product = ({ product }) => {
             {product.price}
           </p>
         </div>
+        <div>
+          <p className="flex items-center gap-1 ">
+            <span className="text-gray-700 text-sm">
+              In stock: {product.quantity}
+            </span>
+          </p>
+        </div>
         {session?.user?.role === "attendee" && !isError && (
           <div className="flex justify-end">
             {isRedeemStatusLoading ? (
