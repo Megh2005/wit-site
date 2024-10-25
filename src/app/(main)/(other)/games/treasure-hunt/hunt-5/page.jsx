@@ -38,7 +38,7 @@ const Hunt5 = () => {
   if (huntLoading) {
     return (
       <div className="flex justify-center mt-6">
-        <LoaderCircle className="animate-spin text-black w-6 h-6 " />
+        <LoaderCircle className="animate-spin text-teal-500 w-6 h-6 " />
       </div>
     );
   }
