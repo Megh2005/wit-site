@@ -1,38 +1,26 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { toast, Toaster } from "react-hot-toast";
+import { ToastContainer, toast, Flip } from "react-toastify";
 
 const tiles = [
   {
     id: 1,
-    heading: "Tile 1",
+    heading: "Lucky Draw Prizes",
     description:
-      "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisit",
+      "Stand a chance to win an iPad in our lucky draw! Other amazing prizes include Speakers and exclusive WITDreamin’ Swags.",
   },
   {
     id: 2,
-    heading: "Tile 2",
+    heading: "Agentforce Workshop Swags",
     description:
-      "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisit",
+      "Complete the Agentforce Workshop and earn exclusive WITDreamin’ swag. Post about the event on LinkedIn and Twitter to win a certification voucher!",
   },
   {
     id: 3,
-    heading: "Tile 3",
+    heading: "How to Participate",
     description:
-      "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisit",
-  },
-  {
-    id: 4,
-    heading: "Tile 4",
-    description:
-      "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisit",
-  },
-  {
-    id: 5,
-    heading: "Tile 5",
-    description:
-      "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisit",
+      "Attend any session at WITDreamin'24 to enter the lucky draw and win exciting prizes. Join the Agentforce Workshop and unlock a chance to win a swag coupon.",
   },
 ];
 
@@ -44,17 +32,22 @@ const Tile = ({ heading, description }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.9 }}
       onClick={() =>
-        toast.success(`Complete the ${heading} & Win Swags`, {
-          icon: "🎁",
-          style: {
-            color: "#4815bf",
-            fontWeight: "bold",
-            fontFamily: "sans-serif",
-          },
+        toast("🎁 Exclusive swags are waiting for you", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+          transition: Flip,
         })
       }
     >
-      <h2 className="text-3xl font-extrabold mb-2 text-emerald-500">{heading}</h2>
+      <h2 className="text-3xl font-extrabold mb-2 text-emerald-500">
+        {heading}
+      </h2>
       <p className="text-xl font-bold text-blue-500">{description}</p>
     </motion.div>
   );
@@ -63,8 +56,9 @@ const Tile = ({ heading, description }) => {
 const App = () => {
   return (
     <div className="min-h-screen gap-10 bg-yellow-100 flex flex-col items-center p-6">
-      <Toaster />
-      <h1 className="text-5xl font-bold mb-8 text-purple-600">Earn Swags</h1>
+      <ToastContainer />
+      <h1 className="text-4xl font-bold mb-4 text-center text-purple-600">Exciting Rewards Await At WITDreamin&apos; 24!
+</h1>
       <div className="w-full gap-10 max-w-4xl">
         {tiles.map((tile) => (
           <Tile
