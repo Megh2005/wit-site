@@ -21,6 +21,7 @@ const ScanPage = () => {
   const [success, setSuccess] = useState(false);
 
   const scannerRef = useRef(null);
+  const timeoutRef = useRef(null);
 
   const transferCoinsFromUserToUser = async () => {
     scannerRef.current.clear(); // Clear the scanner after a successful scan
@@ -74,7 +75,7 @@ const ScanPage = () => {
 
   const onSuccessHandler = useCallback(
     async (result) => {
-      if (!session || isProcessing) return;
+      if (!session || isProcessing.current) return;
 
       setIsProcessing(true);
 
@@ -91,10 +92,20 @@ const ScanPage = () => {
         await transferCoinsFromVolunteerToUser(result);
       }
 
-      setTimeout(() => setIsProcessing(false), 1000); // Reset processing state after 1 second
+      // Start the timeout to reset isProcessing
+      timeoutRef.current = setTimeout(() => setIsProcessing(false), 1000);
     },
-    [session, uid, isProcessing]
+    [session, uid]
   );
+
+  // In your component’s cleanup logic (e.g., useEffect)
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current); // Clear timeout on unmount
+      }
+    };
+  }, []);
 
   const onErrorHandler = () => {
     console.log("Error scanning QR code");
