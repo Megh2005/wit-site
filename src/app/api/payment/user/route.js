@@ -21,8 +21,8 @@ export async function POST(req) {
       throw new Error("Unauthorized");
     }
 
-    if (!sender || !receiver || !amount) {
-      throw new Error("Sender, receiver, and amount are required");
+    if (!sender || !receiver) {
+      throw new Error("Sender, receiver are required");
     }
 
     if (sender === receiver) {
