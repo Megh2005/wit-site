@@ -5,9 +5,6 @@ import { signOut, useSession } from "next-auth/react";
 import { FcRating } from "react-icons/fc";
 import Link from "next/link";
 import { LoaderCircle } from "lucide-react";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "@/services/firebaseinit";
-import toast from "react-hot-toast";
 
 const HomePage = () => {
   const { data: session } = useSession();
@@ -107,26 +104,6 @@ const HomePage = () => {
     queryFn: getCoinBalance,
   });
 
-  const handleSignOut = async () => {
-    if (!session?.user) return;
-    try {
-      const userRef = doc(db, "users", session.user.id);
-      const user = await getDoc(userRef);
-
-      if (user.data().activeSession) {
-        await updateDoc(userRef, {
-          activeSession: false,
-        });
-
-        await signOut({ callbackUrl: "/" });
-      } else {
-        toast.error("Error signing out");
-      }
-    } catch (error) {
-      toast.error("Error signing out");
-    }
-  };
-
   if (!session?.user) {
     return (
       <div>
@@ -168,7 +145,7 @@ const HomePage = () => {
         </div>
         <div className="flex justify-end p-4">
           <button
-            onClick={handleSignOut}
+            onClick={() => signOut({ callbackUrl: "/" })}
             className="bg-gradient-to-r from-gray-900 to-emerald-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-teal-200 dark:focus:ring-teal-800 font-medium rounded-lg px-5 py-2.5 text-center mb-2 shadow-md transition duration-300 ease-in-out text-white text-base sm:text-xl"
           >
             Log Out
