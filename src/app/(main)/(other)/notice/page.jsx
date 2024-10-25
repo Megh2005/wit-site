@@ -3,11 +3,13 @@ import { motion } from "framer-motion";
 
 // Quiz Data Array
 const quizData = [
-  { title: "Quiz 1", startTime: "10:00 AM", endTime: "11:00 AM" },
-  { title: "Quiz 2", startTime: "11:30 AM", endTime: "12:30 PM" },
-  { title: "Quiz 3", startTime: "1:00 PM", endTime: "2:00 PM" },
-  { title: "Quiz 4", startTime: "2:30 PM", endTime: "3:30 PM" },
-  { title: "Quiz 5", startTime: "4:00 PM", endTime: "5:00 PM" },
+  { title: "Quiz 1", startTime: "10:00 AM", endTime: "10:30 AM" },
+  { title: "Quiz 2", startTime: "11:00 AM", endTime: "11:30 PM" },
+  { title: "Quiz 3", startTime: "12:00 PM", endTime: "12:30 PM" },
+  { title: "Quiz 4", startTime: "01:00 PM", endTime: "01:30 PM" },
+  { title: "Quiz 5", startTime: "02:00 PM", endTime: "02:30 PM" },
+  { title: "WIT Dreamin' Quiz", startTime: "03:00 PM", endTime: "03:30 PM" },
+  { title: "Agentforce Quiz", startTime: "04:30 PM", endTime: "05:00 PM" },
 ];
 
 export default function ClassyPage() {
