@@ -21,7 +21,6 @@ const ScanPage = () => {
   const [success, setSuccess] = useState(false);
 
   const scannerRef = useRef(null);
-  const timeoutRef = useRef(null);
 
   const transferCoinsFromUserToUser = async () => {
     scannerRef.current.clear(); // Clear the scanner after a successful scan
@@ -71,41 +70,25 @@ const ScanPage = () => {
     }
   };
 
-  const [isProcessing, setIsProcessing] = useState(false);
-
   const onSuccessHandler = useCallback(
     async (result) => {
-      if (!session || isProcessing) return;
-
-      setIsProcessing(true);
+      if (!session) return;
 
       if (session.user?.role === "attendee") {
         if (result === uid) {
-          await transferCoinsFromUserToUser();
+          transferCoinsFromUserToUser();
         } else {
-          toast.error("Invalid QR code");
-          router.replace("/games/find-user");
+          setError("Invalid QR code");
         }
       } else if (session.user?.role === "sponsor") {
+        // redirect to payment page
         router.replace(`/payment?to=${result}`);
       } else if (session.user?.role === "volunteer") {
-        await transferCoinsFromVolunteerToUser(result);
+        transferCoinsFromVolunteerToUser(result);
       }
-
-      // Start the timeout to reset isProcessing
-      timeoutRef.current = setTimeout(() => setIsProcessing(false), 1000);
     },
     [session, uid]
   );
-
-  // In your component’s cleanup logic (e.g., useEffect)
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current); // Clear timeout on unmount
-      }
-    };
-  }, []);
 
   const onErrorHandler = () => {
     console.log("Error scanning QR code");
