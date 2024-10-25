@@ -75,7 +75,7 @@ const ScanPage = () => {
 
   const onSuccessHandler = useCallback(
     async (result) => {
-      if (!session || isProcessing.current) return;
+      if (!session || isProcessing) return;
 
       setIsProcessing(true);
 
