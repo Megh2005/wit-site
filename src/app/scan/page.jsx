@@ -79,7 +79,7 @@ const ScanPage = () => {
           transferCoinsFromUserToUser();
         } else {
           toast.error("Invalid QR code");
-          router.replace("/home");
+          router.replace("/games/find-user");
         }
       } else if (session.user?.role === "sponsor") {
         // redirect to payment page
