@@ -2,6 +2,3 @@
 
 ![Logo](https://res.cloudinary.com/dmbxx03vp/image/upload/v1729410995/TJP_jlzpst.png)
 <hr/>
-
-![WIT Dreamin](https://res.cloudinary.com/dmbxx03vp/image/upload/v1726842359/logo2_wlg6sy.png)
-
