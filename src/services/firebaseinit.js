@@ -5,15 +5,13 @@ import { getFirestore } from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: "wit-dreamin-kolkata-2024.firebaseapp.com",
-  projectId: "wit-dreamin-kolkata-2024",
-  storageBucket: "wit-dreamin-kolkata-2024.appspot.com",
-  messagingSenderId: "765180029737",
-  appId: "1:765180029737:web:bf150531ddbd403eb12538",
-  measurementId: "G-D80KPNCYFM",
+  apiKey: "AIzaSyDR7qN_FHvAox6_LxLlBVgaavEmWCQv8KQ",
+  authDomain: "wit-dreamin-2024-d9a74.firebaseapp.com",
+  projectId: "wit-dreamin-2024-d9a74",
+  storageBucket: "wit-dreamin-2024-d9a74.appspot.com",
+  messagingSenderId: "75191014393",
+  appId: "1:75191014393:web:8f4671f2c3de8fc3b62328",
 };
 
 // Initialize Firebase
