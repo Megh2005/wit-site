@@ -154,7 +154,7 @@ const LoginForm = () => {
       router.replace("/home");
     }
   };
-R
+
   return (
     <div style={styles.body}>
       <h1 className="text-xl text-red-500 font-extrabold text-center">
