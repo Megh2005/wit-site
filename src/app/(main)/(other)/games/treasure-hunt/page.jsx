@@ -38,7 +38,7 @@ const TreasureHuntPage = () => {
         Treasure Hunt
       </h1>
       {games?.data?.map((game, index) => (
-        <Link key={index} href={game.route}>
+        <Link key={index} href={`/games/treasure-hunt/${game.route}`}>
           <div
             className="bg-white shadow-xl p-8 px-[-4vw] mb-4 rounded-lg flex flex-col items-center cursor-pointer transition-transform transform hover:scale-105"
             style={{

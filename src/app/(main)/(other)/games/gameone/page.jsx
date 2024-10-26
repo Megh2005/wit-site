@@ -1,7 +1,7 @@
 "use client";
 import Submitted from "@/components/Submitted";
 import { getGameStatus, submitAiGameResponse } from "@/queries/game";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { LoaderCircle } from "lucide-react";
 import React, { useState } from "react";
 import { FcRating } from "react-icons/fc";
@@ -14,11 +14,12 @@ export default function SloganSymphony() {
     slogan2: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const queryClient = useQueryClient();
 
   const { isPending, mutate } = useMutation({
     mutationFn: () => submitAiGameResponse(slogans),
     onSuccess: () => {
-      //queryClient.invalidateQueries({ queryKey: ["gameone-status"] });
+      queryClient.invalidateQueries({ queryKey: ["gameone-status"] });
       setSubmitted(true);
     },
     onError: (error) => {
@@ -47,9 +48,16 @@ export default function SloganSymphony() {
     staleTime: Infinity,
   });
 
+  if (submitted) {
+    return (
+      <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-sky-400 to-blue-600 p-4 sm:p-6">
+        <Submitted />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-sky-400 to-blue-600 p-4 sm:p-6">
-      {submitted && <Submitted />}
       <>
         {/* Toast Container */}
         <ToastContainer />
@@ -77,8 +85,7 @@ export default function SloganSymphony() {
                 Compose harmonious slogans with the power of AI
               </p>
               <div className="text-red-500 flex font-semibold py-2 items-center justify-center text-center">
-                500 Coins{" "}
-                <FcRating className="w-7 h-7" />
+                500 Coins <FcRating className="w-7 h-7" />
               </div>
             </div>
 
