@@ -95,9 +95,9 @@ const Hunt3 = () => {
           Background
         </h2>
         <p className="text-blue-700 text-center font-semibold">
-          You're a chef in a bustling kitchen, and it's a particularly busy
-          night. Suddenly, you realize you're missing a key ingredient to
-          complete the dish that everyone is waiting for. You remember there's a
+          You&apos;re a chef in a bustling kitchen, and it's a particularly busy
+          night. Suddenly, you realize you&apos;re missing a key ingredient to
+          complete the dish that everyone is waiting for. You remember there&apos;s a
           mystery ingredient in the pantry that will work perfectly — but only
           if you can figure out what it is in time!
         </p>
@@ -106,7 +106,7 @@ const Hunt3 = () => {
         </h2>
         <p className="text-emerald-600 text-center font-semibold">
           I am white, though I am not milk. I can be fine or coarse, though I am
-          not sand. I am in almost every savory recipe, though I am not oil. I’m
+          not sand. I am in almost every savory recipe, though I am not oil. I&apos;m
           essential in baking, though I am not flour. What am I?
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
