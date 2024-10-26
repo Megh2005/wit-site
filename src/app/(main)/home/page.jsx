@@ -31,7 +31,7 @@ const HomePage = () => {
       route: "/agenda",
       visibleToSponsor: true,
     },
-    {
+    /*{
       id: 3,
       title: "Marketplace",
       description: "Description for Tile 3",
@@ -39,7 +39,7 @@ const HomePage = () => {
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714986/icons/marketplace_17225443_pntvmx.png",
       route: "/marketplace",
       visibleToSponsor: false,
-    },
+    },*/
     // {
     //   id: 4,
     //   title: "Speakers",
@@ -67,15 +67,15 @@ const HomePage = () => {
     //   route: "/notice",
     //   visibleToSponsor: true,
     // },
-     {
-       id: 5,
-       title: "Games",
-       description: "Description for Tile 5",
-       imageUrl:
-         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/GAME_drqi91.png",
-       route: "/games",
-       visibleToSponsor: false,
-     },
+    {
+      id: 5,
+      title: "Games",
+      description: "Description for Tile 5",
+      imageUrl:
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/GAME_drqi91.png",
+      route: "/games",
+      visibleToSponsor: false,
+    },
     // {
     //   id: 6,
     //   title: "Sponsors",
