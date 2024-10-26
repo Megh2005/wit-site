@@ -10,7 +10,7 @@ const GameTwo = () => {
         You have to use your cellular data to participate in demo jam
       </h1> */}
 
-      {/* <div
+      <div
         className="strawpoll-embed w-full h-[60vh] sm:h-[70vh] max-w-xs sm:max-w-lg flex flex-col"
         id="strawpoll_w4nWWRNEYnA"
         style={{
@@ -38,7 +38,7 @@ const GameTwo = () => {
           Loading...
         </iframe>
         <script async src="https://cdn.strawpoll.com/dist/widgets.js"></script>
-      </div> */}
+      </div>
     </div>
   );
 };
