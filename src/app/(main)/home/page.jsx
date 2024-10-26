@@ -5,6 +5,8 @@ import { signOut, useSession } from "next-auth/react";
 import { FcRating } from "react-icons/fc";
 import Link from "next/link";
 import { LoaderCircle } from "lucide-react";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 const HomePage = () => {
   const { data: session } = useSession();
@@ -102,6 +104,10 @@ const HomePage = () => {
       visibleToSponsor: true,
     },
   ];
+
+  useEffect(() => {
+    toast.success("Please login again. Ignore if already done");
+  }, []);
 
   const {
     data: coins,
