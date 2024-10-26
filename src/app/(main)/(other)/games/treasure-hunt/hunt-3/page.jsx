@@ -95,22 +95,24 @@ const Hunt3 = () => {
           Background
         </h2>
         <p className="text-blue-700 text-center font-semibold">
-          A famous chef left behind a secret recipe encoded in a strange set of
-          ingredients. It is said that the recipe would unlock a vault full of
-          culinary secrets, but only if the code is cracked
+          You're a chef in a bustling kitchen, and it's a particularly busy
+          night. Suddenly, you realize you're missing a key ingredient to
+          complete the dish that everyone is waiting for. You remember there's a
+          mystery ingredient in the pantry that will work perfectly — but only
+          if you can figure out what it is in time!
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">
           Question
         </h2>
         <p className="text-emerald-600 text-center font-semibold">
-          Five ingredients, five numbers too. But what they spell is hidden from
-          view. Convert them right, from taste to sight, and soon you will see
-          the code in flight
+          I am white, though I am not milk. I can be fine or coarse, though I am
+          not sand. I am in almost every savory recipe, though I am not oil. I’m
+          essential in baking, though I am not flour. What am I?
         </p>
         <h2 className="text-xl font-bold text-center underline my-2">Clue</h2>
         <p className="text-fuchsia-500 text-center font-semibold">
-          The ingredients are: Salt-19, Pepper-16, Olive Oil-9, Vinegar-22,
-          Garlic-5. Use the numbers to find letters in the alphabet
+          This ingredient is as common on the table as it is in the pantry, and
+          it brings out the flavor in nearly every dish!
         </p>
       </div>
     </div>
