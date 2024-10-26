@@ -65,7 +65,7 @@ const HomePage = () => {
       route: "/notice",
       visibleToSponsor: true,
     },
-    /*{
+    {
       id: 5,
       title: "Games",
       description: "Description for Tile 5",
@@ -73,7 +73,7 @@ const HomePage = () => {
         "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/GAME_drqi91.png",
       route: "/games",
       visibleToSponsor: false,
-    },*/
+    },
     {
       id: 6,
       title: "Sponsors",
