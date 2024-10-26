@@ -95,7 +95,7 @@ const Hunt3 = () => {
           Background
         </h2>
         <p className="text-blue-700 text-center font-semibold">
-          You&apos;re a chef in a bustling kitchen, and it's a particularly busy
+          You&apos;re a chef in a bustling kitchen, and it&apos;s a particularly busy
           night. Suddenly, you realize you&apos;re missing a key ingredient to
           complete the dish that everyone is waiting for. You remember there&apos;s a
           mystery ingredient in the pantry that will work perfectly — but only
