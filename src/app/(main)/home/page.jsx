@@ -56,33 +56,33 @@ const HomePage = () => {
       route: "/swags",
       visibleToSponsor: false,
     },
-    {
-      id: 10,
-      title: "Notice",
-      description: "Description for Tile 6",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729870486/icons/pinned_4631148_lctlqu.png",
-      route: "/notice",
-      visibleToSponsor: true,
-    },
-    {
-      id: 5,
-      title: "Games",
-      description: "Description for Tile 5",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/GAME_drqi91.png",
-      route: "/games",
-      visibleToSponsor: false,
-    },
-    {
-      id: 6,
-      title: "Sponsors",
-      description: "Description for Tile 6",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/SPONS_gktc9a.png",
-      route: "/sponsors",
-      visibleToSponsor: true,
-    },
+    // {
+    //   id: 10,
+    //   title: "Notice",
+    //   description: "Description for Tile 6",
+    //   imageUrl:
+    //     "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729870486/icons/pinned_4631148_lctlqu.png",
+    //   route: "/notice",
+    //   visibleToSponsor: true,
+    // },
+    // {
+    //   id: 5,
+    //   title: "Games",
+    //   description: "Description for Tile 5",
+    //   imageUrl:
+    //     "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/GAME_drqi91.png",
+    //   route: "/games",
+    //   visibleToSponsor: false,
+    // },
+    // {
+    //   id: 6,
+    //   title: "Sponsors",
+    //   description: "Description for Tile 6",
+    //   imageUrl:
+    //     "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/SPONS_gktc9a.png",
+    //   route: "/sponsors",
+    //   visibleToSponsor: true,
+    // },
     {
       id: 7,
       title: "Profile",

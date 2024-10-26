@@ -154,9 +154,12 @@ const LoginForm = () => {
       router.replace("/home");
     }
   };
-
+R
   return (
     <div style={styles.body}>
+      <h1 className="text-xl text-red-500 font-extrabold text-center">
+        PLEASE LOG OUT AND LOG IN AGAIN FOR BETTER MARKETPLACE EXPERIENCE
+      </h1>
       <div style={styles.wrapper}>
         <form
           onSubmit={(e) => {
