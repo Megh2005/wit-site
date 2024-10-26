@@ -12,7 +12,7 @@ const GameTwo = () => {
 
       <div
         className="strawpoll-embed w-full h-[60vh] sm:h-[70vh] max-w-xs sm:max-w-lg flex flex-col"
-        id="strawpoll_7MZ0kovwmgo"
+        id="strawpoll_w4nWWRNEYnA"
         style={{
           width: "100%",
           margin: "0 auto",
@@ -22,8 +22,8 @@ const GameTwo = () => {
       >
         <iframe
           title="StrawPoll Embed"
-          id="strawpoll_iframe_7MZ0kovwmgo"
-          src="https://strawpoll.com/embed/7MZ0kovwmgo"
+          id="strawpoll_iframe_w4nWWRNEYnA"
+          src="https://strawpoll.com/embed/w4nWWRNEYnA"
           className="w-full h-full border-none"
           style={{
             position: "static",
@@ -37,10 +37,7 @@ const GameTwo = () => {
         >
           Loading...
         </iframe>
-        <script
-          async
-          src="https://cdn.strawpoll.com/dist/widgets.js"
-        ></script>
+        <script async src="https://cdn.strawpoll.com/dist/widgets.js"></script>
       </div>
     </div>
   );
