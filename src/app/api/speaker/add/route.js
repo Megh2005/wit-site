@@ -35,7 +35,7 @@ export async function POST(req) {
 
     console.log(category);
 
-    if (category === "Keynote") {
+    if (category === "keynote") {
       const keynoteRef = collection(db, "keynote-speakers");
       await addDoc(keynoteRef, {
         speaker,
@@ -45,7 +45,7 @@ export async function POST(req) {
         linkedinUrl,
         twitterUrl,
       });
-    } else if (category === "Panel") {
+    } else if (category === "panel") {
       const panelRef = collection(db, "panel-speakers");
       await addDoc(panelRef, {
         speaker,
