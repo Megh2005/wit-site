@@ -29,15 +29,15 @@ const HomePage = () => {
       route: "/agenda",
       visibleToSponsor: true,
     },
-    // {
-    //   id: 3,
-    //   title: "Marketplace",
-    //   description: "Description for Tile 3",
-    //   imageUrl:
-    //     "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714986/icons/marketplace_17225443_pntvmx.png",
-    //   route: "/marketplace",
-    //   visibleToSponsor: false,
-    // },
+    {
+      id: 3,
+      title: "Marketplace",
+      description: "Description for Tile 3",
+      imageUrl:
+        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714986/icons/marketplace_17225443_pntvmx.png",
+      route: "/marketplace",
+      visibleToSponsor: false,
+    },
     // {
     //   id: 4,
     //   title: "Speakers",
