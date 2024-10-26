@@ -40,15 +40,15 @@ const HomePage = () => {
       route: "/marketplace",
       visibleToSponsor: false,
     },
-    {
-      id: 4,
-      title: "Speakers",
-      description: "Description for Tile 4",
-      imageUrl:
-        "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/SPEAKER_fcip4x.png",
-      route: "/speakers",
-      visibleToSponsor: true,
-    },
+    // {
+    //   id: 4,
+    //   title: "Speakers",
+    //   description: "Description for Tile 4",
+    //   imageUrl:
+    //     "https://res.cloudinary.com/dmbxx03vp/image/upload/v1729714389/icons/SPEAKER_fcip4x.png",
+    //   route: "/speakers",
+    //   visibleToSponsor: true,
+    // },
     {
       id: 8,
       title: "Swag Corner",
@@ -117,6 +117,7 @@ const HomePage = () => {
   } = useQuery({
     queryKey: ["coin-balance"],
     queryFn: getCoinBalance,
+    staleTime: 10 * 60 * 1000,
   });
 
   if (!session?.user) {
